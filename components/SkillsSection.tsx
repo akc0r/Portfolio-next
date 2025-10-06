@@ -27,8 +27,8 @@ export function SkillsSection({ skillGroups }: SkillsSectionProps) {
                     <span>{skill.level}%</span>
                   </div>
                   <div className="h-2 rounded-full bg-white/10">
-                    <div
-                      className="h-full rounded-full bg-gradient-to-r from-red-500 to-orange-400"
+                            <div
+                              className="h-full rounded-full bg-gradient-to-r from-orange-500 to-amber-400"
                       style={{ width: `${skill.level}%` }}
                     />
                   </div>

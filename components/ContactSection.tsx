@@ -10,7 +10,7 @@ export function ContactSection({ links }: ContactSectionProps) {
   return (
     <section
       id="contact"
-      className="rounded-3xl border border-slate-200/70 bg-white/80 p-10 text-slate-900 shadow-xl shadow-slate-200/40 transition-colors dark:border-white/10 dark:bg-gradient-to-r dark:from-black/40 dark:via-black/30 dark:to-red-500/10 dark:text-white"
+  className="rounded-3xl border border-slate-200/70 bg-white/80 p-10 text-slate-900 shadow-xl shadow-slate-200/40 transition-colors dark:border-white/10 dark:bg-gradient-to-r dark:from-black/40 dark:via-black/30 dark:to-orange-500/10 dark:text-white"
     >
       <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
         <div>

@@ -7,7 +7,7 @@ import { Card, CardContent, CardFooter, CardHeader } from "./ui/card";
 const originStyles: Record<Project["origin"], string> = {
   University: "bg-sky-500/90 text-white",
   Personal: "bg-amber-400/90 text-black",
-  Professional: "bg-red-500/90 text-white",
+  Professional: "bg-orange-500/90 text-white",
 };
 
 interface ProjectCardProps {
@@ -35,7 +35,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             {project.category}
           </span>
         </div>
-        <span className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-red-500 via-white/60 to-transparent opacity-70 transition-opacity duration-300 group-hover:opacity-90" />
+  <span className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-orange-400 via-white/60 to-transparent opacity-70 transition-opacity duration-300 group-hover:opacity-90" />
       </div>
       <CardHeader className="pb-0">
         <h4 className="text-lg font-semibold text-white">{project.title}</h4>

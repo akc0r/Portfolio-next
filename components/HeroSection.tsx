@@ -16,7 +16,7 @@ export function HeroSection({ stats, profileImage }: HeroSectionProps) {
       <div className="relative z-10 flex flex-col gap-12 p-10 lg:flex-row lg:items-end">
         <div className="flex-1 space-y-6">
           <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-4 py-1 text-xs uppercase tracking-[0.3em] text-white/60">
-            <span className="h-2 w-2 rounded-full bg-red-500 shadow-[0_0_12px_rgba(255,82,82,0.9)]" />
+            <span className="h-2 w-2 rounded-full bg-orange-500 shadow-[0_0_12px_rgba(249,115,22,0.9)]" />
             Race mode engaged
           </span>
           <h2 className="text-4xl font-semibold leading-tight text-white sm:text-5xl">
@@ -50,7 +50,7 @@ export function HeroSection({ stats, profileImage }: HeroSectionProps) {
         </div>
         <div className="relative flex justify-center lg:w-72">
           <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-white/10 p-2 backdrop-blur">
-            <div className="absolute inset-x-0 top-6 mx-auto h-64 w-64 rounded-full bg-red-500/30 blur-3xl" />
+            <div className="absolute inset-x-0 top-6 mx-auto h-64 w-64 rounded-full bg-orange-500/30 blur-3xl" />
             <Image
               src={profileImage}
               alt="Portrait of Julien Glin"

@@ -13,7 +13,7 @@ export function ExperienceSection({ experiences, education }: ExperienceSectionP
         <div className="mt-6 space-y-8">
           {experiences.map((experience) => (
             <article key={experience.title} className="relative rounded-3xl border border-white/10 bg-white/5 p-6">
-              <span className="absolute -left-4 top-6 h-8 w-0.5 bg-gradient-to-b from-red-500 to-transparent" />
+              <span className="absolute -left-4 top-6 h-8 w-0.5 bg-gradient-to-b from-orange-500 to-transparent" />
               <p className="text-xs uppercase text-white/50">{experience.period}</p>
               <h4 className="mt-1 text-lg font-semibold text-white">{experience.title}</h4>
               <p className="text-sm font-medium text-white/70">
