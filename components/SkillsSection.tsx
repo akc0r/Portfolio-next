@@ -7,10 +7,12 @@ interface SkillsSectionProps {
 export function SkillsSection({ skillGroups }: SkillsSectionProps) {
   return (
     <section id="skills" className="space-y-10">
-      <div className="flex items-baseline justify-between gap-6">
-        <h3 className="text-2xl font-semibold text-white">Compétences</h3>
-        <p className="text-sm text-white/60">
-          Notations basées sur retours d&apos;équipe, audits et auto-évaluation continue.
+      <div className="space-y-3">
+        <p className="text-xs uppercase tracking-[0.3em] text-white/40">On-track skills</p>
+        <h3 className="text-2xl font-semibold text-white">Engineering craft & technical stack</h3>
+        <p className="max-w-2xl text-sm text-white/70">
+          Day-to-day coding expertise across front-end, back-end, automation, and performance tuning. These
+          ratings capture how I fine-tune the car when hands are on the wheel.
         </p>
       </div>
       <div className="grid gap-8 lg:grid-cols-2">

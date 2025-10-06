@@ -2,13 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 
 import type { Stat } from "@/types/portfolio";
-import type { StaticImageData } from "next/image";
 
 import { Button } from "./ui/button";
 
 interface HeroSectionProps {
   stats: Stat[];
-  profileImage: StaticImageData;
+  profileImage: string;
 }
 
 export function HeroSection({ stats, profileImage }: HeroSectionProps) {
@@ -29,14 +28,11 @@ export function HeroSection({ stats, profileImage }: HeroSectionProps) {
           <div className="flex flex-wrap gap-4 text-sm font-semibold">
             <Button asChild className="transition-transform duration-200 hover:-translate-y-0.5">
               <a href="/api/cv" download="Julien_Glin_CV.pdf">
-                Download my résumé
+                Download my resume
                 <span aria-hidden className="ml-2">
                   ↘
                 </span>
               </a>
-            </Button>
-            <Button asChild variant="outline">
-              <Link href="mailto:julien.glin@icloud.com">Book a call</Link>
             </Button>
           </div>
           <div className="grid gap-4 sm:grid-cols-3">
@@ -58,6 +54,8 @@ export function HeroSection({ stats, profileImage }: HeroSectionProps) {
             <Image
               src={profileImage}
               alt="Portrait of Julien Glin"
+              width={256}
+              height={340}
               className="relative z-10 aspect-[3/4] w-64 rounded-[20px] object-cover"
               priority
             />

@@ -9,7 +9,7 @@ export function ExperienceSection({ experiences, education }: ExperienceSectionP
   return (
     <section id="experience" className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr]">
       <div>
-        <h3 className="text-2xl font-semibold text-white">Expériences</h3>
+        <h3 className="text-2xl font-semibold text-white">Work experiences</h3>
         <div className="mt-6 space-y-8">
           {experiences.map((experience) => (
             <article key={experience.title} className="relative rounded-3xl border border-white/10 bg-white/5 p-6">
@@ -42,14 +42,6 @@ export function ExperienceSection({ experiences, education }: ExperienceSectionP
               <p className="mt-3 text-sm text-white/60">{item.description}</p>
             </article>
           ))}
-        </div>
-        <div className="mt-8 rounded-3xl border border-dashed border-white/20 bg-white/[0.03] p-6 text-sm text-white/70">
-          <p className="font-medium text-white">Certifications et distinctions</p>
-          <ul className="mt-3 space-y-1">
-            <li>— Attestation Scrum & gestion de projet agile</li>
-            <li>— Lauréat interne EPITA pour la meilleure UX du projet PING</li>
-            <li>— Mentor C pour la promotion 2023 de l&apos;IUT de Valence</li>
-          </ul>
         </div>
       </div>
     </section>

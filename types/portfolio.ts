@@ -1,6 +1,5 @@
-import type { StaticImageData } from "next/image";
-
 export type ProjectCategory = "Application" | "Web";
+export type ProjectOrigin = "University" | "Personal" | "Professional";
 
 export interface Stat {
   value: string;
@@ -36,19 +35,14 @@ export interface Education {
 
 export interface Project {
   title: string;
+  origin: ProjectOrigin;
   category: ProjectCategory;
   description: string;
   stack: string[];
-  image: StaticImageData;
-  highlight: string;
+  image: string;
 }
 
-export interface Service {
-  title: string;
-  description: string;
-}
-
-export interface Passion {
+export interface Interest {
   title: string;
   detail: string;
   icon: string;
