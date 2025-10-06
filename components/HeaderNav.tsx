@@ -1,3 +1,5 @@
+import { ThemeToggle } from "./ThemeToggle";
+
 const navLinks = [
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
@@ -16,13 +18,16 @@ export function HeaderNav() {
           Final-year software engineering student at EPITA Lyon · Full-stack developer inspired by motorsport.
         </p>
       </div>
-      <nav className="flex flex-wrap gap-4 text-sm font-medium text-white/60">
-        {navLinks.map((link) => (
-          <a key={link.href} className="transition-colors hover:text-white" href={link.href}>
-            {link.label}
-          </a>
-        ))}
-      </nav>
+      <div className="flex flex-wrap items-center gap-4 text-sm font-medium text-white/60">
+        <nav className="flex flex-wrap gap-4">
+          {navLinks.map((link) => (
+            <a key={link.href} className="transition-colors hover:text-white" href={link.href}>
+              {link.label}
+            </a>
+          ))}
+        </nav>
+        <ThemeToggle />
+      </div>
     </header>
   );
 }

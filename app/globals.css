@@ -1,21 +1,82 @@
 @import "tailwindcss";
 
 :root {
+  color-scheme: light;
+  --background: #f4f6fb;
+  --foreground: #0f172a;
+  --muted: rgba(15, 23, 42, 0.64);
+  --muted-soft: rgba(15, 23, 42, 0.52);
+  --muted-strong: rgba(15, 23, 42, 0.78);
+  --surface: rgba(255, 255, 255, 0.86);
+  --surface-strong: rgba(255, 255, 255, 0.94);
+  --surface-muted: rgba(15, 23, 42, 0.04);
+  --surface-deep: rgba(15, 23, 42, 0.08);
+  --border: rgba(15, 23, 42, 0.12);
+  --border-strong: rgba(15, 23, 42, 0.18);
+  --accent: #e11d48;
+  --accent-soft: rgba(225, 29, 72, 0.12);
+  --accent-electric: rgba(249, 115, 22, 0.16);
+  --body-gradient: radial-gradient(circle at 20% -10%, rgba(225, 29, 72, 0.12), transparent 45%),
+    radial-gradient(circle at 80% 0%, rgba(14, 165, 233, 0.12), transparent 55%),
+    linear-gradient(135deg, #ffffff 0%, #f4f6fb 52%, #e7ecf7 100%);
+  --body-before: linear-gradient(120deg, transparent 25%, rgba(225, 29, 72, 0.25) 25% 35%, transparent 35% 50%,
+        rgba(249, 115, 22, 0.22) 50% 60%, transparent 60%),
+    radial-gradient(circle at 10% 20%, rgba(14, 165, 233, 0.18), transparent 55%),
+    radial-gradient(circle at 85% 20%, rgba(225, 29, 72, 0.18), transparent 45%);
+  --body-after: linear-gradient(90deg, rgba(15, 23, 42, 0.08) 1px, transparent 1px 140px),
+    linear-gradient(0deg, rgba(225, 29, 72, 0.1) 30%, transparent 30%);
+  --body-before-opacity: 0.42;
+  --body-after-opacity: 0.16;
+  --grid-overlay: linear-gradient(45deg, rgba(15, 23, 42, 0.08) 25%, transparent 25%, transparent 50%,
+        rgba(15, 23, 42, 0.08) 50%, rgba(15, 23, 42, 0.08) 75%, transparent 75%, transparent),
+    linear-gradient(135deg, rgba(225, 29, 72, 0.28), rgba(13, 148, 136, 0.18));
+  --grid-glow: radial-gradient(circle at 30% 20%, rgba(225, 29, 72, 0.26), transparent 58%),
+    radial-gradient(circle at 80% 40%, rgba(249, 115, 22, 0.2), transparent 65%);
+  --grid-mask: radial-gradient(circle at center, rgba(0, 0, 0, 0.85), transparent 70%);
+  --grid-overlay-opacity: 0.5;
+  --cursor-color: #0f172a;
+}
+
+.dark {
+  color-scheme: dark;
   --background: #050509;
   --foreground: #f7f7f8;
   --muted: rgba(255, 255, 255, 0.64);
+  --muted-soft: rgba(255, 255, 255, 0.54);
+  --muted-strong: rgba(255, 255, 255, 0.78);
   --surface: rgba(16, 16, 24, 0.75);
+  --surface-strong: rgba(16, 16, 24, 0.9);
+  --surface-muted: rgba(255, 255, 255, 0.06);
+  --surface-deep: rgba(0, 0, 0, 0.5);
   --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.14);
   --accent: #ff2f4a;
   --accent-soft: rgba(255, 47, 74, 0.22);
   --accent-electric: rgba(255, 140, 0, 0.22);
+  --body-gradient: radial-gradient(circle at 20% -10%, rgba(255, 55, 71, 0.18), transparent 40%),
+    radial-gradient(circle at 80% 10%, rgba(255, 180, 60, 0.14), transparent 45%),
+    repeating-linear-gradient(135deg, rgba(10, 10, 18, 0.94) 0 18px, rgba(8, 8, 14, 0.94) 18px 36px),
+    #050509;
+  --body-before: linear-gradient(120deg, transparent 25%, rgba(255, 47, 74, 0.28) 25% 35%, transparent 35% 50%,
+        rgba(255, 47, 74, 0.28) 50% 60%, transparent 60%),
+    radial-gradient(circle at 10% 20%, rgba(255, 180, 60, 0.18), transparent 55%),
+    radial-gradient(circle at 100% 10%, rgba(255, 47, 74, 0.32), transparent 45%);
+  --body-after: linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px 140px),
+    linear-gradient(0deg, rgba(255, 47, 74, 0.12) 30%, transparent 30%);
+  --body-before-opacity: 0.55;
+  --body-after-opacity: 0.2;
+  --grid-overlay: linear-gradient(45deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%, transparent 50%,
+        rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.05) 75%, transparent 75%, transparent),
+    linear-gradient(135deg, rgba(255, 47, 74, 0.35), rgba(3, 3, 6, 0.9));
+  --grid-glow: radial-gradient(circle at 30% 20%, rgba(255, 47, 74, 0.5), transparent 55%),
+    radial-gradient(circle at 80% 40%, rgba(255, 180, 60, 0.45), transparent 65%);
+  --grid-mask: radial-gradient(circle at center, rgba(0, 0, 0, 0.9), transparent 70%);
+  --grid-overlay-opacity: 0.75;
+  --cursor-color: #f7f7f8;
 }
 
 body {
-  background: radial-gradient(circle at 20% -10%, rgba(255, 55, 71, 0.18), transparent 40%),
-    radial-gradient(circle at 80% 10%, rgba(255, 180, 60, 0.14), transparent 45%),
-    repeating-linear-gradient(135deg, rgba(10, 10, 18, 0.94) 0 18px, rgba(8, 8, 14, 0.94) 18px 36px),
-    var(--background);
+  background: var(--body-gradient);
   color: var(--foreground);
   font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   letter-spacing: -0.01em;
@@ -49,22 +110,17 @@ body::after {
 }
 
 body::before {
-  background:
-    linear-gradient(120deg, transparent 25%, rgba(255, 47, 74, 0.28) 25% 35%, transparent 35% 50%, rgba(255, 47, 74, 0.28) 50% 60%, transparent 60%),
-    radial-gradient(circle at 10% 20%, rgba(255, 180, 60, 0.18), transparent 55%),
-    radial-gradient(circle at 100% 10%, rgba(255, 47, 74, 0.32), transparent 45%);
+  background: var(--body-before);
   mix-blend-mode: screen;
-  filter: blur(40px);
-  opacity: 0.55;
+  filter: blur(38px);
+  opacity: var(--body-before-opacity);
   transform: translate3d(0, 0, 0);
   animation: track-glow 16s linear infinite alternate;
 }
 
 body::after {
-  background:
-    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px 140px),
-    linear-gradient(0deg, rgba(255, 47, 74, 0.12) 30%, transparent 30%);
-  opacity: 0.2;
+  background: var(--body-after);
+  opacity: var(--body-after-opacity);
   mix-blend-mode: lighten;
   mask-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.65) 18%, rgba(0, 0, 0, 0.8) 45%, transparent 100%);
   animation: track-lines 24s linear infinite;
@@ -81,12 +137,10 @@ body::after {
   position: absolute;
   inset: 0;
   z-index: -2;
-  background-image:
-    linear-gradient(45deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.05) 75%, transparent 75%, transparent),
-    linear-gradient(135deg, rgba(255, 47, 74, 0.35), rgba(3, 3, 6, 0.9));
+  background-image: var(--grid-overlay);
   background-size: 26px 26px, 100% 100%;
-  opacity: 0.75;
-  mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.9), transparent 70%);
+  opacity: var(--grid-overlay-opacity);
+  mask-image: var(--grid-mask);
   transform: translate3d(0, 0, 0);
   animation: grid-glide 22s linear infinite;
 }
@@ -96,10 +150,73 @@ body::after {
   position: absolute;
   inset: 30% -40% -40% -30%;
   z-index: -1;
-  background: radial-gradient(circle at 30% 20%, rgba(255, 47, 74, 0.5), transparent 55%),
-    radial-gradient(circle at 80% 40%, rgba(255, 180, 60, 0.45), transparent 65%);
+  background: var(--grid-glow);
   filter: blur(40px);
   opacity: 0.82;
+}
+
+html:not(.dark) .text-white {
+  color: rgba(15, 23, 42, 0.94);
+}
+
+html:not(.dark) .text-white\/90 {
+  color: rgba(15, 23, 42, 0.9);
+}
+
+html:not(.dark) .text-white\/80 {
+  color: rgba(15, 23, 42, 0.78);
+}
+
+html:not(.dark) .text-white\/70 {
+  color: rgba(15, 23, 42, 0.7);
+}
+
+html:not(.dark) .text-white\/60 {
+  color: rgba(15, 23, 42, 0.6);
+}
+
+html:not(.dark) .text-white\/50 {
+  color: rgba(15, 23, 42, 0.5);
+}
+
+html:not(.dark) .text-white\/40 {
+  color: rgba(15, 23, 42, 0.4);
+}
+
+html:not(.dark) .text-white\/30 {
+  color: rgba(15, 23, 42, 0.32);
+}
+
+html:not(.dark) .border-white\/10 {
+  border-color: var(--border) !important;
+}
+
+html:not(.dark) .border-white\/20 {
+  border-color: var(--border-strong) !important;
+}
+
+html:not(.dark) .border-white\/30 {
+  border-color: rgba(15, 23, 42, 0.24) !important;
+}
+
+html:not(.dark) .bg-white\/5 {
+  background-color: var(--surface) !important;
+}
+
+html:not(.dark) .bg-white\/10 {
+  background-color: var(--surface-strong) !important;
+}
+
+html:not(.dark) .bg-black\/40 {
+  background-color: rgba(15, 23, 42, 0.08) !important;
+}
+
+html:not(.dark) .bg-black\/30 {
+  background-color: rgba(15, 23, 42, 0.06) !important;
+}
+
+html:not(.dark) .bg-black\/60 {
+  background-color: rgba(15, 23, 42, 0.12) !important;
 }
 
 @keyframes track-glow {
