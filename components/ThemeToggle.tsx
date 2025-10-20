@@ -25,7 +25,7 @@ export function ThemeToggle() {
       size="sm"
       onClick={() => setTheme(isDark ? "light" : "dark")}
       aria-label={label}
-      className="gap-2 text-xs uppercase tracking-[0.3em]"
+      className="gap-2 text-xs uppercase tracking-[0.3em] text-slate-700 dark:text-white/80"
     >
       <span aria-hidden>{mounted ? (isDark ? "☀️" : "🌙") : "◐"}</span>
       <span className="hidden sm:inline">{mounted ? (isDark ? "Light" : "Dark") : "Theme"}</span>

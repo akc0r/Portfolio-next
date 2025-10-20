@@ -1,35 +1,48 @@
 import Link from "next/link";
 
+import { Button } from "@/components/ui/button";
 import type { ContactLink } from "@/types/portfolio";
 
 interface ContactSectionProps {
   links: ContactLink[];
 }
 
+function isExternal(href: string) {
+  return href.startsWith("http");
+}
+
 export function ContactSection({ links }: ContactSectionProps) {
   return (
     <section
       id="contact"
-  className="rounded-3xl border border-slate-200/70 bg-white/80 p-10 text-slate-900 shadow-xl shadow-slate-200/40 transition-colors dark:border-white/10 dark:bg-gradient-to-r dark:from-black/40 dark:via-black/30 dark:to-orange-500/10 dark:text-white"
+      className="rounded-3xl border border-slate-200/70 bg-white/90 p-10 text-slate-900 shadow-xl shadow-orange-200/30 transition-colors dark:border-white/10 dark:bg-[#090a16] dark:text-white"
     >
-      <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-        <div>
-          <p className="text-xs uppercase tracking-[0.3em] text-white/50">Prêt à prendre le départ ?</p>
-          <h3 className="mt-2 text-3xl font-semibold text-white">Bâtissons votre prochain produit.</h3>
-          <p className="mt-2 max-w-xl text-sm text-white/70">
-            Que ce soit pour un stage, un projet freelance ou un side-project ambitieux, je suis partant pour un échange. Parlons besoins, contraintes et objectifs.
+      <div className="space-y-6">
+        <div className="space-y-3">
+          <p className="text-xs uppercase tracking-[0.3em] text-orange-500 dark:text-orange-300">Let’s talk</p>
+          <h3 className="text-3xl font-semibold text-slate-900 dark:text-white">Open to build your next product.</h3>
+          <p className="max-w-2xl text-sm text-slate-600 dark:text-white/70">
+            I’m available for a 6-month end-of-studies internship starting February 2025. Drop me a line and we’ll
+            schedule a short call to scope the mission, the stack, and the performance you expect.
           </p>
         </div>
-        <div className="flex flex-wrap gap-3 text-sm">
+        <div className="flex flex-wrap gap-3">
           {links.map((link) => (
-            <Link
+            <Button
               key={link.label}
-              href={link.href}
-              className="inline-flex items-center gap-2 rounded-full border border-slate-300 px-5 py-3 text-slate-700 transition-colors hover:border-slate-500 hover:text-slate-900 dark:border-white/30 dark:text-white/80 dark:hover:border-white dark:hover:text-white"
+              asChild
+              variant="outline"
+              className="text-sm font-medium text-slate-900 dark:text-white"
             >
-              {link.label}
-              <span aria-hidden>↗</span>
-            </Link>
+              <Link
+                href={link.href}
+                target={isExternal(link.href) ? "_blank" : undefined}
+                rel={isExternal(link.href) ? "noreferrer" : undefined}
+              >
+                {link.label}
+                <span aria-hidden className="ml-2">↗</span>
+              </Link>
+            </Button>
           ))}
         </div>
       </div>

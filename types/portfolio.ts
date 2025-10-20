@@ -1,4 +1,4 @@
-export type ProjectCategory = "Application" | "Web";
+export type ProjectCategory = "Application" | "Web" | "Data Science";
 export type ProjectOrigin = "University" | "Personal" | "Professional";
 
 export interface Stat {

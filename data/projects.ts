@@ -2,6 +2,40 @@ import type { Project } from "@/types/portfolio";
 
 export const projects: Project[] = [
   {
+    title: "ML Ops Pipeline",
+    origin: "University",
+    category: "Data Science",
+    description: "End-to-end ML Ops pipeline for model training, evaluation, and deployment.",
+    stack: ["LakeFS", "Dataiku"],
+    image: "/mlops.png"
+  },
+  {
+    title: "EDA on Formula 1 Dataset",
+    origin: "University",
+    category: "Data Science",
+    description: "Exploratory Data Analysis on a dataset containing Formula 1 race data.",
+    stack: ["Python", "Pandas", "Altair"],
+    image: "/EDA.png"
+  },
+  {
+    title: "TinyX",
+    origin: "University", 
+    category: "Application",
+    description:
+      "Backend of a minimalist X (Twitter-like) social media platform",
+    stack: ["Java", "Redis", "Kubernetes", "Maven", "MongoDB", "Elasticsearch", "Neo4j"],
+    image: "/tinyx.png"
+  },
+  {
+    title: "Testing platform",
+    origin: "Professional",
+    category: "Web",
+    description:
+      "Internal platform for creating and managing technical tests for developers and testers.",
+    stack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
+    image: "/tests.png"
+  },
+  {
     title: "SkiExplorer",
     origin: "Personal",
     category: "Web",

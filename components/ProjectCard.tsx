@@ -31,20 +31,20 @@ export function ProjectCard({ project }: ProjectCardProps) {
           >
             {project.origin}
           </span>
-          <span className="w-fit rounded-full bg-black/60 px-3 py-1 text-[11px] uppercase tracking-widest text-white/70">
+          <span className="w-fit rounded-full bg-slate-900/70 px-3 py-1 text-[11px] uppercase tracking-widest text-white/70 dark:bg-black/60">
             {project.category}
           </span>
         </div>
   <span className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-orange-400 via-white/60 to-transparent opacity-70 transition-opacity duration-300 group-hover:opacity-90" />
       </div>
       <CardHeader className="pb-0">
-        <h4 className="text-lg font-semibold text-white">{project.title}</h4>
-        <p className="text-sm text-white/60">{project.description}</p>
+        <h4 className="text-lg font-semibold text-slate-900 dark:text-white">{project.title}</h4>
+        <p className="text-sm text-slate-600 dark:text-white/70">{project.description}</p>
       </CardHeader>
       <CardContent className="flex flex-1 flex-col gap-4">
-        <div className="flex flex-wrap gap-2 text-xs uppercase tracking-widest text-white/50">
+        <div className="flex flex-wrap gap-2 text-xs uppercase tracking-widest text-slate-500 dark:text-white/50">
           {project.stack.map((tech) => (
-            <span key={tech} className="rounded-full border border-white/10 px-3 py-1">
+            <span key={tech} className="rounded-full border border-slate-200/80 px-3 py-1 dark:border-white/10">
               {tech}
             </span>
           ))}
