@@ -4,7 +4,6 @@ import { useMemo, useState } from "react";
 
 import type { Project, ProjectCategory, ProjectOrigin } from "@/types/portfolio";
 import { ProjectCard } from "./ProjectCard";
-import { Button } from "./ui/button";
 
 interface ProjectsSectionProps {
   projects: Project[];
@@ -36,68 +35,61 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
   const hasActiveFilter = originFilter !== "All" || categoryFilter !== "All";
 
   return (
-    <section id="projects" className="space-y-8">
-      <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-        <div className="space-y-3">
-          <h3 className="text-2xl font-semibold text-white">Projects</h3>
-          <p className="max-w-2xl text-sm text-white/60">
-            Navigate by racing category or by build context to zoom into the right delivery lap.
-          </p>
-        </div>
-        {hasActiveFilter && (
-          <Button variant="ghost" onClick={() => { setOriginFilter("All"); setCategoryFilter("All"); }}>
-            Reset filters
-          </Button>
-        )}
+    <section id="projects" className="space-y-10">
+      <div className="space-y-3">
+        <p className="text-xs uppercase tracking-[0.3em] text-orange-500 dark:text-orange-300">Selected work</p>
+        <h3 className="text-2xl font-semibold text-slate-900 dark:text-white">Projects that ran like clockwork.</h3>
+        <p className="max-w-2xl text-sm text-slate-600 dark:text-white/70">
+          Filter by origin or surface to jump straight into the build lap that matches your needs.
+        </p>
       </div>
-      <div className="flex flex-wrap gap-6 rounded-3xl border border-white/10 bg-white/5 p-6">
+      <div className="flex flex-wrap gap-6 rounded-3xl border border-slate-200/70 bg-white/95 p-6 shadow-sm transition-colors dark:border-white/20 dark:bg-[#101634]">
         <div className="space-y-3">
-          <p className="text-xs uppercase tracking-[0.3em] text-white/40">Context</p>
+          <p className="text-xs uppercase tracking-[0.3em] text-slate-500 dark:text-white/60">Context</p>
           <div className="flex flex-wrap gap-2">
-            <Button
-              variant={originFilter === "All" ? "default" : "outline"}
-              onClick={() => setOriginFilter("All")}
-            >
-              All
-            </Button>
-            {uniqueOrigins.map((origin) => (
-              <Button
+            {["All", ...uniqueOrigins].map((origin) => (
+              <button
                 key={origin}
-                variant={originFilter === origin ? "default" : "outline"}
-                onClick={() => setOriginFilter(origin)}
+                onClick={() => setOriginFilter(origin as typeof originFilter)}
+                className={`rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] transition-colors ${originFilter === origin ? "border-slate-900 bg-slate-900 text-white dark:border-white dark:bg-white dark:text-slate-900" : "border-slate-200 bg-slate-100 text-slate-600 hover:bg-slate-200 dark:border-white/25 dark:bg-transparent dark:text-white/70 dark:hover:border-white/40 dark:hover:text-white"}`}
               >
                 {origin}
-              </Button>
+              </button>
             ))}
           </div>
         </div>
         <div className="space-y-3">
-          <p className="text-xs uppercase tracking-[0.3em] text-white/40">Surface</p>
+          <p className="text-xs uppercase tracking-[0.3em] text-slate-500 dark:text-white/60">Surface</p>
           <div className="flex flex-wrap gap-2">
-            <Button
-              variant={categoryFilter === "All" ? "default" : "outline"}
-              onClick={() => setCategoryFilter("All")}
-            >
-              All
-            </Button>
-            {uniqueCategories.map((category) => (
-              <Button
+            {["All", ...uniqueCategories].map((category) => (
+              <button
                 key={category}
-                variant={categoryFilter === category ? "default" : "outline"}
-                onClick={() => setCategoryFilter(category)}
+                onClick={() => setCategoryFilter(category as typeof categoryFilter)}
+                className={`rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] transition-colors ${categoryFilter === category ? "border-orange-500 bg-orange-500 text-white dark:border-orange-400 dark:bg-orange-500 dark:text-white" : "border-slate-200 bg-slate-100 text-slate-600 hover:bg-slate-200 dark:border-white/25 dark:bg-transparent dark:text-white/70 dark:hover:border-white/40 dark:hover:text-white"}`}
               >
                 {category}
-              </Button>
+              </button>
             ))}
           </div>
         </div>
+        {hasActiveFilter && (
+          <button
+            onClick={() => {
+              setOriginFilter("All");
+              setCategoryFilter("All");
+            }}
+            className="self-end rounded-full border border-slate-200/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-slate-500 transition-colors hover:border-slate-400 hover:text-slate-800 dark:border-white/35 dark:text-white/70 dark:hover:border-white/45 dark:hover:text-white"
+          >
+            Reset filters
+          </button>
+        )}
       </div>
       <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
         {filteredProjects.map((project) => (
           <ProjectCard key={project.title} project={project} />
         ))}
         {filteredProjects.length === 0 && (
-          <p className="col-span-full rounded-3xl border border-white/10 bg-white/5 p-10 text-center text-white/60">
+          <p className="col-span-full rounded-3xl border border-slate-200/70 bg-white/95 p-10 text-center text-slate-500 transition-colors dark:border-white/20 dark:bg-[#101634] dark:text-white/70">
             No project matches this race setup yet.
           </p>
         )}

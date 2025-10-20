@@ -15,7 +15,7 @@ export function ContactSection({ links }: ContactSectionProps) {
   return (
     <section
       id="contact"
-      className="rounded-3xl border border-slate-200/70 bg-white/90 p-10 text-slate-900 shadow-xl shadow-orange-200/30 transition-colors dark:border-white/10 dark:bg-[#090a16] dark:text-white"
+      className="rounded-3xl border border-slate-200/70 bg-white/90 p-10 text-slate-900 shadow-xl shadow-orange-200/30 transition-colors dark:border-white/20 dark:bg-[#080c1e] dark:text-white"
     >
       <div className="space-y-6">
         <div className="space-y-3">

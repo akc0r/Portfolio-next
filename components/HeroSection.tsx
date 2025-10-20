@@ -11,57 +11,66 @@ interface HeroSectionProps {
 }
 
 export function HeroSection({ stats, profileImage }: HeroSectionProps) {
+  const heroImage = profileImage && profileImage.trim().length > 0 ? profileImage : "/profile-placeholder.svg";
+
   return (
-    <section className="motorsport-grid overflow-hidden rounded-3xl border border-white/10 bg-black/40 shadow-2xl">
-      <div className="relative z-10 flex flex-col gap-12 p-10 lg:flex-row lg:items-end">
-        <div className="flex-1 space-y-6">
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-4 py-1 text-xs uppercase tracking-[0.3em] text-white/60">
-            <span className="h-2 w-2 rounded-full bg-orange-500 shadow-[0_0_12px_rgba(249,115,22,0.9)]" />
-            Race mode engaged
+    <section className="rounded-3xl border border-slate-200/80 bg-white/90 p-10 text-slate-900 shadow-xl shadow-orange-200/30 transition-colors dark:border-white/20 dark:bg-[#080c1e] dark:text-white">
+      <div className="grid gap-10 lg:grid-cols-[1.35fr_0.65fr] lg:items-center">
+        <div className="space-y-8">
+          <span className="inline-flex items-center gap-2 rounded-full border border-orange-300/60 bg-orange-50 px-4 py-1 text-xs font-semibold uppercase tracking-[0.35em] text-orange-600 dark:border-orange-500/40 dark:bg-orange-500/10 dark:text-orange-200">
+            Motorsport execution
           </span>
-          <h2 className="text-4xl font-semibold leading-tight text-white sm:text-5xl">
-            Building precise, fast, and user-centred software experiences.
-          </h2>
-          <p className="max-w-2xl text-base text-white/70">
-            I turn business needs into scalable products—from specification writing to monitored delivery. The process borrows from F1 pit crews: rapid diagnostics, aligned teams, continuous improvement.
-          </p>
-          <div className="flex flex-wrap gap-4 text-sm font-semibold">
-            <Button asChild className="transition-transform duration-200 hover:-translate-y-0.5">
-              <a href="/api/cv" download="Julien_Glin_CV.pdf">
-                Download my resume
-                <span aria-hidden className="ml-2">
-                  ↘
-                </span>
-              </a>
+          <div className="space-y-4">
+            <h2 className="text-4xl font-semibold leading-tight tracking-tight text-slate-900 dark:text-white sm:text-5xl">
+              I ship software with the focus of a track engineer.
+            </h2>
+            <p className="max-w-2xl text-base text-slate-600 dark:text-white/70">
+              From telemetry dashboards to customer-facing platforms, I orchestrate sprints like race weekends: clear
+              objectives, measured performance, and seamless pit-stop collaboration across design, product, and engineering.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-3 text-sm font-semibold">
+            <Button asChild>
+              <Link href="#contact">
+                Schedule a call
+                <span aria-hidden className="ml-2">↗</span>
+              </Link>
+            </Button>
+            <Button asChild variant="outline">
+              <Link href="/api/cv" download="Julien_Glin_CV.pdf">
+                Download résumé
+                <span aria-hidden className="ml-2">↘</span>
+              </Link>
             </Button>
           </div>
           <div className="grid gap-4 sm:grid-cols-3">
             {stats.map((stat) => (
               <div
                 key={stat.label}
-                className="rounded-2xl border border-white/10 bg-white/5 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]"
+                className="rounded-2xl border border-slate-200/70 bg-white/95 p-4 shadow-sm transition-colors dark:border-white/20 dark:bg-[#101634]"
               >
-                <p className="text-3xl font-semibold text-white">{stat.value}</p>
-                <p className="mt-1 text-sm uppercase tracking-widest text-white/50">{stat.label}</p>
-                <p className="mt-1 text-xs text-white/60">{stat.detail}</p>
+                <p className="text-2xl font-semibold text-slate-900 dark:text-white">{stat.value}</p>
+                <p className="mt-1 text-xs uppercase tracking-[0.3em] text-slate-500 dark:text-white/60">{stat.label}</p>
+                <p className="mt-1 text-xs text-slate-500 dark:text-white/50">{stat.detail}</p>
               </div>
             ))}
           </div>
         </div>
-        <div className="relative flex justify-center lg:w-72">
-          <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-white/10 p-2 backdrop-blur">
-            <div className="absolute inset-x-0 top-6 mx-auto h-64 w-64 rounded-full bg-orange-500/30 blur-3xl" />
+        <div className="relative mx-auto w-full max-w-sm">
+          <div className="relative overflow-hidden rounded-[32px] border border-slate-200/70 bg-slate-50 p-6 shadow-lg transition-colors dark:border-white/20 dark:bg-[#101634]">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(249,115,22,0.18),_transparent_60%)]" aria-hidden />
+            <div className="absolute left-[-30%] top-12 h-40 w-40 rotate-6 bg-[linear-gradient(135deg,_rgba(15,23,42,0.08)_25%,_transparent_25%,_transparent_50%,_rgba(15,23,42,0.08)_50%,_rgba(15,23,42,0.08)_75%,_transparent_75%)] opacity-40 dark:bg-[linear-gradient(135deg,_rgba(255,255,255,0.08)_25%,_transparent_25%,_transparent_50%,_rgba(255,255,255,0.08)_50%,_rgba(255,255,255,0.08)_75%,_transparent_75%)]" aria-hidden />
             <Image
-              src={profileImage}
+              src={heroImage}
               alt="Portrait of Julien Glin"
-              width={256}
-              height={340}
-              className="relative z-10 aspect-[3/4] w-64 rounded-[20px] object-cover"
+              width={320}
+              height={400}
+              className="relative z-10 w-full rounded-[24px] object-cover"
               priority
             />
-            <div className="mt-4 space-y-1 text-center">
-              <p className="text-sm font-semibold text-white">Julien Glin</p>
-              <p className="text-xs text-white/60">EPITA · Full-stack development</p>
+            <div className="relative z-10 mt-4 space-y-1 rounded-2xl border border-slate-200/70 bg-white/90 p-4 text-center text-sm shadow-sm transition-colors dark:border-white/20 dark:bg-[#101634] dark:text-white/80">
+              <p className="font-semibold text-slate-900 dark:text-white">Julien Glin</p>
+              <p className="text-xs uppercase tracking-[0.25em] text-slate-500 dark:text-white/60">Full-stack · EPITA</p>
             </div>
           </div>
         </div>

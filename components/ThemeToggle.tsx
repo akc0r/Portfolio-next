@@ -13,9 +13,23 @@ export function ThemeToggle() {
     setMounted(true);
   }, []);
 
-  const resolvedTheme = theme === "system" ? systemTheme : theme;
-  const isDark = resolvedTheme === "dark";
+  if (!mounted) {
+    return (
+      <Button
+        type="button"
+        variant="outline"
+        size="sm"
+        aria-label="Toggle theme"
+        className="gap-2 text-xs uppercase tracking-[0.3em] text-slate-700 dark:text-white/80"
+      >
+        <span aria-hidden>◐</span>
+        <span className="hidden sm:inline">Theme</span>
+      </Button>
+    );
+  }
 
+  const resolvedTheme = (theme === "system" ? systemTheme : theme) ?? "light";
+  const isDark = resolvedTheme === "dark";
   const label = isDark ? "Switch to light mode" : "Switch to dark mode";
 
   return (
@@ -27,8 +41,8 @@ export function ThemeToggle() {
       aria-label={label}
       className="gap-2 text-xs uppercase tracking-[0.3em] text-slate-700 dark:text-white/80"
     >
-      <span aria-hidden>{mounted ? (isDark ? "☀️" : "🌙") : "◐"}</span>
-      <span className="hidden sm:inline">{mounted ? (isDark ? "Light" : "Dark") : "Theme"}</span>
+      <span aria-hidden>{isDark ? "☀️" : "🌙"}</span>
+      <span className="hidden sm:inline">{isDark ? "Light" : "Dark"}</span>
     </Button>
   );
 }

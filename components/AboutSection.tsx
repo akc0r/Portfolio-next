@@ -7,35 +7,48 @@ const highlights = [
 
 export function AboutSection() {
   return (
-    <section id="about" className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr]">
-      <div className="space-y-6">
-        <h3 className="text-2xl font-semibold text-white">About</h3>
-        <p className="text-base text-white/70">
-          Passionate about building useful products, I work at the crossroads of software engineering, data, and design. My driving force is understanding the problem precisely to craft solutions that are performant, reliable, and elegant.
+    <section
+      id="about"
+      className="grid gap-10 rounded-3xl border border-slate-200/70 bg-white/90 p-8 shadow-sm transition-colors dark:border-white/20 dark:bg-[#080c1e]"
+    >
+      <div className="space-y-4">
+        <p className="text-xs uppercase tracking-[0.3em] text-orange-500 dark:text-orange-300">About me</p>
+        <h3 className="text-2xl font-semibold text-slate-900 dark:text-white">Turning race telemetry into software instincts.</h3>
+        <p className="text-base text-slate-600 dark:text-white/70">
+          Passionate about building useful products, I move between product strategy, data reliability, and front-end polish.
+          I break problems down like a race engineer: diagnose, iterate, and keep the car—your product—on the optimal racing line.
         </p>
-        <p className="text-base text-white/70">
-          Thanks to my industry experience and school projects, I move easily from front-end to back-end work, write thorough specifications, and lead Agile teams. I pay close attention to user experience, data security, and code maintainability.
+        <p className="text-base text-slate-600 dark:text-white/70">
+          At EPITA and through internships, I’ve led squads of 6–8 teammates, set up automated pipelines, and kept sprints on
+          schedule. I care about telemetry, observability, and giving teams the tools to react faster than the competition.
         </p>
-        <div className="grid gap-4 sm:grid-cols-2">
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-            <p className="text-xs uppercase text-white/60">Currently</p>
-            <p className="mt-1 text-sm font-semibold text-white">Looking for a 6-month end-of-studies internship</p>
-            <p className="mt-2 text-sm text-white/60">Available from February 2025 — Full-stack / Software engineering</p>
-          </div>
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-            <p className="text-xs uppercase text-white/60">Location</p>
-            <p className="mt-1 text-sm font-semibold text-white">Lyon · France</p>
-            <p className="mt-2 text-sm text-white/60">Open to opportunities in France & abroad (remote or hybrid)</p>
-          </div>
-        </div>
       </div>
-      <div className="space-y-4 rounded-3xl border border-white/10 bg-white/5 p-6">
-        <h4 className="text-lg font-semibold text-white">Highlights</h4>
-        <ul className="space-y-3 text-sm text-white/70">
-          {highlights.map((highlight) => (
-            <li key={highlight}>{highlight}</li>
-          ))}
-        </ul>
+      <div className="grid gap-4 lg:grid-cols-2">
+  <div className="rounded-2xl border border-slate-200/70 bg-white/95 p-5 transition-colors dark:border-white/20 dark:bg-[#101634]">
+          <p className="text-xs uppercase tracking-[0.25em] text-slate-500 dark:text-white/60">Currently</p>
+          <p className="mt-2 text-sm font-semibold text-slate-900 dark:text-white">
+            Looking for a 6-month end-of-studies internship
+          </p>
+          <p className="mt-2 text-sm text-slate-600 dark:text-white/70">
+            Available February 2025 · Full-stack / Software engineering
+          </p>
+        </div>
+  <div className="rounded-2xl border border-slate-200/70 bg-white/95 p-5 transition-colors dark:border-white/20 dark:bg-[#101634]">
+          <p className="text-xs uppercase tracking-[0.25em] text-slate-500 dark:text-white/60">Location</p>
+          <p className="mt-2 text-sm font-semibold text-slate-900 dark:text-white">Lyon, France</p>
+          <p className="mt-2 text-sm text-slate-600 dark:text-white/70">Open to remote or hybrid roles across Europe & beyond</p>
+        </div>
+  <div className="rounded-2xl border border-slate-200/70 bg-white/95 p-5 transition-colors dark:border-white/20 dark:bg-[#101634] lg:col-span-2">
+          <p className="text-xs uppercase tracking-[0.25em] text-slate-500 dark:text-white/60">Highlights</p>
+          <ul className="mt-3 space-y-2 text-sm text-slate-600 dark:text-white/70">
+            {highlights.map((highlight) => (
+              <li key={highlight} className="flex items-start gap-2">
+                <span className="mt-1 h-1.5 w-1.5 rounded-full bg-orange-500" aria-hidden />
+                <span>{highlight}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   );
