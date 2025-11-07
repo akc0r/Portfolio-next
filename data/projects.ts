@@ -2,6 +2,14 @@ import type { Project } from "@/types/portfolio";
 
 export const projects: Project[] = [
   {
+    title: "LEACH Protocol Simulation",
+    origin: "University",
+    category: "Data Science",
+    description: "Simulation and analysis of the LEACH, LEACH-C, W-LEACH protocols for wireless sensor networks.",
+    stack: ["Python", "Simpy", "nextjs"],
+    image: "/leach.png"
+  },
+  {
     title: "ML Ops Pipeline",
     origin: "University",
     category: "Data Science",

@@ -22,7 +22,7 @@ export function ContactSection({ links }: ContactSectionProps) {
           <p className="text-xs uppercase tracking-[0.3em] text-orange-500 dark:text-orange-300">Let’s talk</p>
           <h3 className="text-3xl font-semibold text-slate-900 dark:text-white">Open to build your next product.</h3>
           <p className="max-w-2xl text-sm text-slate-600 dark:text-white/70">
-            I’m available for a 6-month end-of-studies internship starting February 2025. Drop me a line and we’ll
+            I’m available for a 6-month end-of-studies internship starting February 2026. Drop me a line and we’ll
             schedule a short call to scope the mission, the stack, and the performance you expect.
           </p>
         </div>

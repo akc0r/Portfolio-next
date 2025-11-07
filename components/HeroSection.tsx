@@ -38,7 +38,7 @@ export function HeroSection({ stats, profileImage }: HeroSectionProps) {
             </Button>
             <Button asChild variant="outline">
               <Link href="/api/cv" download="Julien_Glin_CV.pdf">
-                Download résumé
+                Download resume
                 <span aria-hidden className="ml-2">↘</span>
               </Link>
             </Button>

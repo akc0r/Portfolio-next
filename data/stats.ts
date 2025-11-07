@@ -2,7 +2,7 @@ import type { Stat } from "@/types/portfolio";
 
 export const stats: Stat[] = [
   {
-    value: "08",
+    value: "09",
     label: "Projects delivered",
     detail: "Academic & professional briefs",
   },
@@ -14,6 +14,6 @@ export const stats: Stat[] = [
   {
     value: "01",
     label: "Year of experience",
-    detail: "Long-term internships at Elipce & Windev",
+    detail: "Long-term internships",
   },
 ];

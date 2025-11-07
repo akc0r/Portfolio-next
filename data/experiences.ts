@@ -13,7 +13,7 @@ export const experiences: Experience[] = [
     ],
   },
   {
-    title: "Software developer intern",
+    title: "Developer intern",
     company: "ING'EUROP",
     period: "March 2023 — June 2023",
     location: "Valence, France",

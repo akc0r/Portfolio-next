@@ -11,7 +11,7 @@ export const skillGroups: SkillGroup[] = [
       },
       {
         name: "C & C++",
-        level: 90,
+        level: 65,
         comment: "Systems projects (42sh, Tiger compiler)",
       },
       {
@@ -21,7 +21,7 @@ export const skillGroups: SkillGroup[] = [
       },
       {
         name: "SQL",
-        level: 78,
+        level: 95,
         comment: "Data modelling and performance",
       },
     ],
@@ -31,22 +31,22 @@ export const skillGroups: SkillGroup[] = [
     items: [
       {
         name: "React & Next.js",
-        level: 82,
+        level: 80,
         comment: "UX-heavy front-end applications",
       },
       {
         name: "Symfony & PHP",
-        level: 80,
+        level: 60,
         comment: "Business refactors and integrations",
       },
       {
         name: "Node.js",
-        level: 78,
+        level: 80,
         comment: "Real-time APIs and services",
       },
       {
         name: "Docker",
-        level: 72,
+        level: 75,
         comment: "Reproducible environments",
       },
     ],

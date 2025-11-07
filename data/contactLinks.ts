@@ -10,7 +10,7 @@ export const contactLinks: ContactLink[] = [
     href: "mailto:julien.glin@icloud.com",
   },
   {
-    label: "Download résumé",
+    label: "Download resume",
     href: "/api/cv",
   },
 ];
