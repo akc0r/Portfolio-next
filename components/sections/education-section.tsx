@@ -37,7 +37,7 @@ export function EducationSection() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-orange-500 to-red-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-orange-500 to-sky-500 bg-clip-text text-transparent">
               {t("title")}
             </span>
           </h2>

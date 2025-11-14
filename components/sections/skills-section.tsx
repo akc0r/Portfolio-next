@@ -7,147 +7,71 @@ import { skills } from "@/data/skills";
 import { motion } from "framer-motion";
 import { Typescript } from "@/components/ui/svgs/typescript";
 import { ReactLight } from "@/components/ui/svgs/reactLight";
-import { ReactDark } from "@/components/ui/svgs/reactDark";
+import { Python } from "@/components/ui/svgs/python";
+import { C } from "@/components/ui/svgs/c";
+import { Java } from "@/components/ui/svgs/java";
+import { Csharp } from "@/components/ui/svgs/csharp";
+import { Nodejs } from "@/components/ui/svgs/nodejs";
+import { Tailwindcss } from "@/components/ui/svgs/tailwindcss";
+import { Django } from "@/components/ui/svgs/django";
+import { Dotnet } from "@/components/ui/svgs/dotnet";
+import { Docker } from "@/components/ui/svgs/docker";
+import { Kubernetes } from "@/components/ui/svgs/kubernetes";
+import { Git } from "@/components/ui/svgs/git";
+import { Postgresql } from "@/components/ui/svgs/postgresql";
+import { MongodbIconLight } from "@/components/ui/svgs/mongodbIconLight";
+import { Redis } from "@/components/ui/svgs/redis";
+import { NextjsLogoLight } from "@/components/ui/svgs/nextjsLogoLight";
+import { MysqlIconLight } from "@/components/ui/svgs/mysqlIconLight";
+import { Linux } from "@/components/ui/svgs/linux";
+import { Vercel } from "@/components/ui/svgs/vercel";
+import { Nginx } from "@/components/ui/svgs/nginx";
 
 // Helper function to get skill icon SVG from svgl.app
 function getSkillIcon(skillId: string): React.ReactNode {
   switch (skillId) {
     case "typescript":
-      return (
-        <img
-          src="https://api.svgl.app/library/typescript.svg"
-          alt="TypeScript"
-          className="w-12 h-12"
-        />
-      );
+      return <Typescript />;
     case "python":
-      return (
-        <img
-          src="https://api.svgl.app/library/python.svg"
-          alt="Python"
-          className="w-12 h-12"
-        />
-      );
+      return <Python />;
     case "c":
-      return (
-        <img
-          src="https://api.svgl.app/library/c.svg"
-          alt="C"
-          className="w-12 h-12"
-        />
-      );
+      return <C />;
     case "java":
-      return (
-        <img
-          src="https://api.svgl.app/library/java.svg"
-          alt="Java"
-          className="w-12 h-12"
-        />
-      );
+      return <Java />;
     case "csharp":
-      return (
-        <img
-          src="https://api.svgl.app/library/csharp.svg"
-          alt="C#"
-          className="w-12 h-12"
-        />
-      );
-    case "sql":
-      return (
-        <img
-          src="https://api.svgl.app/library/postgresql.svg"
-          alt="SQL"
-          className="w-12 h-12"
-        />
-      );
+      return <Csharp />;
     case "react":
-      return (
-        <img
-          src="https://api.svgl.app/library/react.svg"
-          alt="React"
-          className="w-12 h-12"
-        />
-      );
+      return <ReactLight />;
     case "nodejs":
-      return (
-        <img
-          src="https://api.svgl.app/library/nodejs.svg"
-          alt="Node.js"
-          className="w-12 h-12"
-        />
-      );
+      return <Nodejs />;
     case "tailwindcss":
-      return (
-        <img
-          src="https://api.svgl.app/library/tailwindcss.svg"
-          alt="Tailwind CSS"
-          className="w-12 h-12"
-        />
-      );
+      return <Tailwindcss />;
     case "django":
-      return (
-        <img
-          src="https://api.svgl.app/library/django.svg"
-          alt="Django"
-          className="w-12 h-12"
-        />
-      );
+      return <Django />;
     case "dotnet":
-      return (
-        <img
-          src="https://api.svgl.app/library/dotnet.svg"
-          alt=".NET"
-          className="w-12 h-12"
-        />
-      );
+      return <Dotnet />;
     case "docker":
-      return (
-        <img
-          src="https://api.svgl.app/library/docker.svg"
-          alt="Docker"
-          className="w-12 h-12"
-        />
-      );
+      return <Docker />;
     case "kubernetes":
-      return (
-        <img
-          src="https://api.svgl.app/library/kubernetes.svg"
-          alt="Kubernetes"
-          className="w-12 h-12"
-        />
-      );
+      return <Kubernetes />;
     case "git":
-      return (
-        <img
-          src="https://api.svgl.app/library/git.svg"
-          alt="Git"
-          className="w-12 h-12"
-        />
-      );
+      return <Git />;
     case "postgresql":
-      return (
-        <img
-          src="https://api.svgl.app/library/postgresql.svg"
-          alt="PostgreSQL"
-          className="w-12 h-12"
-        />
-      );
+      return <Postgresql />;
     case "mongodb":
-      return (
-        <img
-          src="https://api.svgl.app/library/mongodb.svg"
-          alt="MongoDB"
-          className="w-12 h-12"
-        />
-      );
+      return <MongodbIconLight />;
     case "redis":
-      return (
-        <img
-          src="https://api.svgl.app/library/redis.svg"
-          alt="Redis"
-          className="w-12 h-12"
-        />
-      );
+      return <Redis />;
+    case "nextjs":
+      return <NextjsLogoLight />;
+    case "mysql":
+      return <MysqlIconLight />;
+    case "vercel":
+      return <Vercel />;
+    case "linux":
+      return <Linux />;
+    case "nginx":
+      return <Nginx />;
     default:
       return null;
   }
@@ -175,7 +99,7 @@ export function SkillsSection() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-orange-500 to-red-600 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-orange-500 to-sky-500 bg-clip-text text-transparent animate-gradient">
               {t("title")}
             </span>
           </h2>
@@ -204,13 +128,20 @@ export function SkillsSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
+                  whileHover={{ y: -5 }}
                 >
-                  <Card className="p-6 hover:shadow-lg hover:border-orange-500/50 transition-all group">
-                    <div className="flex flex-col items-center text-center space-y-3">
-                      <div className="transform group-hover:scale-110 transition-transform">
+                  <Card className="relative p-6 hover:shadow-2xl hover:shadow-orange-500/20 hover:border-orange-500/50 transition-all duration-300 group overflow-hidden">
+                    {/* Animated gradient border effect */}
+                    <div className="absolute inset-0 rounded-lg bg-linear-to-r from-orange-500/0 via-orange-500/10 to-sky-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                    {/* Shimmer effect */}
+                    <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-linear-to-r from-transparent via-white/10 to-transparent" />
+
+                    <div className="relative flex flex-col items-center text-center space-y-3">
+                      <div className="transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                         {getSkillIcon(skill.id)}
                       </div>
-                      <h4 className="text-sm font-semibold text-slate-900 dark:text-slate-100">
+                      <h4 className="text-sm font-semibold text-slate-900 dark:text-slate-100 group-hover:text-orange-500 transition-colors duration-300">
                         {skill.name}
                       </h4>
                     </div>
@@ -239,9 +170,16 @@ export function SkillsSection() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
+                  whileHover={{ scale: 1.05 }}
                 >
-                  <Card className="p-6 text-center hover:shadow-lg hover:border-orange-500/50 transition-all">
-                    <h4 className="text-base font-semibold text-slate-900 dark:text-slate-100">
+                  <Card className="relative p-6 text-center hover:shadow-xl hover:shadow-orange-500/20 hover:border-orange-500/50 transition-all duration-300 group overflow-hidden">
+                    {/* Glow effect on hover */}
+                    <div className="absolute inset-0 rounded-lg bg-linear-to-br from-orange-500/0 via-orange-500/5 to-sky-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                    {/* Particle effect */}
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-32 bg-orange-500/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                    <h4 className="relative text-base font-semibold text-slate-900 dark:text-slate-100 group-hover:text-orange-500 transition-colors duration-300">
                       {skill.name}
                     </h4>
                   </Card>

@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-50 via-white to-slate-50 dark:from-racing-asphalt dark:via-slate-900 dark:to-slate-950">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-400/10 via-white to-slate-50 dark:from-racing-asphalt dark:via-slate-900 dark:to-slate-950">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto text-center space-y-8">
           {/* 404 Animation */}
@@ -17,7 +17,7 @@ export default function NotFound() {
             transition={{ duration: 0.5 }}
             className="relative"
           >
-            <h1 className="text-9xl font-bold bg-gradient-to-r from-orange-500 via-orange-600 to-red-600 bg-clip-text text-transparent">
+            <h1 className="text-9xl font-bold bg-gradient-to-r from-orange-500 via-orange-600 to-sky-500 bg-clip-text text-transparent">
               404
             </h1>
             {/* Racing speed lines effect */}

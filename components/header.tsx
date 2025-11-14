@@ -30,7 +30,7 @@ export function Header() {
           {/* Logo */}
           <Link
             href="#home"
-            className="text-xl font-bold bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent hover:from-orange-600 hover:to-orange-700 transition-all"
+            className="text-xl font-bold bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent hover:from-orange-600 hover:to-orange-600 transition-all"
           >
             JG
           </Link>

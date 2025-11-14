@@ -21,7 +21,7 @@ export function AboutSection() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-orange-500 to-red-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-orange-500 to-sky-500 bg-clip-text text-transparent">
               {t("title")}
             </span>
           </h2>
@@ -38,8 +38,8 @@ export function AboutSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <Card className="p-8 bg-gradient-to-br from-orange-50 to-slate-50 dark:from-slate-800 dark:to-slate-900 border-2 border-orange-500/20">
-              <div className="aspect-square rounded-lg bg-gradient-to-br from-orange-400 to-red-600 flex items-center justify-center">
+            <Card className="p-8 bg-gradient-to-br from-orange-400/10 to-slate-50 dark:from-slate-800 dark:to-slate-900 border-2 border-orange-500/20">
+              <div className="aspect-square rounded-lg bg-gradient-to-br from-orange-400 to-sky-500 flex items-center justify-center">
                 <span className="text-8xl font-bold text-white">JG</span>
               </div>
             </Card>

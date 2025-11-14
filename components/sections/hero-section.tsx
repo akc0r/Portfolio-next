@@ -15,7 +15,7 @@ export function HeroSection() {
       className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16"
     >
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-orange-50 via-white to-slate-50 dark:from-racing-asphalt dark:via-slate-900 dark:to-slate-950" />
+      <div className="absolute inset-0 bg-gradient-to-br from-orange-400/10 via-white to-slate-50 dark:from-racing-asphalt dark:via-slate-900 dark:to-slate-950" />
       <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-5" />
 
       {/* Speed Lines Effect */}
@@ -56,7 +56,7 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <span className="bg-gradient-to-r from-orange-500 via-orange-600 to-red-600 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-orange-500 via-orange-600 to-sky-500 bg-clip-text text-transparent">
               {t("title")}
             </span>
           </motion.h1>

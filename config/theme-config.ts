@@ -27,19 +27,19 @@ export interface ThemeColors {
 
 export const themeColors: ThemeColors = {
   primary: {
-    light: "#fb923c", // orange-400
-    DEFAULT: "#f97316", // orange-500
-    dark: "#ea580c", // orange-600
+    light: "#fb923c", // orange-400 - Orange racing clair
+    DEFAULT: "#f97316", // orange-500 - Orange racing
+    dark: "#ea580c", // orange-600 - Orange racing foncé
   },
   secondary: {
-    light: "#475569", // slate-600
-    DEFAULT: "#334155", // slate-700
-    dark: "#1e293b", // slate-800
+    light: "#38bdf8", // sky-400 - Bleu racing clair
+    DEFAULT: "#0ea5e9", // sky-500 - Bleu racing
+    dark: "#0284c7", // sky-600 - Bleu racing foncé
   },
   tertiary: {
-    light: "#94a3b8", // slate-400
-    DEFAULT: "#64748b", // slate-500
-    dark: "#475569", // slate-600
+    light: "#334155", // slate-700 - Noir carbone clair
+    DEFAULT: "#1e293b", // slate-800 - Noir carbone
+    dark: "#0f172a", // slate-900 - Noir carbone foncé
   },
   racing: {
     orange: "#f97316", // orange-500

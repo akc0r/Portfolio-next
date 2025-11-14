@@ -8,10 +8,23 @@ Portfolio personnel moderne avec Next.js, mettant en avant une identité visuell
 - **Langage**: TypeScript
 - **Styling**: Tailwind CSS 4
 - **Composants UI**: shadcn/ui
+- **3D**: Three.js + React Three Fiber
 - **Animations**: Framer Motion
 - **Icônes**: Tabler Icons
 - **Internationalisation**: next-intl (FR/EN)
 - **Gestion de thème**: next-themes (clair/sombre)
+
+## 🎨 Configuration du Thème
+
+Toutes les couleurs sont centralisées dans `/config/theme.ts` pour une maintenance facile.
+
+**Couleurs principales:**
+
+- Primary (Orange): `#f97316`
+- Secondary (Rouge): `#dc2626`
+- Tertiary (Slate): `#64748b`
+
+Pour modifier le thème, consultez `/config/README.md`
 
 ## 📦 Installation
 

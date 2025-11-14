@@ -106,8 +106,7 @@ export function Footer() {
             © {new Date().getFullYear()} Julien Glin. {t("rights")}.
           </p>
           <p className="text-sm text-slate-600 dark:text-slate-400 flex items-center">
-            {t("builtWith")}{" "}
-            <IconHeart className="h-4 w-4 mx-1 text-orange-500" />
+            {t("builtWith")} <IconHeart className="h-4 w-4 mx-1 text-orange-500" />
           </p>
         </div>
       </div>

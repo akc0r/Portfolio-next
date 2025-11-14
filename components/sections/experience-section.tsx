@@ -31,7 +31,7 @@ export function ExperienceSection() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-orange-500 to-red-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-orange-500 to-sky-500 bg-clip-text text-transparent">
               {t("title")}
             </span>
           </h2>
@@ -43,7 +43,7 @@ export function ExperienceSection() {
         <div className="max-w-4xl mx-auto">
           <div className="relative">
             {/* Timeline Line */}
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-orange-500 to-red-600 hidden md:block" />
+            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-orange-500 to-sky-500 hidden md:block" />
 
             <div className="space-y-8">
               {experiences.map((experience, index) => (
@@ -106,9 +106,7 @@ export function ExperienceSection() {
                                   key={i}
                                   className="text-sm text-slate-600 dark:text-slate-400 flex items-start gap-2"
                                 >
-                                  <span className="text-orange-500 mt-1">
-                                    ▸
-                                  </span>
+                                  <span className="text-orange-500 mt-1">▸</span>
                                   <span>{achievement}</span>
                                 </li>
                               ))}

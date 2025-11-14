@@ -12,6 +12,25 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // Primary racing theme colors (orange)
+        primary: {
+          DEFAULT: "#f97316", // orange-500 - Orange racing
+          light: "#fb923c", // orange-400 - Orange racing clair
+          dark: "#ea580c", // orange-600 - Orange racing foncé
+        },
+        // Secondary theme colors (blue)
+        secondary: {
+          DEFAULT: "#0ea5e9", // sky-500 - Bleu racing
+          light: "#38bdf8", // sky-400 - Bleu racing clair
+          dark: "#0284c7", // sky-600 - Bleu racing foncé
+        },
+        // Tertiary colors (dark slate)
+        tertiary: {
+          DEFAULT: "#1e293b", // slate-800 - Noir carbone
+          light: "#334155", // slate-700 - Noir carbone clair
+          dark: "#0f172a", // slate-900 - Noir carbone foncé
+        },
+        // Racing theme aliases
         racing: {
           orange: "#f97316",
           "orange-light": "#fb923c",
