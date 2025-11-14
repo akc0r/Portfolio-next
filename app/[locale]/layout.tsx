@@ -47,7 +47,7 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white dark:bg-racing-asphalt text-slate-900 dark:text-slate-100`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white dark:bg-racing-asphalt text-tertiary-dark dark:text-slate-100`}
       >
         <ThemeProvider>
           <NextIntlClientProvider messages={messages}>

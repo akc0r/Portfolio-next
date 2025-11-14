@@ -24,13 +24,13 @@ export function Header() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-racing-asphalt/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-racing-asphalt/80 backdrop-blur-md border-b border-slate-200 dark:border-tertiary">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link
             href="#home"
-            className="text-xl font-bold bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent hover:from-orange-600 hover:to-orange-600 transition-all"
+            className="text-xl font-bold bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent hover:from-primary-dark hover:to-primary-dark transition-all"
           >
             JG
           </Link>
@@ -41,7 +41,7 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-orange-500 dark:hover:text-orange-500 transition-colors"
+                className="text-sm font-medium text-tertiary-light dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"
               >
                 {item.label}
               </Link>
@@ -82,7 +82,7 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 onClick={() => setIsMenuOpen(false)}
-                className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-orange-500 dark:hover:text-orange-500 transition-colors"
+                className="text-sm font-medium text-tertiary-light dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"
               >
                 {item.label}
               </Link>

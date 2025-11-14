@@ -88,7 +88,7 @@ export function SkillsSection() {
   return (
     <section
       id="skills"
-      className="py-20 sm:py-32 bg-slate-50 dark:bg-slate-900/50"
+      className="py-20 sm:py-32 bg-slate-50 dark:bg-tertiary-dark/50"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -99,7 +99,7 @@ export function SkillsSection() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            <span className="bg-linear-to-r from-orange-500 to-sky-500 bg-clip-text text-transparent animate-gradient">
+            <span className="bg-linear-to-r from-primary to-secondary bg-clip-text text-transparent animate-gradient">
               {t("title")}
             </span>
           </h2>
@@ -116,7 +116,7 @@ export function SkillsSection() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="text-2xl font-bold mb-6 text-slate-900 dark:text-slate-100"
+              className="text-2xl font-bold mb-6 text-tertiary-dark dark:text-slate-100"
             >
               {t("technical")}
             </motion.h3>
@@ -130,9 +130,9 @@ export function SkillsSection() {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   whileHover={{ y: -5 }}
                 >
-                  <Card className="relative p-6 hover:shadow-2xl hover:shadow-orange-500/20 hover:border-orange-500/50 transition-all duration-300 group overflow-hidden">
+                  <Card className="relative p-6 hover:shadow-2xl hover:shadow-primary/20 hover:border-primary/50 transition-all duration-300 group overflow-hidden">
                     {/* Animated gradient border effect */}
-                    <div className="absolute inset-0 rounded-lg bg-linear-to-r from-orange-500/0 via-orange-500/10 to-sky-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 rounded-lg bg-linear-to-r from-primary/0 via-primary/10 to-secondary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                     {/* Shimmer effect */}
                     <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-linear-to-r from-transparent via-white/10 to-transparent" />
@@ -141,7 +141,7 @@ export function SkillsSection() {
                       <div className="transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                         {getSkillIcon(skill.id)}
                       </div>
-                      <h4 className="text-sm font-semibold text-slate-900 dark:text-slate-100 group-hover:text-orange-500 transition-colors duration-300">
+                      <h4 className="text-sm font-semibold text-tertiary-dark dark:text-slate-100 group-hover:text-primary transition-colors duration-300">
                         {skill.name}
                       </h4>
                     </div>
@@ -158,7 +158,7 @@ export function SkillsSection() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="text-2xl font-bold mb-6 text-slate-900 dark:text-slate-100"
+              className="text-2xl font-bold mb-6 text-tertiary-dark dark:text-slate-100"
             >
               {t("soft")}
             </motion.h3>
@@ -172,14 +172,14 @@ export function SkillsSection() {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   whileHover={{ scale: 1.05 }}
                 >
-                  <Card className="relative p-6 text-center hover:shadow-xl hover:shadow-orange-500/20 hover:border-orange-500/50 transition-all duration-300 group overflow-hidden">
+                  <Card className="relative p-6 text-center hover:shadow-xl hover:shadow-primary/20 hover:border-primary/50 transition-all duration-300 group overflow-hidden">
                     {/* Glow effect on hover */}
-                    <div className="absolute inset-0 rounded-lg bg-linear-to-br from-orange-500/0 via-orange-500/5 to-sky-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 rounded-lg bg-linear-to-br from-primary/0 via-primary/5 to-secondary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                     {/* Particle effect */}
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-32 bg-orange-500/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-32 bg-primary/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                    <h4 className="relative text-base font-semibold text-slate-900 dark:text-slate-100 group-hover:text-orange-500 transition-colors duration-300">
+                    <h4 className="relative text-base font-semibold text-tertiary-dark dark:text-slate-100 group-hover:text-primary transition-colors duration-300">
                       {skill.name}
                     </h4>
                   </Card>

@@ -10,11 +10,11 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-orange-500 text-white shadow-[0_12px_30px_rgba(249,115,22,0.45)] hover:bg-orange-400 dark:shadow-[0_12px_30px_rgba(249,115,22,0.45)]",
+          "bg-primary text-white shadow-[0_12px_30px_rgba(249,115,22,0.45)] hover:bg-primary-light dark:shadow-[0_12px_30px_rgba(249,115,22,0.45)]",
         outline:
-          "border border-slate-300 text-slate-700 hover:border-slate-500 hover:text-slate-900 dark:border-white/20 dark:text-white/80 dark:hover:border-white/40 dark:hover:text-white",
+          "border border-slate-300 text-tertiary-light hover:border-slate-500 hover:text-tertiary-dark dark:border-white/20 dark:text-white/80 dark:hover:border-white/40 dark:hover:text-white",
         ghost:
-          "text-slate-700 hover:text-slate-900 dark:text-white/80 dark:hover:text-white",
+          "text-tertiary-light hover:text-tertiary-dark dark:text-white/80 dark:hover:text-white",
       },
       size: {
         default: "px-5 py-3",

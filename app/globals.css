@@ -43,7 +43,9 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.69 0.19 41); /* #f97316 - orange-500 */
   --primary-foreground: 0 0% 100%;
+  --secondary: oklch(0.62 0.24 27); /* #dc2626 - red-600 */
   --secondary-foreground: 0 0% 100%;
   --muted-foreground: oklch(0.556 0 0);
   --accent-foreground: oklch(0.205 0 0);
@@ -105,7 +107,9 @@
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.69 0.19 41); /* #f97316 - orange-500 */
   --primary-foreground: 0 0% 100%;
+  --secondary: oklch(0.62 0.24 27); /* #dc2626 - red-600 */
   --secondary-foreground: 0 0% 100%;
   --muted-foreground: oklch(0.708 0 0);
   --accent-foreground: oklch(0.985 0 0);
@@ -260,6 +264,15 @@ html.dark .bg-orange-50 {
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Custom theme colors - Racing theme */
+  --color-primary-light: oklch(0.75 0.17 43); /* #fb923c - orange-400 */
+  --color-primary-dark: oklch(0.62 0.21 39); /* #ea580c - orange-600 */
+  --color-secondary-light: oklch(0.68 0.22 27); /* #ef4444 - red-500 */
+  --color-secondary-dark: oklch(0.56 0.24 27); /* #b91c1c - red-700 */
+  --color-tertiary: oklch(0.23 0.02 246); /* #1e293b - slate-800 */
+  --color-tertiary-light: oklch(0.28 0.02 246); /* #334155 - slate-700 */
+  --color-tertiary-dark: oklch(0.18 0.02 246); /* #0f172a - slate-900 */
 }
 
 @layer base {
@@ -269,4 +282,15 @@ html.dark .bg-orange-50 {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@theme {
+  --color-primary-light: oklch(0.75 0.17 43); /* #fb923c - orange-400 */
+  --color-primary-dark: oklch(0.62 0.21 39); /* #ea580c - orange-600 */
+  --color-secondary-light: oklch(0.68 0.22 27); /* #ef4444 - red-500 */
+  --color-secondary-dark: oklch(0.56 0.24 27); /* #b91c1c - red-700 */
+  --color-tertiary-light: oklch(0.28 0.02 246); /* #334155 - slate-700 */
+  --color-tertiary-dark: oklch(0.18 0.02 246); /* #0f172a - slate-900 */
+  --primary: oklch(0.69 0.19 41); /* #f97316 - orange-500 */
+  --secondary: oklch(0.62 0.24 27); /* #dc2626 - red-600 */
 }

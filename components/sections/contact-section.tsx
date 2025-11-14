@@ -54,7 +54,7 @@ export function ContactSection() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-orange-500 to-sky-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
               {t("title")}
             </span>
           </h2>
@@ -79,7 +79,7 @@ export function ContactSection() {
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
+                    className="block text-sm font-medium text-tertiary-light dark:text-slate-300 mb-2"
                   >
                     {t("form.name")}
                   </label>
@@ -88,14 +88,14 @@ export function ContactSection() {
                     id="name"
                     name="name"
                     required
-                    className="w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-tertiary text-tertiary-dark dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-primary"
                   />
                 </div>
 
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
+                    className="block text-sm font-medium text-tertiary-light dark:text-slate-300 mb-2"
                   >
                     {t("form.email")}
                   </label>
@@ -104,14 +104,14 @@ export function ContactSection() {
                     id="email"
                     name="email"
                     required
-                    className="w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-tertiary text-tertiary-dark dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-primary"
                   />
                 </div>
 
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
+                    className="block text-sm font-medium text-tertiary-light dark:text-slate-300 mb-2"
                   >
                     {t("form.message")}
                   </label>
@@ -120,7 +120,7 @@ export function ContactSection() {
                     name="message"
                     rows={6}
                     required
-                    className="w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-primary resize-none"
+                    className="w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-tertiary text-tertiary-dark dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-primary resize-none"
                   />
                 </div>
 
@@ -164,13 +164,13 @@ export function ContactSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
               >
-                <Card className="p-6 hover:shadow-lg hover:border-orange-500/50 transition-all group cursor-pointer">
+                <Card className="p-6 hover:shadow-lg hover:border-primary/50 transition-all group cursor-pointer">
                   <div className="flex items-center gap-4">
-                    <div className="flex-shrink-0 text-orange-500 group-hover:scale-110 transition-transform">
+                    <div className="flex-shrink-0 text-primary group-hover:scale-110 transition-transform">
                       {getContactIcon(contact.type)}
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">
+                      <h3 className="text-lg font-semibold text-tertiary-dark dark:text-slate-100">
                         {contact.label}
                       </h3>
                       <p className="text-sm text-slate-600 dark:text-slate-400">

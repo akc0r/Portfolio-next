@@ -18,7 +18,7 @@ export function ScrollIndicator() {
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
       >
-        <IconChevronDown className="w-8 h-8 text-orange-500" />
+        <IconChevronDown className="w-8 h-8 text-primary" />
       </motion.div>
       <p className="text-sm text-muted-foreground hidden sm:block">
         Scroll pour découvrir

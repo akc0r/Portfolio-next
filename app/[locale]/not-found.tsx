@@ -32,7 +32,7 @@ export default function NotFound() {
   const t = messages[locale as keyof typeof messages] || messages.fr;
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-400/10 via-white to-slate-50 dark:from-racing-asphalt dark:via-slate-900 dark:to-slate-950">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-light/10 via-white to-slate-50 dark:from-racing-asphalt dark:via-tertiary-dark dark:to-slate-950">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto text-center space-y-8">
           {/* 404 Animation */}
@@ -42,7 +42,7 @@ export default function NotFound() {
             transition={{ duration: 0.5 }}
             className="relative"
           >
-            <h1 className="text-9xl font-bold bg-gradient-to-r from-orange-500 via-orange-600 to-sky-500 bg-clip-text text-transparent">
+            <h1 className="text-9xl font-bold bg-gradient-to-r from-primary via-primary-dark to-secondary bg-clip-text text-transparent">
               404
             </h1>
             {/* Racing speed lines effect */}
@@ -50,7 +50,7 @@ export default function NotFound() {
               {[...Array(3)].map((_, i) => (
                 <motion.div
                   key={i}
-                  className="absolute h-[2px] w-full bg-gradient-to-r from-transparent via-orange-500 to-transparent"
+                  className="absolute h-[2px] w-full bg-gradient-to-r from-transparent via-primary to-transparent"
                   style={{ top: `${30 + i * 20}%` }}
                   animate={{
                     x: ["-100%", "100%"],
@@ -72,7 +72,7 @@ export default function NotFound() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="space-y-4"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-slate-100">
+            <h2 className="text-3xl sm:text-4xl font-bold text-tertiary-dark dark:text-slate-100">
               {t.title}
             </h2>
             <p className="text-lg text-slate-600 dark:text-slate-400">
@@ -110,9 +110,9 @@ export default function NotFound() {
             className="pt-8"
           >
             <div className="inline-flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
-              <div className="w-8 h-[2px] bg-orange-500" />
+              <div className="w-8 h-[2px] bg-primary" />
               <span>{t.error}</span>
-              <div className="w-8 h-[2px] bg-orange-500" />
+              <div className="w-8 h-[2px] bg-primary" />
             </div>
           </motion.div>
         </div>

@@ -18,11 +18,11 @@ const config: Config = {
           light: "#fb923c", // orange-400 - Orange racing clair
           dark: "#ea580c", // orange-600 - Orange racing foncé
         },
-        // Secondary theme colors (blue)
+        // Secondary theme colors (red)
         secondary: {
-          DEFAULT: "#0ea5e9", // sky-500 - Bleu racing
-          light: "#38bdf8", // sky-400 - Bleu racing clair
-          dark: "#0284c7", // sky-600 - Bleu racing foncé
+          DEFAULT: "#dc2626", // red-600 - Rouge racing
+          light: "#ef4444", // red-500 - Rouge racing clair
+          dark: "#b91c1c", // red-700 - Rouge racing foncé
         },
         // Tertiary colors (dark slate)
         tertiary: {

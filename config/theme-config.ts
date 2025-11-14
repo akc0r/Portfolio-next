@@ -32,9 +32,9 @@ export const themeColors: ThemeColors = {
     dark: "#ea580c", // orange-600 - Orange racing foncé
   },
   secondary: {
-    light: "#38bdf8", // sky-400 - Bleu racing clair
-    DEFAULT: "#0ea5e9", // sky-500 - Bleu racing
-    dark: "#0284c7", // sky-600 - Bleu racing foncé
+    light: "#ef4444", // red-500 - Rouge racing clair
+    DEFAULT: "#dc2626", // red-600 - Rouge racing
+    dark: "#b91c1c", // red-700 - Rouge racing foncé
   },
   tertiary: {
     light: "#334155", // slate-700 - Noir carbone clair

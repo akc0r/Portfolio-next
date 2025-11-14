@@ -31,7 +31,7 @@ export function ExperienceSection() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-orange-500 to-sky-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
               {t("title")}
             </span>
           </h2>
@@ -43,7 +43,7 @@ export function ExperienceSection() {
         <div className="max-w-4xl mx-auto">
           <div className="relative">
             {/* Timeline Line */}
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-orange-500 to-sky-500 hidden md:block" />
+            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary to-secondary hidden md:block" />
 
             <div className="space-y-8">
               {experiences.map((experience, index) => (
@@ -56,20 +56,20 @@ export function ExperienceSection() {
                   className="relative"
                 >
                   {/* Timeline Dot */}
-                  <div className="absolute left-6 top-8 w-5 h-5 bg-orange-500 rounded-full border-4 border-white dark:border-racing-asphalt hidden md:block" />
+                  <div className="absolute left-6 top-8 w-5 h-5 bg-primary rounded-full border-4 border-white dark:border-racing-asphalt hidden md:block" />
 
-                  <Card className="md:ml-20 p-6 hover:shadow-lg hover:border-orange-500/50 transition-all">
+                  <Card className="md:ml-20 p-6 hover:shadow-lg hover:border-primary/50 transition-all">
                     <div className="flex items-start gap-4">
                       <div className="flex-shrink-0">
-                        <IconBriefcase className="h-8 w-8 text-orange-500" />
+                        <IconBriefcase className="h-8 w-8 text-primary" />
                       </div>
 
                       <div className="flex-1 space-y-4">
                         <div>
-                          <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100">
+                          <h3 className="text-xl font-bold text-tertiary-dark dark:text-slate-100">
                             {tExp(`${experience.id}.title`)}
                           </h3>
-                          <p className="text-lg font-semibold text-orange-500">
+                          <p className="text-lg font-semibold text-primary">
                             {tExp(`${experience.id}.company`)}
                           </p>
                         </div>
@@ -86,14 +86,14 @@ export function ExperienceSection() {
                           </div>
                         </div>
 
-                        <p className="text-slate-700 dark:text-slate-300">
+                        <p className="text-tertiary-light dark:text-slate-300">
                           {tExp(`${experience.id}.description`)}
                         </p>
 
                         {(tExp.raw(`${experience.id}.achievements`) as string[])
                           .length > 0 && (
                           <div>
-                            <h4 className="text-sm font-semibold text-slate-900 dark:text-slate-100 mb-2">
+                            <h4 className="text-sm font-semibold text-tertiary-dark dark:text-slate-100 mb-2">
                               {t("achievements")}
                             </h4>
                             <ul className="space-y-2">
@@ -106,7 +106,7 @@ export function ExperienceSection() {
                                   key={i}
                                   className="text-sm text-slate-600 dark:text-slate-400 flex items-start gap-2"
                                 >
-                                  <span className="text-orange-500 mt-1">▸</span>
+                                  <span className="text-primary mt-1">▸</span>
                                   <span>{achievement}</span>
                                 </li>
                               ))}

@@ -35,7 +35,7 @@ export function InterestsSection() {
   return (
     <section
       id="interests"
-      className="py-20 sm:py-32 bg-slate-50 dark:bg-slate-900/50"
+      className="py-20 sm:py-32 bg-slate-50 dark:bg-tertiary-dark/50"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -46,7 +46,7 @@ export function InterestsSection() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-orange-500 to-sky-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
               {t("title")}
             </span>
           </h2>
@@ -64,11 +64,11 @@ export function InterestsSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Card className="p-6 text-center hover:shadow-lg hover:border-orange-500/50 transition-all group">
-                <div className="mb-4 text-orange-500 flex justify-center transform group-hover:scale-110 transition-transform">
+              <Card className="p-6 text-center hover:shadow-lg hover:border-primary/50 transition-all group">
+                <div className="mb-4 text-primary flex justify-center transform group-hover:scale-110 transition-transform">
                   {getIcon(interest.icon)}
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100 mb-2">
+                <h3 className="text-xl font-bold text-tertiary-dark dark:text-slate-100 mb-2">
                   {tInt(`${interest.id}.title`)}
                 </h3>
                 <p className="text-sm text-slate-600 dark:text-slate-400">

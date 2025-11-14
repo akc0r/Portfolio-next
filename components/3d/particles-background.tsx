@@ -33,7 +33,7 @@ export function ParticlesBackground() {
       {particles.map((particle) => (
         <motion.div
           key={particle.id}
-          className="absolute rounded-full bg-orange-500/20"
+          className="absolute rounded-full bg-primary/20"
           style={{
             left: `${particle.x}%`,
             top: `${particle.y}%`,

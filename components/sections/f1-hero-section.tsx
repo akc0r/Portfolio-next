@@ -28,7 +28,7 @@ export function F1HeroSection() {
     <section
       ref={sectionRef}
       id="home"
-      className="relative h-screen w-full overflow-hidden bg-linear-to-br from-background via-background to-orange-500/5"
+      className="relative h-screen w-full overflow-hidden bg-linear-to-br from-background via-background to-primary/5"
     >
       {/* Animated background elements */}
       <ParticlesBackground />
@@ -68,7 +68,7 @@ export function F1HeroSection() {
                     transition={{ duration: 0.8, delay: 0.6 }}
                     className="text-5xl sm:text-6xl lg:text-7xl font-bold"
                   >
-                    <span className="bg-linear-to-r from-orange-500 via-orange-600 to-sky-500 bg-clip-text text-transparent">
+                    <span className="bg-linear-to-r from-primary via-primary-dark to-secondary bg-clip-text text-transparent">
                       {t("title")}
                     </span>
                   </motion.h1>

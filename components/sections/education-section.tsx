@@ -26,7 +26,7 @@ export function EducationSection() {
   return (
     <section
       id="education"
-      className="py-20 sm:py-32 bg-slate-50 dark:bg-slate-900/50"
+      className="py-20 sm:py-32 bg-slate-50 dark:bg-tertiary-dark/50"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -37,7 +37,7 @@ export function EducationSection() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-orange-500 to-sky-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
               {t("title")}
             </span>
           </h2>
@@ -55,18 +55,18 @@ export function EducationSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
             >
-              <Card className="p-6 hover:shadow-lg hover:border-orange-500/50 transition-all">
+              <Card className="p-6 hover:shadow-lg hover:border-primary/50 transition-all">
                 <div className="flex items-start gap-4">
                   <div className="flex-shrink-0">
-                    <IconSchool className="h-8 w-8 text-orange-500" />
+                    <IconSchool className="h-8 w-8 text-primary" />
                   </div>
 
                   <div className="flex-1 space-y-4">
                     <div>
-                      <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100">
+                      <h3 className="text-xl font-bold text-tertiary-dark dark:text-slate-100">
                         {tEdu(`${edu.id}.degree`)}
                       </h3>
-                      <p className="text-lg font-semibold text-orange-500">
+                      <p className="text-lg font-semibold text-primary">
                         {tEdu(`${edu.id}.institution`)}
                       </p>
                     </div>
@@ -83,7 +83,7 @@ export function EducationSection() {
                     </div>
 
                     {tEdu(`${edu.id}.description`) && (
-                      <p className="text-slate-700 dark:text-slate-300">
+                      <p className="text-tertiary-light dark:text-slate-300">
                         {tEdu(`${edu.id}.description`)}
                       </p>
                     )}
@@ -91,8 +91,8 @@ export function EducationSection() {
                     {(tEdu.raw(`${edu.id}.achievements`) as string[]).length >
                       0 && (
                       <div>
-                        <h4 className="text-sm font-semibold text-slate-900 dark:text-slate-100 mb-2 flex items-center gap-2">
-                          <IconTrophy className="h-4 w-4 text-orange-500" />
+                        <h4 className="text-sm font-semibold text-tertiary-dark dark:text-slate-100 mb-2 flex items-center gap-2">
+                          <IconTrophy className="h-4 w-4 text-primary" />
                           {t("achievements")}
                         </h4>
                         <ul className="space-y-2">
@@ -102,7 +102,7 @@ export function EducationSection() {
                                 key={i}
                                 className="text-sm text-slate-600 dark:text-slate-400 flex items-start gap-2"
                               >
-                                <span className="text-orange-500 mt-1">▸</span>
+                                <span className="text-primary mt-1">▸</span>
                                 <span>{achievement}</span>
                               </li>
                             )
