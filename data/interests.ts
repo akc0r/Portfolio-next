@@ -1,22 +1,41 @@
-import type { Interest } from "@/types/portfolio";
+export interface Interest {
+  id: string;
+  title: string;
+  description: string;
+  icon?: string;
+  image?: string;
+}
 
 export const interests: Interest[] = [
   {
-    title: "Motorsport strategy & data",
-    detail:
-      "Telemetry analysis, stint monitoring, and pit-stop planning fuel my obsession with data discipline.",
-    icon: "🏁",
+    id: "formula1",
+    title: "Formula 1",
+    description:
+      "Passionate about Formula 1 racing. Follow the championship, analyze race strategies and technical innovations in motorsport.",
+    icon: "racing",
+    image: "/interests/formula1.jpg",
   },
   {
-    title: "Sports & endurance",
-    detail:
-      "Volleyball, running, and skiing to keep teamwork sharp and manage effort under pressure.",
-    icon: "⛰️",
+    id: "sportcars",
+    title: "Sport Cars",
+    description:
+      "Enthusiast of sport cars and automotive engineering. Interest in performance vehicles and racing technology.",
+    icon: "racing",
+    image: "/interests/sportcars.jpg",
   },
   {
-    title: "Sci-Fi & design",
-    detail:
-      "Creative scouting of sci-fi worlds and futuristic interfaces to inspire UX work.",
-    icon: "🛸",
+    id: "volleyball",
+    title: "Volleyball",
+    description: "Active volleyball player. Team sport enthusiast.",
+    icon: "barbell",
+    image: "/interests/volleyball.jpg",
+  },
+  {
+    id: "skiing",
+    title: "Skiing",
+    description:
+      "Skiing enthusiast. Enjoy winter sports and mountain activities.",
+    icon: "barbell",
+    image: "/interests/skiing.jpg",
   },
 ];

@@ -1,36 +1,188 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio Julien Glin - Thème Course Automobile 🏎️
 
-## Getting Started
+Portfolio personnel moderne avec Next.js, mettant en avant une identité visuelle inspirée de la course automobile avec l'orange comme couleur principale.
 
-First, run the development server:
+## 🚀 Stack Technique
+
+- **Framework**: Next.js 15 (App Router)
+- **Langage**: TypeScript
+- **Styling**: Tailwind CSS 4
+- **Composants UI**: shadcn/ui
+- **Animations**: Framer Motion
+- **Icônes**: Tabler Icons
+- **Internationalisation**: next-intl (FR/EN)
+- **Gestion de thème**: next-themes (clair/sombre)
+
+## 📦 Installation
 
 ```bash
+# Installer les dépendances
+npm install
+
+# Lancer le serveur de développement
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build pour la production
+npm run build
+
+# Lancer en production
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ouvrir [http://localhost:3000](http://localhost:3000) dans votre navigateur.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📁 Structure du Projet
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+/app
+  /[locale]          # Routes internationalisées
+    layout.tsx       # Layout avec ThemeProvider et i18n
+    page.tsx         # Page d'accueil
+  layout.tsx         # Root layout
+  page.tsx           # Redirection vers /fr
+  globals.css        # Styles globaux
+/components
+  /ui                # Composants shadcn/ui
+    button.tsx
+    card.tsx
+    badge.tsx
+    separator.tsx
+  /sections          # Sections du portfolio
+    hero-section.tsx
+    about-section.tsx
+    skills-section.tsx
+    experience-section.tsx
+    education-section.tsx
+    projects-section.tsx
+    interests-section.tsx
+    contact-section.tsx
+  header.tsx         # Header avec navigation
+  footer.tsx         # Footer
+  theme-toggle.tsx   # Switch thème clair/sombre
+  language-switcher.tsx # Switch FR/EN
+/data                # Données TypeScript
+  skills.ts
+  experiences.ts
+  education.ts
+  projects.ts
+  interests.ts
+  contacts.ts
+/config              # Configuration
+  theme-config.ts    # Couleurs du thème racing
+  site-config.ts     # Config du site
+/messages            # Traductions i18n
+  fr.json
+  en.json
+/lib
+  utils.ts           # Utilitaires
+i18n.ts              # Configuration i18n
+middleware.ts        # Middleware next-intl
+```
 
-## Learn More
+## 🎨 Personnalisation
 
-To learn more about Next.js, take a look at the following resources:
+### Couleurs du Thème
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Modifier `/config/theme-config.ts` pour personnaliser les couleurs :
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```typescript
+export const themeColors = {
+  primary: { ... },
+  racing: {
+    orange: '#f97316',
+    orangeLight: '#fb923c',
+    orangeDark: '#ea580c',
+    // ...
+  }
+};
+```
 
-## Deploy on Vercel
+Les couleurs sont automatiquement synchronisées avec Tailwind CSS.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Données du Portfolio
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Toutes les données sont dans `/data` :
+
+- **skills.ts** : Compétences techniques et soft skills
+- **experiences.ts** : Expériences professionnelles
+- **education.ts** : Parcours académique
+- **projects.ts** : Projets réalisés
+- **interests.ts** : Centres d'intérêt
+- **contacts.ts** : Moyens de contact
+
+### Traductions
+
+Modifier `/messages/fr.json` et `/messages/en.json` pour les traductions.
+
+## 🎯 Fonctionnalités
+
+✅ **Multi-langue** (FR/EN) avec next-intl  
+✅ **Mode clair/sombre** avec persistance  
+✅ **Animations au scroll** avec Framer Motion  
+✅ **Design responsive** mobile-first  
+✅ **Thème racing** avec effets de vitesse  
+✅ **Composants réutilisables** avec shadcn/ui  
+✅ **TypeScript** pour la sécurité du code  
+✅ **Performance optimisée** avec Next.js 15
+
+## 🎨 Sections
+
+1. **Hero** : Introduction impactante avec effets de vitesse
+2. **À propos** : Présentation personnelle avec statistiques
+3. **Compétences** : Visualisation des compétences techniques et soft
+4. **Expérience** : Timeline interactive des expériences
+5. **Formation** : Parcours académique
+6. **Projets** : Galerie de projets avec filtres
+7. **Centres d'intérêt** : Passions et hobbies
+8. **Contact** : Formulaire de contact et liens sociaux
+
+## 🚀 Déploiement
+
+### Vercel (Recommandé)
+
+```bash
+# Installer Vercel CLI
+npm i -g vercel
+
+# Déployer
+vercel
+```
+
+### Autre plateforme
+
+```bash
+# Build
+npm run build
+
+# Les fichiers sont dans .next/
+```
+
+## 📝 Modification du Contenu
+
+1. **Informations personnelles** : Modifier `/config/site-config.ts`
+2. **Compétences** : Ajouter/modifier dans `/data/skills.ts`
+3. **Expériences** : Ajouter/modifier dans `/data/experiences.ts`
+4. **Projets** : Ajouter/modifier dans `/data/projects.ts`
+5. **Traductions** : Modifier `/messages/fr.json` et `/messages/en.json`
+
+## 🎨 Thème Racing
+
+Le thème s'inspire de la course automobile avec :
+
+- **Couleurs** : Orange vif, noir, gris asphalte
+- **Animations** : Lignes de vitesse, effets de glow
+- **Typographie** : Moderne et dynamique
+- **Formes** : Angles vifs suggérant le mouvement
+
+## 📚 Ressources
+
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Tailwind CSS](https://tailwindcss.com/docs)
+- [shadcn/ui](https://ui.shadcn.com)
+- [Framer Motion](https://www.framer.com/motion/)
+- [next-intl](https://next-intl-docs.vercel.app/)
+- [Tabler Icons](https://tabler.io/icons)
+
+## 📄 Licence
+
+© 2025 Julien Glin. Tous droits réservés.

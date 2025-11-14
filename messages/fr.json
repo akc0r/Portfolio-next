@@ -1,0 +1,173 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "skills": "Compétences",
+    "experience": "Expérience",
+    "education": "Formation",
+    "projects": "Projets",
+    "interests": "Centres d'intérêt",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Bonjour, je suis",
+    "title": "Julien Glin",
+    "subtitle": "Étudiant Ingénieur Informatique @EPITA",
+    "description": "Étudiant ingénieur informatique français motivé @EPITA, spécialisé dans les technologies pour l'industrie du futur et passionné par la course automobile et les voitures. En recherche d'un stage de 26 semaines à partir de mars 2026.",
+    "cta": {
+      "viewWork": "Voir mes projets",
+      "contact": "Me contacter"
+    }
+  },
+  "about": {
+    "title": "À propos de moi",
+    "subtitle": "Passionné par la technologie et la course automobile",
+    "bio": "Étudiant ingénieur informatique français motivé @EPITA, spécialisé dans les technologies pour l'industrie du futur (IoT, Big Data, IA, Cybersécurité) et passionné par la course automobile et les voitures. Expérimenté en développement front-end et back-end ainsi qu'en gestion de projets techniques. Actuellement en recherche d'un stage de 26 semaines en tant qu'Ingénieur Logiciel ou CDD à partir de mars 2026.",
+    "resume": "Télécharger mon CV"
+  },
+  "skills": {
+    "title": "Compétences",
+    "subtitle": "Technologies et soft skills",
+    "technical": "Compétences Techniques",
+    "soft": "Soft Skills"
+  },
+  "experience": {
+    "title": "Expérience",
+    "subtitle": "Mon parcours professionnel",
+    "present": "Présent",
+    "achievements": "Réalisations"
+  },
+  "education": {
+    "title": "Formation",
+    "subtitle": "Mon parcours académique",
+    "achievements": "Distinctions"
+  },
+  "projects": {
+    "title": "Projets",
+    "subtitle": "Mes réalisations",
+    "featured": "Projets Principaux",
+    "all": "Tous les Projets",
+    "viewDemo": "Voir la démo",
+    "viewCode": "Voir le code",
+    "technologies": "Technologies utilisées"
+  },
+  "interests": {
+    "title": "Centres d'intérêt",
+    "subtitle": "Ce qui me passionne"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Travaillons ensemble",
+    "description": "N'hésitez pas à me contacter pour discuter de projets, opportunités ou simplement pour échanger.",
+    "form": {
+      "name": "Nom",
+      "email": "Email",
+      "message": "Message",
+      "send": "Envoyer",
+      "sending": "Envoi en cours...",
+      "success": "Message envoyé avec succès !",
+      "error": "Une erreur est survenue. Veuillez réessayer."
+    }
+  },
+  "experienceData": {
+    "elipce": {
+      "title": "Développeur Stagiaire",
+      "company": "Elipce",
+      "location": "Valence, France",
+      "description": "Développement full-stack sur plateforme de gestion de tests et système de cartes blacklistées",
+      "achievements": [
+        "Développement d'une plateforme web de gestion de tests avec fonctionnalités collaboratives similaires à Google Docs (React.js, Node.js, PostgreSQL)",
+        "Création d'un système de visualisation de cartes blacklistées pour le métro de Thessalonique en C# avec ASP.NET",
+        "Rédaction de documents techniques précis incluant spécifications fonctionnelles et rapports de tests",
+        "Revue de projet complète aboutissant à une refonte des spécifications et optimisation du schéma de base de données",
+        "Collaboration efficace entre développeurs et déploiement de 100% des fonctionnalités prévues"
+      ]
+    },
+    "ingurop": {
+      "title": "Développeur Stagiaire",
+      "company": "Ing'Europ",
+      "location": "Valence, France",
+      "description": "Développement et optimisation d'outils de gestion d'entreprise",
+      "achievements": [
+        "Conception et développement d'un système de sauvegarde automatisé en PHP pour prévenir la perte de données",
+        "Création d'un outil de gestion des horaires en Windev améliorant l'organisation interne",
+        "Gestion autonome de projet de A à Z avec responsabilité complète du cycle de développement"
+      ]
+    }
+  },
+  "educationData": {
+    "epita": {
+      "degree": "Master of Science (MSc), Diplôme d'ingénieur",
+      "institution": "EPITA",
+      "location": "Paris, France",
+      "description": "Ingénierie Informatique - Diplôme d'ingénieur français (équivalent MSc)",
+      "achievements": [
+        "Spécialisation \"Industries du Futur\" (IoT, Big Data, IA, Ingénierie Industrielle, Cybersécurité, Réseaux industriels)",
+        "Recherche d'un stage rémunéré de 26 semaines à partir de mars 2026"
+      ]
+    },
+    "iut-valence": {
+      "degree": "BUT (Bachelor universitaire de technologie)",
+      "institution": "IUT de Valence",
+      "location": "Valence, France",
+      "description": "Bachelor en Informatique",
+      "achievements": []
+    },
+    "bac": {
+      "degree": "Baccalauréat Général - Science",
+      "institution": "Institut Notre Dame",
+      "location": "Valence, France",
+      "description": "Baccalauréat scientifique",
+      "achievements": []
+    }
+  },
+  "projectsData": {
+    "tinyx": {
+      "title": "Tiny X",
+      "description": "Architecture microservices en Java avec Docker et Kubernetes",
+      "longDescription": "Implémentation complète d'une architecture microservices avec communication inter-services, orchestration de conteneurs et déploiement automatisé."
+    },
+    "f1eda": {
+      "title": "F1 EDA",
+      "description": "Analyse de données de Formule 1 avec Python et visualisation Altair",
+      "longDescription": "Projet d'analyse exploratoire de données sur les performances en Formule 1, avec visualisations interactives et insights statistiques."
+    },
+    "ping": {
+      "title": "PING",
+      "description": "IDE pédagogique développé en React pour l'apprentissage de la programmation",
+      "longDescription": "Environnement de développement intégré éducatif avec interface intuitive, support de plusieurs langages et fonctionnalités d'apprentissage interactif."
+    },
+    "shell42": {
+      "title": "42sh",
+      "description": "Shell POSIX complet implémenté en C",
+      "longDescription": "Implémentation d'un interpréteur de commandes conforme POSIX avec gestion des pipes, redirections, variables d'environnement et scripts."
+    }
+  },
+  "interestsData": {
+    "formula1": {
+      "title": "Formule 1",
+      "description": "Passionné de Formule 1. Suivi du championnat, analyse des stratégies de course et innovations techniques dans le sport automobile."
+    },
+    "sportcars": {
+      "title": "Voitures de Sport",
+      "description": "Enthousiaste des voitures de sport et de l'ingénierie automobile. Intérêt pour les véhicules de performance et la technologie de course."
+    },
+    "volleyball": {
+      "title": "Volleyball",
+      "description": "Joueur de volleyball actif. Passionné de sports d'équipe."
+    },
+    "skiing": {
+      "title": "Ski",
+      "description": "Amateur de ski et de sports d'hiver. Pratique régulière en montagne."
+    }
+  },
+  "footer": {
+    "rights": "Tous droits réservés",
+    "builtWith": "Conçu avec Next.js et Tailwind CSS"
+  },
+  "theme": {
+    "light": "Clair",
+    "dark": "Sombre",
+    "system": "Système"
+  }
+}
