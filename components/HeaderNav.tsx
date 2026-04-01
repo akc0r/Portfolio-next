@@ -14,6 +14,7 @@ interface HeaderNavCopy {
     experience: string;
     projects: string;
     contact: string;
+    ariaLabel: string;
   };
   language: {
     label: string;
@@ -38,15 +39,17 @@ export function HeaderNav({ locale, copy, themeCopy }: HeaderNavProps) {
   ];
 
   return (
-    <header className="space-y-6">
-      <div className="surface-panel rounded-[2rem] p-6 transition-colors sm:p-8">
+    <header className="sticky top-4 z-40 space-y-6">
+      <div className="surface-panel rounded-[2.2rem] p-5 transition-colors sm:p-7">
         <div className="flex flex-wrap items-center justify-between gap-4">
-          <div className="flex flex-wrap items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.28em] sm:gap-3">
-            <span className="rounded-full border border-orange-300/60 bg-orange-50 px-3 py-1 text-orange-700 dark:border-orange-400/50 dark:bg-orange-500/12 dark:text-orange-200">
+          <div className="flex flex-wrap items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.28em] sm:gap-3">
+            <span className="rounded-full border border-orange-300/70 bg-orange-50/90 px-3 py-1 text-orange-700 dark:border-orange-400/55 dark:bg-orange-500/14 dark:text-orange-200">
               {copy.name}
             </span>
-            <span className="text-soft-theme">{copy.role}</span>
-            <span className="rounded-full border border-teal-400/40 bg-teal-400/10 px-3 py-1 text-teal-700 dark:border-teal-300/35 dark:bg-teal-300/10 dark:text-teal-200">
+            <span className="text-soft-theme rounded-full border border-slate-300/80 bg-slate-50/75 px-3 py-1 dark:border-slate-500/50 dark:bg-slate-800/50">
+              {copy.role}
+            </span>
+            <span className="rounded-full border border-teal-400/45 bg-teal-400/12 px-3 py-1 text-teal-700 dark:border-teal-300/40 dark:bg-teal-300/12 dark:text-teal-200">
               {copy.availability}
             </span>
           </div>
@@ -56,15 +59,15 @@ export function HeaderNav({ locale, copy, themeCopy }: HeaderNavProps) {
           </div>
         </div>
 
-        <div className="mt-6 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
-          <h1 className="text-heading-theme max-w-3xl text-3xl font-semibold leading-tight sm:text-[2.35rem]">
+        <div className="mt-5 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+          <h1 className="text-heading-theme max-w-3xl text-2xl font-semibold leading-tight sm:text-[2.15rem]">
             {copy.headline}
           </h1>
-          <nav className="text-muted-theme flex flex-wrap items-center gap-2 text-sm font-medium">
+          <nav aria-label={copy.nav.ariaLabel} className="text-muted-theme flex flex-wrap items-center gap-2 text-sm font-medium">
             {navLinks.map((link) => (
               <a
                 key={link.href}
-                className="surface-chip rounded-full px-4 py-2 transition-all hover:-translate-y-0.5 hover:border-slate-300 hover:text-slate-900 dark:hover:border-slate-300/65 dark:hover:bg-slate-800/80 dark:hover:text-white"
+                className="surface-chip rounded-full px-4 py-2 transition-all duration-300 hover:-translate-y-0.5 hover:border-slate-300 hover:text-slate-900 hover:shadow-[0_10px_18px_rgba(15,23,42,0.12)] dark:hover:border-slate-300/65 dark:hover:bg-slate-800/80 dark:hover:text-white"
                 href={link.href}
               >
                 {link.label}

@@ -21,11 +21,13 @@ function isExternal(href: string) {
 
 export function ContactSection({ links, copy }: ContactSectionProps) {
   return (
-    <section id="contact" className="surface-panel text-heading-theme rounded-[2.1rem] p-8 transition-colors sm:p-10">
+    <section id="contact" aria-labelledby="contact-heading" className="surface-panel text-heading-theme rounded-[2.3rem] p-8 transition-colors sm:p-10">
       <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
         <div className="space-y-4">
           <p className="text-xs uppercase tracking-[0.3em] text-orange-500 dark:text-orange-300">{copy.eyebrow}</p>
-          <h3 className="text-heading-theme text-3xl font-semibold">{copy.title}</h3>
+          <h3 id="contact-heading" className="text-heading-theme text-3xl font-semibold leading-tight">
+            {copy.title}
+          </h3>
           <p className="text-muted-theme max-w-2xl text-sm">
             {copy.description}
           </p>
@@ -39,7 +41,7 @@ export function ContactSection({ links, copy }: ContactSectionProps) {
                 key={link.label}
                 asChild
                 variant="outline"
-                className="text-sm font-medium text-slate-900 dark:text-slate-100"
+                className="text-sm font-medium text-slate-900 transition-all duration-300 hover:-translate-y-0.5 dark:text-slate-100"
               >
                 <Link
                   href={link.href}

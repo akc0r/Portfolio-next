@@ -2,18 +2,17 @@
 
 import { useMemo, useState } from "react";
 
+import type { ProjectsSectionCopy } from "@/lib/portfolio-content";
 import { cn } from "@/lib/utils";
 import type { Project, ProjectCategory, ProjectOrigin } from "@/types/portfolio";
 import { ProjectCard } from "./ProjectCard";
-import T from "./T";
-import { useTranslation } from "@/hooks/useTranslation";
 
 interface ProjectsSectionProps {
   projects: Project[];
+  copy: ProjectsSectionCopy;
 }
 
-export function ProjectsSection({ projects }: ProjectsSectionProps) {
-  const { t, mounted } = useTranslation();
+export function ProjectsSection({ projects, copy }: ProjectsSectionProps) {
   const uniqueOrigins = useMemo(
     () => Array.from(new Set<ProjectOrigin>(projects.map((project) => project.origin))).sort(),
     [projects],
@@ -46,34 +45,34 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
 
   const originLabel = (origin: ProjectOrigin | "All") => {
     if (origin === "All") {
-      return t("projects.filters.all");
+      return copy.allLabel;
     }
-    return t(`projects.filters.origin.${origin}`) ?? origin;
+
+    return copy.originLabels[origin] ?? origin;
   };
 
   const categoryLabel = (category: ProjectCategory | "All") => {
     if (category === "All") {
-      return t("projects.filters.all");
+      return copy.allLabel;
     }
-    return t(`projects.filters.category.${category}`) ?? category;
+
+    return copy.categoryLabels[category] ?? category;
   };
 
-  if (!mounted) return null;
-
-  const shownLabel = t("projects.shownLabel").replace("{count}", `${filteredProjects.length}`);
+  const shownLabel = copy.shownLabel.replace("{count}", `${filteredProjects.length}`);
 
   return (
-    <section id="projects" className="space-y-10">
+    <section id="projects" aria-labelledby="projects-heading" className="space-y-10">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div className="space-y-3">
           <p className="text-xs uppercase tracking-[0.3em] text-orange-500 dark:text-orange-300">
-            <T id="projects.eyebrow" />
+            {copy.eyebrow}
           </p>
-          <h3 className="text-heading-theme text-3xl font-semibold">
-            <T id="projects.title" />
+          <h3 id="projects-heading" className="text-heading-theme text-3xl font-semibold">
+            {copy.title}
           </h3>
           <p className="text-muted-theme max-w-2xl text-sm">
-            <T id="projects.description" />
+            {copy.description}
           </p>
         </div>
         <p className="surface-chip text-soft-theme rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em]">
@@ -84,11 +83,12 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
       <div className="surface-card flex flex-wrap gap-6 rounded-[1.8rem] p-6 transition-colors">
         <div className="space-y-3">
           <p className="text-soft-theme text-xs uppercase tracking-[0.3em]">
-            <T id="projects.contextLabel" />
+            {copy.contextLabel}
           </p>
           <div className="flex flex-wrap gap-2">
             {["All", ...uniqueOrigins].map((origin) => (
               <button
+                type="button"
                 key={origin}
                 onClick={() => setOriginFilter(origin as typeof originFilter)}
                 className={cn(baseFilterClass, originFilter === origin ? activeFilterClass : inactiveFilterClass)}
@@ -100,11 +100,12 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
         </div>
         <div className="space-y-3">
           <p className="text-soft-theme text-xs uppercase tracking-[0.3em]">
-            <T id="projects.surfaceLabel" />
+            {copy.surfaceLabel}
           </p>
           <div className="flex flex-wrap gap-2">
             {["All", ...uniqueCategories].map((category) => (
               <button
+                type="button"
                 key={category}
                 onClick={() => setCategoryFilter(category as typeof categoryFilter)}
                 className={cn(baseFilterClass, categoryFilter === category ? activeFilterClass : inactiveFilterClass)}
@@ -116,13 +117,14 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
         </div>
         {hasActiveFilter && (
           <button
+            type="button"
             onClick={() => {
               setOriginFilter("All");
               setCategoryFilter("All");
             }}
             className="surface-chip text-soft-theme self-end rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] transition-colors hover:border-slate-400 hover:text-slate-800 dark:hover:border-slate-300/65 dark:hover:bg-slate-800/80 dark:hover:text-white"
           >
-            <T id="projects.resetFilters" />
+            {copy.resetFilters}
           </button>
         )}
       </div>
@@ -136,8 +138,8 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
               labels={{
                 origin: originLabel(project.origin),
                 category: categoryLabel(project.category),
-                caseStudySnapshot: t("projects.caseStudySnapshot"),
-                imageAltSuffix: t("projects.imageAltSuffix"),
+                caseStudySnapshot: copy.caseStudySnapshot,
+                imageAltSuffix: copy.imageAltSuffix,
               }}
             />
           ))}
@@ -145,7 +147,7 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
       ) : (
         <div className="flex items-center justify-center rounded-2xl border border-dashed border-slate-300 bg-slate-50 py-16 dark:border-slate-700 dark:bg-slate-900/40">
           <p className="text-soft-theme text-center">
-            <T id="projects.noResult" />
+            {copy.noResult}
           </p>
         </div>
       )}

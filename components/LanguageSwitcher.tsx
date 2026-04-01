@@ -23,6 +23,7 @@ export function LanguageSwitcher({ currentLocale, labels }: LanguageSwitcherProp
           <Link
             key={locale}
             href={`/${locale}`}
+            aria-current={isActive ? "page" : undefined}
             className={`surface-chip rounded-full px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] transition-colors ${
               isActive
                 ? "border-orange-400 bg-orange-500 text-white dark:border-orange-300 dark:bg-orange-500 dark:text-white"
