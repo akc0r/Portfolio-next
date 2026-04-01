@@ -2,14 +2,18 @@
 
 import { useMemo, useState } from "react";
 
+import { cn } from "@/lib/utils";
 import type { Project, ProjectCategory, ProjectOrigin } from "@/types/portfolio";
 import { ProjectCard } from "./ProjectCard";
+import T from "./T";
+import { useTranslation } from "@/hooks/useTranslation";
 
 interface ProjectsSectionProps {
   projects: Project[];
 }
 
 export function ProjectsSection({ projects }: ProjectsSectionProps) {
+  const { t, mounted } = useTranslation();
   const uniqueOrigins = useMemo(
     () => Array.from(new Set<ProjectOrigin>(projects.map((project) => project.origin))).sort(),
     [projects],
@@ -33,41 +37,79 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
   );
 
   const hasActiveFilter = originFilter !== "All" || categoryFilter !== "All";
+  const baseFilterClass =
+    "rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] transition-all duration-200";
+  const inactiveFilterClass =
+    "surface-chip text-slate-600 hover:-translate-y-0.5 hover:border-slate-300 hover:text-slate-900 dark:text-slate-200/82 dark:hover:border-slate-300/65 dark:hover:bg-slate-800/80 dark:hover:text-white";
+  const activeFilterClass =
+    "border-orange-500 bg-orange-500 text-white shadow-[0_8px_20px_rgba(249,115,22,0.35)] dark:border-orange-300 dark:bg-orange-500 dark:text-white";
+
+  const originLabel = (origin: ProjectOrigin | "All") => {
+    if (origin === "All") {
+      return t("projects.filters.all");
+    }
+    return t(`projects.filters.origin.${origin}`) ?? origin;
+  };
+
+  const categoryLabel = (category: ProjectCategory | "All") => {
+    if (category === "All") {
+      return t("projects.filters.all");
+    }
+    return t(`projects.filters.category.${category}`) ?? category;
+  };
+
+  if (!mounted) return null;
+
+  const shownLabel = t("projects.shownLabel").replace("{count}", `${filteredProjects.length}`);
 
   return (
     <section id="projects" className="space-y-10">
-      <div className="space-y-3">
-        <p className="text-xs uppercase tracking-[0.3em] text-orange-500 dark:text-orange-300">Selected work</p>
-        <h3 className="text-2xl font-semibold text-slate-900 dark:text-white">Projects that ran like clockwork.</h3>
-        <p className="max-w-2xl text-sm text-slate-600 dark:text-white/70">
-          Filter by origin or surface to jump straight into the build lap that matches your needs.
+      <div className="flex flex-wrap items-end justify-between gap-4">
+        <div className="space-y-3">
+          <p className="text-xs uppercase tracking-[0.3em] text-orange-500 dark:text-orange-300">
+            <T id="projects.eyebrow" />
+          </p>
+          <h3 className="text-heading-theme text-3xl font-semibold">
+            <T id="projects.title" />
+          </h3>
+          <p className="text-muted-theme max-w-2xl text-sm">
+            <T id="projects.description" />
+          </p>
+        </div>
+        <p className="surface-chip text-soft-theme rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em]">
+          {shownLabel}
         </p>
       </div>
-      <div className="flex flex-wrap gap-6 rounded-3xl border border-slate-200/70 bg-white/95 p-6 shadow-sm transition-colors dark:border-white/20 dark:bg-[#101634]">
+
+      <div className="surface-card flex flex-wrap gap-6 rounded-[1.8rem] p-6 transition-colors">
         <div className="space-y-3">
-          <p className="text-xs uppercase tracking-[0.3em] text-slate-500 dark:text-white/60">Context</p>
+          <p className="text-soft-theme text-xs uppercase tracking-[0.3em]">
+            <T id="projects.contextLabel" />
+          </p>
           <div className="flex flex-wrap gap-2">
             {["All", ...uniqueOrigins].map((origin) => (
               <button
                 key={origin}
                 onClick={() => setOriginFilter(origin as typeof originFilter)}
-                className={`rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] transition-colors ${originFilter === origin ? "border-slate-900 bg-slate-900 text-white dark:border-white dark:bg-white dark:text-slate-900" : "border-slate-200 bg-slate-100 text-slate-600 hover:bg-slate-200 dark:border-white/25 dark:bg-transparent dark:text-white/70 dark:hover:border-white/40 dark:hover:text-white"}`}
+                className={cn(baseFilterClass, originFilter === origin ? activeFilterClass : inactiveFilterClass)}
               >
-                {origin}
+                {originLabel(origin as ProjectOrigin | "All")}
               </button>
             ))}
           </div>
         </div>
         <div className="space-y-3">
-          <p className="text-xs uppercase tracking-[0.3em] text-slate-500 dark:text-white/60">Surface</p>
+          <p className="text-soft-theme text-xs uppercase tracking-[0.3em]">
+            <T id="projects.surfaceLabel" />
+          </p>
           <div className="flex flex-wrap gap-2">
             {["All", ...uniqueCategories].map((category) => (
               <button
                 key={category}
                 onClick={() => setCategoryFilter(category as typeof categoryFilter)}
-                className={`rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] transition-colors ${categoryFilter === category ? "border-orange-500 bg-orange-500 text-white dark:border-orange-400 dark:bg-orange-500 dark:text-white" : "border-slate-200 bg-slate-100 text-slate-600 hover:bg-slate-200 dark:border-white/25 dark:bg-transparent dark:text-white/70 dark:hover:border-white/40 dark:hover:text-white"}`}
+                className={cn(baseFilterClass, categoryFilter === category ? activeFilterClass : inactiveFilterClass)}
               >
-                {category}
+                {categoryLabel(category as ProjectCategory | "All")}
               </button>
             ))}
           </div>
@@ -78,22 +120,35 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
               setOriginFilter("All");
               setCategoryFilter("All");
             }}
-            className="self-end rounded-full border border-slate-200/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-slate-500 transition-colors hover:border-slate-400 hover:text-slate-800 dark:border-white/35 dark:text-white/70 dark:hover:border-white/45 dark:hover:text-white"
+            className="surface-chip text-soft-theme self-end rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] transition-colors hover:border-slate-400 hover:text-slate-800 dark:hover:border-slate-300/65 dark:hover:bg-slate-800/80 dark:hover:text-white"
           >
-            Reset filters
+            <T id="projects.resetFilters" />
           </button>
         )}
       </div>
-      <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-        {filteredProjects.map((project) => (
-          <ProjectCard key={project.title} project={project} />
-        ))}
-        {filteredProjects.length === 0 && (
-          <p className="col-span-full rounded-3xl border border-slate-200/70 bg-white/95 p-10 text-center text-slate-500 transition-colors dark:border-white/20 dark:bg-[#101634] dark:text-white/70">
-            No project matches this race setup yet.
+
+      {filteredProjects.length > 0 ? (
+        <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+          {filteredProjects.map((project) => (
+            <ProjectCard
+              key={project.id}
+              project={project}
+              labels={{
+                origin: originLabel(project.origin),
+                category: categoryLabel(project.category),
+                caseStudySnapshot: t("projects.caseStudySnapshot"),
+                imageAltSuffix: t("projects.imageAltSuffix"),
+              }}
+            />
+          ))}
+        </div>
+      ) : (
+        <div className="flex items-center justify-center rounded-2xl border border-dashed border-slate-300 bg-slate-50 py-16 dark:border-slate-700 dark:bg-slate-900/40">
+          <p className="text-soft-theme text-center">
+            <T id="projects.noResult" />
           </p>
-        )}
-      </div>
+        </div>
+      )}
     </section>
   );
 }

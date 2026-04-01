@@ -5,72 +5,98 @@ import type { Stat } from "@/types/portfolio";
 
 import { Button } from "./ui/button";
 
-interface HeroSectionProps {
-  stats: Stat[];
-  profileImage: string;
+interface HeroSectionCopy {
+  eyebrow: string;
+  title: string;
+  description: string;
+  ctaPrimary: string;
+  ctaSecondary: string;
+  downloadFileName: string;
+  profileName: string;
+  profileRole: string;
+  profileImageAlt: string;
+  tags: string[];
 }
 
-export function HeroSection({ stats, profileImage }: HeroSectionProps) {
+interface HeroSectionProps {
+  stats: (Stat & { label: string; detail: string })[];
+  profileImage: string;
+  copy: HeroSectionCopy;
+}
+
+export function HeroSection({ stats, profileImage, copy }: HeroSectionProps) {
   const heroImage = profileImage && profileImage.trim().length > 0 ? profileImage : "/profile-placeholder.svg";
 
   return (
-    <section className="rounded-3xl border border-slate-200/80 bg-white/90 p-10 text-slate-900 shadow-xl shadow-orange-200/30 transition-colors dark:border-white/20 dark:bg-[#080c1e] dark:text-white">
-      <div className="grid gap-10 lg:grid-cols-[1.35fr_0.65fr] lg:items-center">
+    <section className="surface-panel text-heading-theme relative overflow-hidden rounded-[2.2rem] p-8 transition-colors sm:p-10 lg:p-12">
+      <div className="pointer-events-none absolute -left-16 -top-20 h-60 w-60 rounded-full bg-orange-400/25 blur-3xl dark:bg-orange-500/30" />
+      <div className="pointer-events-none absolute -bottom-24 right-[-12%] h-64 w-64 rounded-full bg-teal-400/18 blur-3xl dark:bg-cyan-400/20" />
+
+      <div className="relative grid gap-10 lg:grid-cols-[1.25fr_0.75fr] lg:items-center">
         <div className="space-y-8">
-          <span className="inline-flex items-center gap-2 rounded-full border border-orange-300/60 bg-orange-50 px-4 py-1 text-xs font-semibold uppercase tracking-[0.35em] text-orange-600 dark:border-orange-500/40 dark:bg-orange-500/10 dark:text-orange-200">
-            Motorsport execution
+          <span className="inline-flex items-center gap-2 rounded-full border border-orange-300/70 bg-orange-50 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-orange-700 dark:border-orange-400/45 dark:bg-orange-500/10 dark:text-orange-200">
+            {copy.eyebrow}
           </span>
-          <div className="space-y-4">
-            <h2 className="text-4xl font-semibold leading-tight tracking-tight text-slate-900 dark:text-white sm:text-5xl">
-              I ship software with the focus of a track engineer.
+          <div className="space-y-5">
+            <h2 className="text-heading-theme max-w-3xl text-4xl font-semibold leading-tight sm:text-5xl">
+              {copy.title}
             </h2>
-            <p className="max-w-2xl text-base text-slate-600 dark:text-white/70">
-              From telemetry dashboards to customer-facing platforms, I orchestrate sprints like race weekends: clear
-              objectives, measured performance, and seamless pit-stop collaboration across design, product, and engineering.
+            <p className="text-muted-theme max-w-2xl text-base">
+              {copy.description}
             </p>
           </div>
           <div className="flex flex-wrap gap-3 text-sm font-semibold">
             <Button asChild>
               <Link href="#contact">
-                Schedule a call
+                {copy.ctaPrimary}
                 <span aria-hidden className="ml-2">↗</span>
               </Link>
             </Button>
             <Button asChild variant="outline">
-              <Link href="/api/cv" download="Julien_Glin_CV.pdf">
-                Download resume
+              <Link href="/api/cv" download={copy.downloadFileName}>
+                {copy.ctaSecondary}
                 <span aria-hidden className="ml-2">↘</span>
               </Link>
             </Button>
           </div>
-          <div className="grid gap-4 sm:grid-cols-3">
+          <div className="grid gap-3 sm:grid-cols-3">
             {stats.map((stat) => (
               <div
                 key={stat.label}
-                className="rounded-2xl border border-slate-200/70 bg-white/95 p-4 shadow-sm transition-colors dark:border-white/20 dark:bg-[#101634]"
+                className="surface-card rounded-2xl p-4 transition-colors"
               >
-                <p className="text-2xl font-semibold text-slate-900 dark:text-white">{stat.value}</p>
-                <p className="mt-1 text-xs uppercase tracking-[0.3em] text-slate-500 dark:text-white/60">{stat.label}</p>
-                <p className="mt-1 text-xs text-slate-500 dark:text-white/50">{stat.detail}</p>
+                <p className="text-heading-theme text-2xl font-semibold">{stat.value}</p>
+                <p className="text-soft-theme mt-1 text-xs uppercase tracking-[0.27em]">{stat.label}</p>
+                <p className="text-soft-theme mt-1 text-xs">{stat.detail}</p>
               </div>
             ))}
           </div>
         </div>
         <div className="relative mx-auto w-full max-w-sm">
-          <div className="relative overflow-hidden rounded-[32px] border border-slate-200/70 bg-slate-50 p-6 shadow-lg transition-colors dark:border-white/20 dark:bg-[#101634]">
+          <div className="surface-card relative overflow-hidden rounded-[2rem] p-6 transition-colors">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(249,115,22,0.18),_transparent_60%)]" aria-hidden />
-            <div className="absolute left-[-30%] top-12 h-40 w-40 rotate-6 bg-[linear-gradient(135deg,_rgba(15,23,42,0.08)_25%,_transparent_25%,_transparent_50%,_rgba(15,23,42,0.08)_50%,_rgba(15,23,42,0.08)_75%,_transparent_75%)] opacity-40 dark:bg-[linear-gradient(135deg,_rgba(255,255,255,0.08)_25%,_transparent_25%,_transparent_50%,_rgba(255,255,255,0.08)_50%,_rgba(255,255,255,0.08)_75%,_transparent_75%)]" aria-hidden />
+            <div
+              className="absolute left-[-30%] top-12 h-40 w-40 rotate-6 bg-[linear-gradient(135deg,_rgba(15,23,42,0.08)_25%,_transparent_25%,_transparent_50%,_rgba(15,23,42,0.08)_50%,_rgba(15,23,42,0.08)_75%,_transparent_75%)] opacity-40 dark:bg-[linear-gradient(135deg,_rgba(255,255,255,0.08)_25%,_transparent_25%,_transparent_50%,_rgba(255,255,255,0.08)_50%,_rgba(255,255,255,0.08)_75%,_transparent_75%)]"
+              aria-hidden
+            />
             <Image
               src={heroImage}
-              alt="Portrait of Julien Glin"
+              alt={copy.profileImageAlt}
               width={320}
               height={400}
               className="relative z-10 w-full rounded-[24px] object-cover"
               priority
             />
-            <div className="relative z-10 mt-4 space-y-1 rounded-2xl border border-slate-200/70 bg-white/90 p-4 text-center text-sm shadow-sm transition-colors dark:border-white/20 dark:bg-[#101634] dark:text-white/80">
-              <p className="font-semibold text-slate-900 dark:text-white">Julien Glin</p>
-              <p className="text-xs uppercase tracking-[0.25em] text-slate-500 dark:text-white/60">Full-stack · EPITA</p>
+            <div className="surface-card relative z-10 mt-4 space-y-1 rounded-2xl p-4 text-center text-sm transition-colors dark:text-white/90">
+              <p className="text-heading-theme font-semibold">{copy.profileName}</p>
+              <p className="text-soft-theme text-xs uppercase tracking-[0.25em]">{copy.profileRole}</p>
+            </div>
+            <div className="text-soft-theme relative z-10 mt-3 flex flex-wrap justify-center gap-2 text-[11px] uppercase tracking-[0.22em]">
+              {copy.tags.map((tag) => (
+                <span key={tag} className="surface-chip rounded-full px-3 py-1">
+                  {tag}
+                </span>
+              ))}
             </div>
           </div>
         </div>

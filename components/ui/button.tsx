@@ -5,15 +5,16 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-full text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-black disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex items-center justify-center whitespace-nowrap rounded-full text-sm font-semibold tracking-[0.01em] transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#05070f] disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
         default:
-          "bg-orange-500 text-white shadow-[0_12px_30px_rgba(249,115,22,0.45)] hover:bg-orange-400 dark:shadow-[0_12px_30px_rgba(249,115,22,0.45)]",
+          "bg-gradient-to-r from-orange-500 to-amber-400 text-white shadow-[0_14px_30px_rgba(249,115,22,0.4)] hover:from-orange-500 hover:to-orange-300 dark:shadow-[0_16px_34px_rgba(249,115,22,0.35)]",
         outline:
-          "border border-slate-300 text-slate-700 hover:border-slate-500 hover:text-slate-900 dark:border-white/20 dark:text-white/80 dark:hover:border-white/40 dark:hover:text-white",
-        ghost: "text-slate-700 hover:text-slate-900 dark:text-white/80 dark:hover:text-white",
+          "surface-chip text-slate-700 hover:-translate-y-0.5 hover:border-slate-400 hover:text-slate-900 dark:text-slate-100 dark:hover:border-slate-300/65 dark:hover:bg-slate-800/80",
+        ghost:
+          "text-slate-700 hover:bg-slate-100/80 hover:text-slate-900 dark:text-slate-200/90 dark:hover:bg-slate-800/70 dark:hover:text-white",
       },
       size: {
         default: "px-5 py-3",

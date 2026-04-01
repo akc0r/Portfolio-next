@@ -2,107 +2,121 @@ import type { Project } from "@/types/portfolio";
 
 export const projects: Project[] = [
   {
-    title: "LEACH Protocol Simulation",
+    id: "digital-transformation",
+    origin: "University",
+    category: "Web",
+    stack: ["Strategy", "Architecture"],
+    image: "/consulting.png"
+  },
+  {
+    id: "ero2-optimization",
     origin: "University",
     category: "Data Science",
-    description: "Simulation and analysis of the LEACH, LEACH-C, W-LEACH protocols for wireless sensor networks.",
+    stack: ["Python", "Queuing Theory", "Linear Programming"],
+    image: "/operations-research.png"
+  },
+  {
+    id: "eink-display",
+    origin: "University",
+    category: "Application",
+    stack: ["Next.js", "Tailwind", "C#", "PostgreSQL"],
+    image: "/e-ink-display.png"
+  },
+  {
+    id: "market-prediction",
+    origin: "University",
+    category: "Data Science",
+    stack: ["Python", "PyTorch", "Pandas"],
+    image: "/market-prediction.png"
+  },
+  {
+    id: "f1-simulator",
+    origin: "Personal",
+    category: "Application",
+    stack: ["Next.js", "Tailwind", "Deep Learning", "Microservices", "Kafka"],
+    image: "/f1-simulator.png"
+  },
+  {
+    id: "leach-simulation",
+    origin: "University",
+    category: "Data Science",
     stack: ["Python", "Simpy", "nextjs"],
     image: "/leach.png"
   },
   {
-    title: "ML Ops Pipeline",
+    id: "mlops-pipeline",
     origin: "University",
     category: "Data Science",
-    description: "End-to-end ML Ops pipeline for model training, evaluation, and deployment.",
     stack: ["LakeFS", "Dataiku"],
     image: "/mlops.png"
   },
   {
-    title: "EDA on Formula 1 Dataset",
+    id: "eda-formula1",
     origin: "University",
     category: "Data Science",
-    description: "Exploratory Data Analysis on a dataset containing Formula 1 race data.",
     stack: ["Python", "Pandas", "Altair"],
     image: "/EDA.png"
   },
   {
-    title: "TinyX",
+    id: "tinyx",
     origin: "University", 
     category: "Application",
-    description:
-      "Backend of a minimalist X (Twitter-like) social media platform",
     stack: ["Java", "Redis", "Kubernetes", "Maven", "MongoDB", "Elasticsearch", "Neo4j"],
     image: "/tinyx.png"
   },
   {
-    title: "Testing platform",
+    id: "testing-platform",
     origin: "Professional",
     category: "Web",
-    description:
-      "Internal platform for creating and managing technical tests for developers and testers.",
     stack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
     image: "/tests.png"
   },
   {
-    title: "SkiExplorer",
+    id: "skiexplorer",
     origin: "Personal",
     category: "Web",
-    description:
-      "Ski resort recommendation platform powered by live weather data and a multi-criteria filtering engine.",
     stack: ["Next.js", "Tailwind", "Weather APIs"],
     image: "/SkiExplorer.png"
   },
   {
-    title: "Tiger Compiler",
+    id: "tiger-compiler",
     origin: "University",
     category: "Application",
-    description:
-      "End-to-end compiler for the Tiger language: lexical/syntax analysis, AST generation, and memory optimisation.",
     stack: ["C", "Flex/Bison", "LLVM"],
     image: "/images.png"
   },
   {
-    title: "42sh",
+    id: "42sh",
     origin: "University",
     category: "Application",
-    description:
-      "Robust POSIX shell with pipes, redirections, and job control designed for system maintenance.",
     stack: ["C", "Make", "Unit testing"],
     image: "/42sh.png"
   },
   {
-    title: "Mini Projects",
+    id: "mini-projects",
     origin: "University",
     category: "Application",
-    description:
-      "Series of C mini-projects to strengthen fundamentals: data structures, networking, and algorithms.",
     stack: ["C", "Sockets", "Valgrind"],
     image: "/C_Programming_Language.png"
   },
   {
-    title: "Intranet ING'EUROP",
+    id: "intranet-ingeuro",
     origin: "Professional",
     category: "Web",
-    description:
-      "Responsive redesign of the intranet with new real-time reporting modules for operational teams.",
     stack: ["PHP", "Symfony", "Bootstrap"],
     image: "/homePage.png"
   },
   {
-    title: "GGHB Performance",
+    id: "gghb-performance",
     origin: "Professional",
     category: "Web",
-    description:
-      "E-commerce performance sprint: Core Web Vitals audit, caching, and conversion-oriented UX redesign.",
     stack: ["Laravel", "MySQL", "Redis"],
     image: "/hand.png"
   },
   {
-    title: "MS Motors",
+    id: "ms-motors",
     origin: "Professional",
     category: "Web",
-    description:
-      "Fleet management app for a performance car dealership: orders tracking, CRM, and financial exports.",
     stack: ["Windev", "SQL Server", "Docker"],
     image: "/home_page.png"
   },

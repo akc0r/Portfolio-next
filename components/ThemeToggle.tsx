@@ -5,7 +5,30 @@ import { useTheme } from "next-themes";
 
 import { Button } from "@/components/ui/button";
 
-export function ThemeToggle() {
+export interface ThemeToggleCopy {
+  toggleLabel: string;
+  toggleAriaLabel: string;
+  switchToLight: string;
+  switchToDark: string;
+  lightMode: string;
+  darkMode: string;
+}
+
+interface ThemeToggleProps {
+  copy: ThemeToggleCopy;
+}
+
+const fallbackCopy: ThemeToggleCopy = {
+  toggleLabel: "Theme",
+  toggleAriaLabel: "Toggle theme",
+  switchToLight: "Switch to light mode",
+  switchToDark: "Switch to dark mode",
+  lightMode: "Light mode",
+  darkMode: "Dark mode",
+};
+
+export function ThemeToggle({ copy }: ThemeToggleProps) {
+  const labels = copy ?? fallbackCopy;
   const { theme, setTheme, systemTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
@@ -19,18 +42,18 @@ export function ThemeToggle() {
         type="button"
         variant="outline"
         size="sm"
-        aria-label="Toggle theme"
-        className="gap-2 text-xs uppercase tracking-[0.3em] text-slate-700 dark:text-white/80"
+        aria-label={labels.toggleAriaLabel}
+        className="gap-2 text-xs uppercase tracking-[0.3em] text-slate-700 dark:text-slate-100"
       >
         <span aria-hidden>◐</span>
-        <span className="hidden sm:inline">Theme</span>
+        <span className="hidden sm:inline">{labels.toggleLabel}</span>
       </Button>
     );
   }
 
   const resolvedTheme = (theme === "system" ? systemTheme : theme) ?? "light";
   const isDark = resolvedTheme === "dark";
-  const label = isDark ? "Switch to light mode" : "Switch to dark mode";
+  const label = isDark ? labels.switchToLight : labels.switchToDark;
 
   return (
     <Button
@@ -39,10 +62,10 @@ export function ThemeToggle() {
       size="sm"
       onClick={() => setTheme(isDark ? "light" : "dark")}
       aria-label={label}
-      className="gap-2 text-xs uppercase tracking-[0.3em] text-slate-700 dark:text-white/80"
+      className="gap-2 text-xs uppercase tracking-[0.3em] text-slate-700 dark:text-slate-100"
     >
-      <span aria-hidden>{isDark ? "☀️" : "🌙"}</span>
-      <span className="hidden sm:inline">{isDark ? "Light" : "Dark"}</span>
+      <span aria-hidden>{isDark ? "☼" : "◐"}</span>
+      <span className="hidden sm:inline">{isDark ? labels.lightMode : labels.darkMode}</span>
     </Button>
   );
 }

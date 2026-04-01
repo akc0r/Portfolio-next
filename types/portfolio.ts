@@ -34,12 +34,13 @@ export interface Education {
 }
 
 export interface Project {
-  title: string;
+  id: string;
   origin: ProjectOrigin;
   category: ProjectCategory;
-  description: string;
   stack: string[];
   image: string;
+  title?: string; // Legacy support
+  description?: string; // Legacy support
 }
 
 export interface Interest {

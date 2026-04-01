@@ -2,6 +2,15 @@ import type { Experience } from "@/types/portfolio";
 
 export const experiences: Experience[] = [
   {
+    title: "Consultant Developer",
+    company: "AMA European Consulting",
+    period: "February 2026 — Present",
+    location: "Brussels, Belgium",
+    bullets: [
+      
+    ],
+  },
+  {
     title: "Full-stack developer intern",
     company: "Elipce",
     period: "September 2024 — January 2025",

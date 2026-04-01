@@ -1,41 +1,76 @@
-import { ThemeToggle } from "./ThemeToggle";
+import type { Locale } from "@/lib/i18n";
 
-const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Experience", href: "#experience" },
-  { label: "Projects", href: "#projects" },
-  { label: "Contact", href: "#contact" },
-];
+import { LanguageSwitcher } from "./LanguageSwitcher";
+import { ThemeToggle, type ThemeToggleCopy } from "./ThemeToggle";
 
-export function HeaderNav() {
+interface HeaderNavCopy {
+  name: string;
+  role: string;
+  availability: string;
+  headline: string;
+  nav: {
+    about: string;
+    skills: string;
+    experience: string;
+    projects: string;
+    contact: string;
+  };
+  language: {
+    label: string;
+    fr: string;
+    en: string;
+  };
+}
+
+interface HeaderNavProps {
+  locale: Locale;
+  copy: HeaderNavCopy;
+  themeCopy: ThemeToggleCopy;
+}
+
+export function HeaderNav({ locale, copy, themeCopy }: HeaderNavProps) {
+  const navLinks = [
+    { label: copy.nav.about, href: "#about" },
+    { label: copy.nav.skills, href: "#skills" },
+    { label: copy.nav.experience, href: "#experience" },
+    { label: copy.nav.projects, href: "#projects" },
+    { label: copy.nav.contact, href: "#contact" },
+  ];
+
   return (
-    <header className="border-b border-slate-200/60 pb-6 dark:border-white/10">
-      <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-        <div className="space-y-3">
-          <div className="flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.3em]">
-            <span className="rounded-full bg-orange-500/10 px-3 py-1 font-semibold text-orange-600 dark:bg-orange-500/15 dark:text-orange-200">
-              Julien Glin
+    <header className="space-y-6">
+      <div className="surface-panel rounded-[2rem] p-6 transition-colors sm:p-8">
+        <div className="flex flex-wrap items-center justify-between gap-4">
+          <div className="flex flex-wrap items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.28em] sm:gap-3">
+            <span className="rounded-full border border-orange-300/60 bg-orange-50 px-3 py-1 text-orange-700 dark:border-orange-400/50 dark:bg-orange-500/12 dark:text-orange-200">
+              {copy.name}
             </span>
-            <span className="text-slate-500 dark:text-white/60">Motorsport-focused engineer</span>
+            <span className="text-soft-theme">{copy.role}</span>
+            <span className="rounded-full border border-teal-400/40 bg-teal-400/10 px-3 py-1 text-teal-700 dark:border-teal-300/35 dark:bg-teal-300/10 dark:text-teal-200">
+              {copy.availability}
+            </span>
           </div>
-          <h1 className="text-3xl font-semibold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
-            Software built with the precision of a race strategy.
-          </h1>
+          <div className="flex flex-wrap items-center gap-2">
+            <LanguageSwitcher currentLocale={locale} labels={copy.language} />
+            <ThemeToggle copy={themeCopy} />
+          </div>
         </div>
-        <div className="flex flex-wrap items-center justify-end gap-4 text-sm font-medium">
-          <nav className="flex flex-wrap items-center gap-3 text-slate-500 dark:text-white/60">
+
+        <div className="mt-6 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+          <h1 className="text-heading-theme max-w-3xl text-3xl font-semibold leading-tight sm:text-[2.35rem]">
+            {copy.headline}
+          </h1>
+          <nav className="text-muted-theme flex flex-wrap items-center gap-2 text-sm font-medium">
             {navLinks.map((link) => (
               <a
                 key={link.href}
-                className="rounded-full px-3 py-1 transition-colors hover:text-slate-900 dark:hover:text-white"
+                className="surface-chip rounded-full px-4 py-2 transition-all hover:-translate-y-0.5 hover:border-slate-300 hover:text-slate-900 dark:hover:border-slate-300/65 dark:hover:bg-slate-800/80 dark:hover:text-white"
                 href={link.href}
               >
                 {link.label}
               </a>
             ))}
           </nav>
-          <ThemeToggle />
         </div>
       </div>
     </header>
