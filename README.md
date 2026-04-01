@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Julien Glin Portfolio
 
-## Getting Started
+Portfolio professionnel bilingue construit avec Next.js App Router, TypeScript et Tailwind CSS.
 
-First, run the development server:
+## Stack
+
+- Next.js 15 (App Router)
+- React 19
+- TypeScript (strict)
+- Tailwind CSS v4
+- next-themes (thème clair/sombre)
+
+## Démarrage
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Application disponible sur http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `npm run dev`: serveur de développement
+- `npm run build`: build de production + vérification types/lint
+- `npm run start`: lance l'app en mode production
+- `npm run test:ui`: exécute les tests UI Playwright
+- `npm run test:ui:headed`: exécute les tests UI Playwright en mode visuel
+- `npm run quality:ci`: pipeline qualité complète (`build` + tests UI)
 
-## Learn More
+## Architecture
 
-To learn more about Next.js, take a look at the following resources:
+- `app/[locale]/page.tsx`: page principale localisée
+- `lib/portfolio-content.ts`: source de vérité pour composer le contenu localisé
+- `lang/en.ts` et `lang/fr.ts`: dictionnaires de traductions
+- `components/*`: sections UI et composants réutilisables
+- `data/*`: datasets métiers (projects, skills, experiences, etc.)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Internationalisation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Les locales supportées sont `fr` et `en`
+- Le middleware redirige automatiquement selon `Accept-Language`
+- Le contenu est localisé côté route locale via `lib/portfolio-content.ts`
 
-## Deploy on Vercel
+## CV Download
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+L'endpoint `app/api/cv/route.ts` sert le PDF `public/Resume_2026.pdf` en téléchargement.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Qualité
+
+Avant déploiement:
+
+```bash
+npm run quality:ci
+```
+
+Cela vérifie compilation, typage, génération des pages et tests UI.
+
+Checklist accessibilité avancée:
+
+- `docs/accessibility-checklist.md`
