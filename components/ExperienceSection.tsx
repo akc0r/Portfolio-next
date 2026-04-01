@@ -17,11 +17,13 @@ interface ExperienceSectionProps {
 
 export function ExperienceSection({ experiences, education, copy }: ExperienceSectionProps) {
   return (
-    <section id="experience" className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr]">
+    <section id="experience" aria-labelledby="experience-heading" className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr]">
       <div className="space-y-6">
         <div className="space-y-2">
           <p className="text-xs uppercase tracking-[0.3em] text-orange-500 dark:text-orange-300">{copy.eyebrow}</p>
-          <h3 className="text-heading-theme text-3xl font-semibold">{copy.title}</h3>
+          <h3 id="experience-heading" className="text-heading-theme text-3xl font-semibold">
+            {copy.title}
+          </h3>
           <p className="text-muted-theme max-w-2xl text-sm">
             {copy.description}
           </p>
@@ -34,9 +36,12 @@ export function ExperienceSection({ experiences, education, copy }: ExperienceSe
           {experiences.map((experience) => (
             <article
               key={experience.title}
-              className="surface-card rounded-[1.75rem] p-6 transition-colors"
+              className="surface-card rounded-[1.85rem] p-6 transition-all duration-300 hover:-translate-y-0.5"
             >
-              <p className="text-soft-theme text-xs uppercase tracking-[0.25em]">{experience.period}</p>
+              <div className="flex items-center gap-2">
+                <span aria-hidden className="h-2.5 w-2.5 rounded-full bg-orange-500" />
+                <p className="text-soft-theme text-xs uppercase tracking-[0.25em]">{experience.period}</p>
+              </div>
               <h4 className="text-heading-theme mt-2 text-lg font-semibold">{experience.title}</h4>
               <p className="text-muted-theme text-sm font-medium">
                 {experience.company} · {experience.location}
@@ -62,15 +67,20 @@ export function ExperienceSection({ experiences, education, copy }: ExperienceSe
       <div className="space-y-6">
         <div className="space-y-2">
           <p className="text-xs uppercase tracking-[0.3em] text-orange-500 dark:text-orange-300">{copy.educationEyebrow}</p>
-          <h3 className="text-heading-theme text-3xl font-semibold">{copy.educationTitle}</h3>
+          <h3 id="education-heading" className="text-heading-theme text-3xl font-semibold">
+            {copy.educationTitle}
+          </h3>
         </div>
         <div className="space-y-6">
           {education.map((item) => (
             <article
               key={item.title}
-              className="surface-card rounded-[1.75rem] p-6 transition-colors"
+              className="surface-card rounded-[1.85rem] p-6 transition-all duration-300 hover:-translate-y-0.5"
             >
-              <p className="text-soft-theme text-xs uppercase tracking-[0.25em]">{item.period}</p>
+              <div className="flex items-center gap-2">
+                <span aria-hidden className="h-2.5 w-2.5 rounded-full bg-teal-500" />
+                <p className="text-soft-theme text-xs uppercase tracking-[0.25em]">{item.period}</p>
+              </div>
               <h4 className="text-heading-theme mt-2 text-lg font-semibold">{item.title}</h4>
               <p className="text-muted-theme text-sm font-medium">{item.school}</p>
               <p className="text-muted-theme mt-3 text-sm">{item.description}</p>

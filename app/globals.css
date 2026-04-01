@@ -2,78 +2,86 @@
 
 :root {
   color-scheme: light;
-  --foreground: #0f172a;
-  --muted: #475569;
-  --muted-strong: rgba(51, 65, 85, 0.9);
-  --muted-soft: rgba(71, 85, 105, 0.75);
+  --foreground: #0e172a;
+  --muted: #4c5b75;
+  --muted-strong: rgba(32, 49, 77, 0.88);
+  --muted-soft: rgba(76, 91, 117, 0.78);
   --surface: rgba(255, 255, 255, 0.8);
   --surface-strong: rgba(255, 255, 255, 0.94);
-  --surface-soft: rgba(248, 250, 252, 0.84);
-  --panel-bg: rgba(255, 255, 255, 0.88);
-  --panel-border: rgba(15, 23, 42, 0.13);
-  --panel-shadow: 0 20px 46px rgba(15, 23, 42, 0.11);
-  --card-bg: rgba(255, 255, 255, 0.82);
-  --card-border: rgba(15, 23, 42, 0.12);
+  --surface-soft: rgba(245, 248, 252, 0.88);
+  --panel-bg: linear-gradient(145deg, rgba(255, 255, 255, 0.84), rgba(247, 251, 255, 0.76));
+  --panel-border: rgba(14, 23, 42, 0.14);
+  --panel-shadow: 0 20px 54px rgba(15, 23, 42, 0.12);
+  --card-bg: linear-gradient(155deg, rgba(255, 255, 255, 0.8), rgba(245, 249, 255, 0.72));
+  --card-border: rgba(14, 23, 42, 0.12);
   --card-shadow: 0 14px 34px rgba(15, 23, 42, 0.08);
-  --chip-bg: rgba(248, 250, 252, 0.88);
-  --chip-border: rgba(15, 23, 42, 0.14);
-  --border: rgba(15, 23, 42, 0.12);
-  --border-strong: rgba(15, 23, 42, 0.22);
+  --chip-bg: rgba(244, 248, 252, 0.9);
+  --chip-border: rgba(14, 23, 42, 0.14);
+  --border: rgba(14, 23, 42, 0.12);
+  --border-strong: rgba(14, 23, 42, 0.24);
   --accent: #ea580c;
   --accent-strong: #c2410c;
-  --accent-soft: rgba(249, 115, 22, 0.2);
-  --background-main: radial-gradient(circle at 10% 12%, rgba(249, 115, 22, 0.27), transparent 50%),
-    radial-gradient(circle at 88% 16%, rgba(13, 148, 136, 0.14), transparent 46%),
-    linear-gradient(180deg, #fefdf9 0%, #f8fafc 46%, #fff7ed 100%);
-  --background-pattern: linear-gradient(120deg, rgba(15, 23, 42, 0.04) 1px, transparent 1px 56px),
-    linear-gradient(0deg, rgba(15, 23, 42, 0.025) 1px, transparent 1px 72px);
-  --background-overlay: radial-gradient(circle at center, rgba(255, 255, 255, 0.62), transparent 72%);
-  --cursor-default: url("/cursor-dot.svg") 6 6, auto;
-  --cursor-pointer: url("/cursor-dot.svg") 6 6, pointer;
+  --accent-soft: rgba(249, 115, 22, 0.22);
+  --background-main: radial-gradient(circle at 8% 10%, rgba(249, 115, 22, 0.22), transparent 42%),
+    radial-gradient(circle at 86% 12%, rgba(20, 184, 166, 0.16), transparent 46%),
+    linear-gradient(180deg, #fffdf9 0%, #f4f8ff 56%, #fff6ec 100%);
+  --background-pattern: linear-gradient(120deg, rgba(15, 23, 42, 0.034) 1px, transparent 1px 56px),
+    linear-gradient(0deg, rgba(15, 23, 42, 0.024) 1px, transparent 1px 64px);
+  --background-overlay: radial-gradient(circle at center, rgba(255, 255, 255, 0.72), transparent 74%);
 }
 
 .dark {
   color-scheme: dark;
-  --foreground: #f7fbff;
-  --muted: rgba(226, 232, 240, 0.78);
-  --muted-strong: rgba(226, 232, 240, 0.86);
-  --muted-soft: rgba(203, 213, 225, 0.72);
-  --surface: rgba(8, 14, 28, 0.8);
-  --surface-strong: rgba(9, 15, 30, 0.93);
-  --surface-soft: rgba(11, 18, 36, 0.86);
-  --panel-bg: rgba(7, 14, 28, 0.88);
-  --panel-border: rgba(100, 116, 139, 0.52);
-  --panel-shadow: 0 28px 62px rgba(2, 8, 20, 0.55);
-  --card-bg: rgba(11, 21, 40, 0.84);
-  --card-border: rgba(100, 116, 139, 0.44);
-  --card-shadow: 0 20px 44px rgba(2, 8, 20, 0.42);
-  --chip-bg: rgba(15, 28, 52, 0.84);
-  --chip-border: rgba(100, 116, 139, 0.5);
-  --border: rgba(148, 163, 184, 0.2);
-  --border-strong: rgba(148, 163, 184, 0.32);
+  --foreground: #f6f9ff;
+  --muted: rgba(214, 223, 240, 0.8);
+  --muted-strong: rgba(230, 236, 248, 0.88);
+  --muted-soft: rgba(194, 206, 228, 0.75);
+  --surface: rgba(8, 14, 27, 0.84);
+  --surface-strong: rgba(8, 14, 28, 0.94);
+  --surface-soft: rgba(12, 20, 40, 0.87);
+  --panel-bg: linear-gradient(155deg, rgba(8, 14, 27, 0.9), rgba(10, 18, 36, 0.82));
+  --panel-border: rgba(120, 143, 186, 0.48);
+  --panel-shadow: 0 30px 70px rgba(1, 5, 14, 0.58);
+  --card-bg: linear-gradient(155deg, rgba(11, 21, 42, 0.88), rgba(10, 20, 38, 0.8));
+  --card-border: rgba(112, 136, 179, 0.44);
+  --card-shadow: 0 20px 46px rgba(2, 8, 20, 0.48);
+  --chip-bg: rgba(16, 30, 54, 0.84);
+  --chip-border: rgba(116, 139, 184, 0.52);
+  --border: rgba(158, 176, 209, 0.26);
+  --border-strong: rgba(158, 176, 209, 0.4);
   --accent: #fb923c;
   --accent-strong: #f97316;
-  --accent-soft: rgba(249, 115, 22, 0.26);
-  --background-main: radial-gradient(circle at 14% 14%, rgba(249, 115, 22, 0.29), transparent 48%),
-    radial-gradient(circle at 84% 12%, rgba(45, 212, 191, 0.17), transparent 48%),
-    linear-gradient(180deg, #04060f 0%, #050912 38%, #090f1e 100%);
-  --background-pattern: linear-gradient(120deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px 56px),
-    linear-gradient(0deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px 72px);
-  --background-overlay: radial-gradient(circle at center, rgba(6, 9, 18, 0.58), transparent 76%);
-  --cursor-default: url("/cursor-dot-dark.svg") 6 6, auto;
-  --cursor-pointer: url("/cursor-dot-dark.svg") 6 6, pointer;
+  --accent-soft: rgba(249, 115, 22, 0.28);
+  --background-main: radial-gradient(circle at 10% 8%, rgba(249, 115, 22, 0.28), transparent 40%),
+    radial-gradient(circle at 86% 14%, rgba(20, 184, 166, 0.17), transparent 44%),
+    linear-gradient(180deg, #04070f 0%, #060c19 48%, #0a1120 100%);
+  --background-pattern: linear-gradient(120deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px 56px),
+    linear-gradient(0deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px 64px);
+  --background-overlay: radial-gradient(circle at center, rgba(7, 11, 21, 0.58), transparent 76%);
 }
 
 .surface-panel {
+  position: relative;
   border: 1px solid var(--panel-border);
-  background-color: var(--panel-bg);
+  background: var(--panel-bg);
   box-shadow: var(--panel-shadow);
-  backdrop-filter: blur(18px);
+  backdrop-filter: blur(20px);
+}
+
+.surface-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  opacity: 0.45;
 }
 
 .surface-card {
+  position: relative;
   border: 1px solid var(--card-border);
-  background-color: var(--card-bg);
+  background: var(--card-bg);
   box-shadow: var(--card-shadow);
 }
 
@@ -104,7 +112,6 @@ body {
   font-family: var(--font-manrope), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   letter-spacing: -0.01em;
   line-height: 1.5;
-  cursor: var(--cursor-default);
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
@@ -145,7 +152,6 @@ body::after {
 a {
   color: inherit;
   text-decoration: none;
-  cursor: var(--cursor-pointer);
 }
 
 button,
@@ -153,10 +159,54 @@ button,
 input[type="button"],
 input[type="submit"],
 input[type="reset"] {
-  cursor: var(--cursor-pointer);
+  cursor: pointer;
 }
 
 ::selection {
   background-color: var(--accent-soft);
   color: var(--foreground);
+}
+
+.ambient-orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(70px);
+  opacity: 0.56;
+  animation: ambient-drift 18s ease-in-out infinite;
+}
+
+.ambient-orb-left {
+  left: -12%;
+  top: -10%;
+  height: 300px;
+  width: 300px;
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.55) 0%, rgba(249, 115, 22, 0.12) 62%, transparent 80%);
+}
+
+.ambient-orb-right {
+  right: -10%;
+  top: 4%;
+  height: 280px;
+  width: 280px;
+  animation-duration: 22s;
+  animation-direction: reverse;
+  background: radial-gradient(circle, rgba(20, 184, 166, 0.42) 0%, rgba(20, 184, 166, 0.1) 66%, transparent 80%);
+}
+
+@keyframes ambient-drift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(14px, -10px, 0) scale(1.06);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ambient-orb {
+    animation: none;
+  }
 }

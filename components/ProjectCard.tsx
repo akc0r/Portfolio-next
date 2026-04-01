@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useState } from "react";
 
 import type { Project } from "@/types/portfolio";
-import T from "./T";
 import { Card, CardContent, CardHeader } from "./ui/card";
 
 const originStyles: Record<Project["origin"], string> = {
@@ -28,12 +27,9 @@ export function ProjectCard({ project, labels }: ProjectCardProps) {
     project.image && project.image.trim().length > 0 ? project.image : "/project-placeholder.svg",
   );
 
-  const projectTitleKey = `project.${project.id}.title`;
-  const projectDescKey = `project.${project.id}.description`;
-
   return (
     <Card className="group flex h-full flex-col overflow-hidden">
-      <div className="relative h-52 w-full overflow-hidden">
+      <div className="relative h-56 w-full overflow-hidden">
         <Image
           src={imageSrc}
           alt={`${project.id} ${labels.imageAltSuffix}`}
@@ -46,7 +42,7 @@ export function ProjectCard({ project, labels }: ProjectCardProps) {
             }
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/55 via-slate-900/10 to-transparent dark:from-slate-950/70" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/62 via-slate-900/20 to-transparent dark:from-slate-950/78" />
         <div className="absolute left-4 top-4 flex flex-col gap-2">
           <span
             className={`rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-widest ${originStyles[project.origin]}`}
@@ -61,10 +57,10 @@ export function ProjectCard({ project, labels }: ProjectCardProps) {
       </div>
       <CardHeader className="pb-2">
         <h4 className="text-heading-theme text-lg font-semibold">
-          <T id={projectTitleKey} defaultValue={project.title || project.id} />
+          {project.title || project.id}
         </h4>
         <p className="text-muted-theme text-sm leading-relaxed">
-          <T id={projectDescKey} defaultValue={project.description || ""} />
+          {project.description || ""}
         </p>
       </CardHeader>
       <CardContent className="flex flex-1 flex-col gap-4">
