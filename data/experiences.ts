@@ -6,9 +6,7 @@ export const experiences: Experience[] = [
     company: "AMA European Consulting",
     period: "February 2026 — Present",
     location: "Brussels, Belgium",
-    bullets: [
-      
-    ],
+    bullets: [],
   },
   {
     title: "Full-stack developer intern",

@@ -6,118 +6,118 @@ export const projects: Project[] = [
     origin: "University",
     category: "Web",
     stack: ["Strategy", "Architecture"],
-    image: "/consulting.png"
+    image: "/consulting.png",
   },
   {
     id: "ero2-optimization",
     origin: "University",
     category: "Data Science",
     stack: ["Python", "Queuing Theory", "Linear Programming"],
-    image: "/operations-research.png"
+    image: "/operations-research.png",
   },
   {
     id: "eink-display",
     origin: "University",
     category: "Application",
     stack: ["Next.js", "Tailwind", "C#", "PostgreSQL"],
-    image: "/e-ink-display.png"
+    image: "/e-ink-display.png",
   },
   {
     id: "market-prediction",
     origin: "University",
     category: "Data Science",
     stack: ["Python", "PyTorch", "Pandas"],
-    image: "/market-prediction.png"
+    image: "/market-prediction.png",
   },
   {
     id: "f1-simulator",
     origin: "Personal",
     category: "Application",
     stack: ["Next.js", "Tailwind", "Deep Learning", "Microservices", "Kafka"],
-    image: "/f1-simulator.png"
+    image: "/f1-simulator.png",
   },
   {
     id: "leach-simulation",
     origin: "University",
     category: "Data Science",
-    stack: ["Python", "Simpy", "nextjs"],
-    image: "/leach.png"
+    stack: ["Python", "SimPy", "Next.js"],
+    image: "/leach.png",
   },
   {
     id: "mlops-pipeline",
     origin: "University",
     category: "Data Science",
     stack: ["LakeFS", "Dataiku"],
-    image: "/mlops.png"
+    image: "/mlops.png",
   },
   {
     id: "eda-formula1",
     origin: "University",
     category: "Data Science",
     stack: ["Python", "Pandas", "Altair"],
-    image: "/EDA.png"
+    image: "/EDA.png",
   },
   {
     id: "tinyx",
-    origin: "University", 
+    origin: "University",
     category: "Application",
     stack: ["Java", "Redis", "Kubernetes", "Maven", "MongoDB", "Elasticsearch", "Neo4j"],
-    image: "/tinyx.png"
+    image: "/tinyx.png",
   },
   {
     id: "testing-platform",
     origin: "Professional",
     category: "Web",
     stack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
-    image: "/tests.png"
+    image: "/tests.png",
   },
   {
     id: "skiexplorer",
     origin: "Personal",
     category: "Web",
     stack: ["Next.js", "Tailwind", "Weather APIs"],
-    image: "/SkiExplorer.png"
+    image: "/SkiExplorer.png",
   },
   {
     id: "tiger-compiler",
     origin: "University",
     category: "Application",
     stack: ["C", "Flex/Bison", "LLVM"],
-    image: "/images.png"
+    image: "/images.png",
   },
   {
     id: "42sh",
     origin: "University",
     category: "Application",
     stack: ["C", "Make", "Unit testing"],
-    image: "/42sh.png"
+    image: "/42sh.png",
   },
   {
     id: "mini-projects",
     origin: "University",
     category: "Application",
     stack: ["C", "Sockets", "Valgrind"],
-    image: "/C_Programming_Language.png"
+    image: "/C_Programming_Language.png",
   },
   {
     id: "intranet-ingeuro",
     origin: "Professional",
     category: "Web",
     stack: ["PHP", "Symfony", "Bootstrap"],
-    image: "/homePage.png"
+    image: "/homePage.png",
   },
   {
     id: "gghb-performance",
     origin: "Professional",
     category: "Web",
     stack: ["Laravel", "MySQL", "Redis"],
-    image: "/hand.png"
+    image: "/hand.png",
   },
   {
     id: "ms-motors",
     origin: "Professional",
     category: "Web",
     stack: ["Windev", "SQL Server", "Docker"],
-    image: "/home_page.png"
+    image: "/home_page.png",
   },
 ];
