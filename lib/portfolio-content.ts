@@ -31,6 +31,8 @@ export interface ProjectsSectionCopy {
   title: string;
   description: string;
   shownLabel: string;
+  showMore: string;
+  showLess: string;
   contextLabel: string;
   surfaceLabel: string;
   resetFilters: string;
@@ -102,6 +104,8 @@ export function getPortfolioContent(locale: Locale) {
     title: t("projects.title"),
     description: t("projects.description"),
     shownLabel: t("projects.shownLabel"),
+    showMore: t("projects.showMore"),
+    showLess: t("projects.showLess"),
     contextLabel: t("projects.contextLabel"),
     surfaceLabel: t("projects.surfaceLabel"),
     resetFilters: t("projects.resetFilters"),
@@ -188,6 +192,9 @@ export function getPortfolioContent(locale: Locale) {
       title: t("skills.title"),
       description: t("skills.description"),
       skillCountLabel: t("skills.skillCountLabel"),
+      technologiesTitle: t("skills.technologiesTitle"),
+      technologiesDescription: t("skills.technologiesDescription"),
+      technologiesCountLabel: t("skills.technologiesCountLabel"),
     },
     experienceCopy: {
       eyebrow: t("experience.eyebrow"),
