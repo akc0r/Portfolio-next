@@ -1,16 +1,19 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import type { ProjectsSectionCopy } from "@/lib/portfolio-content";
 import { cn } from "@/lib/utils";
 import type { Project, ProjectCategory, ProjectOrigin } from "@/types/portfolio";
 import { ProjectCard } from "./ProjectCard";
+import { Button } from "./ui/button";
 
 interface ProjectsSectionProps {
   projects: Project[];
   copy: ProjectsSectionCopy;
 }
+
+const INITIAL_VISIBLE_PROJECTS = 6;
 
 export function ProjectsSection({ projects, copy }: ProjectsSectionProps) {
   const uniqueOrigins = useMemo(
@@ -24,6 +27,7 @@ export function ProjectsSection({ projects, copy }: ProjectsSectionProps) {
 
   const [originFilter, setOriginFilter] = useState<ProjectOrigin | "All">("All");
   const [categoryFilter, setCategoryFilter] = useState<ProjectCategory | "All">("All");
+  const [showAllProjects, setShowAllProjects] = useState(false);
 
   const filteredProjects = useMemo(
     () =>
@@ -34,6 +38,17 @@ export function ProjectsSection({ projects, copy }: ProjectsSectionProps) {
       }),
     [projects, originFilter, categoryFilter],
   );
+
+  useEffect(() => {
+    setShowAllProjects(false);
+  }, [originFilter, categoryFilter]);
+
+  const visibleProjects = useMemo(
+    () => (showAllProjects ? filteredProjects : filteredProjects.slice(0, INITIAL_VISIBLE_PROJECTS)),
+    [filteredProjects, showAllProjects],
+  );
+
+  const canShowMore = filteredProjects.length > INITIAL_VISIBLE_PROJECTS;
 
   const hasActiveFilter = originFilter !== "All" || categoryFilter !== "All";
   const baseFilterClass =
@@ -59,7 +74,9 @@ export function ProjectsSection({ projects, copy }: ProjectsSectionProps) {
     return copy.categoryLabels[category] ?? category;
   };
 
-  const shownLabel = copy.shownLabel.replace("{count}", `${filteredProjects.length}`);
+  const shownLabel = copy.shownLabel
+    .replace("{count}", `${visibleProjects.length}`)
+    .replace("{total}", `${filteredProjects.length}`);
 
   return (
     <section id="projects" aria-labelledby="projects-heading" className="space-y-10">
@@ -130,19 +147,29 @@ export function ProjectsSection({ projects, copy }: ProjectsSectionProps) {
       </div>
 
       {filteredProjects.length > 0 ? (
-        <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-          {filteredProjects.map((project) => (
-            <ProjectCard
-              key={project.id}
-              project={project}
-              labels={{
-                origin: originLabel(project.origin),
-                category: categoryLabel(project.category),
-                caseStudySnapshot: copy.caseStudySnapshot,
-                imageAltSuffix: copy.imageAltSuffix,
-              }}
-            />
-          ))}
+        <div className="space-y-6">
+          <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+            {visibleProjects.map((project) => (
+              <ProjectCard
+                key={project.id}
+                project={project}
+                labels={{
+                  origin: originLabel(project.origin),
+                  category: categoryLabel(project.category),
+                  caseStudySnapshot: copy.caseStudySnapshot,
+                  imageAltSuffix: copy.imageAltSuffix,
+                }}
+              />
+            ))}
+          </div>
+
+          {canShowMore && (
+            <div className="flex justify-center">
+              <Button type="button" variant="outline" onClick={() => setShowAllProjects((current) => !current)}>
+                {showAllProjects ? copy.showLess : copy.showMore}
+              </Button>
+            </div>
+          )}
         </div>
       ) : (
         <div className="flex items-center justify-center rounded-2xl border border-dashed border-slate-300 bg-slate-50 py-16 dark:border-slate-700 dark:bg-slate-900/40">
