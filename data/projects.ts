@@ -2,6 +2,20 @@ import type { Project } from "@/types/portfolio";
 
 export const projects: Project[] = [
   {
+    id: "budget-saas",
+    origin: "Personal",
+    category: "Web",
+    stack: ["Next.js", "Tailwind", "PostgreSQL"],
+    image: "/budget-saas.png",
+  },
+  {
+    id: "volleyball-intranet",
+    origin: "Personal",
+    category: "Web",
+    stack: ["Next.js", "Tailwind", "PostgreSQL"],
+    image: "/volleyball-intranet.png",
+  },
+  {
     id: "digital-transformation",
     origin: "University",
     category: "Web",
@@ -33,7 +47,7 @@ export const projects: Project[] = [
     id: "f1-simulator",
     origin: "Personal",
     category: "Application",
-    stack: ["Next.js", "Tailwind", "Deep Learning", "Microservices", "Kafka"],
+    stack: ["Next.js", "Tailwind", "Deep Learning", "Microservices", "Kafka", "Redis", "Python"],
     image: "/f1-simulator.png",
   },
   {

@@ -145,6 +145,10 @@ const en = {
   "projects.imageAltSuffix": "showcase visual",
 
   // Project Items
+  "project.budget-saas.title": "Budget Management SaaS",
+  "project.budget-saas.description": "Personal finance management platform for budget tracking, expense categorization, and spending analytics.",
+  "project.volleyball-intranet.title": "Volleyball Club Intranet",
+  "project.volleyball-intranet.description": "Internal platform for volleyball club management with schedule coordination, team roster, and event announcements.",
   "project.digital-transformation.title": "Digital Transformation Consulting",
   "project.digital-transformation.description": "Strategic consulting engagement for an e-commerce digital transformation roadmap, including stack assessment and implementation priorities.",
   "project.ero2-optimization.title": "ERO-2 Server Optimization",

@@ -145,6 +145,10 @@ const fr = {
   "projects.imageAltSuffix": "visuel de présentation",
 
   // Project Items
+  "project.budget-saas.title": "SaaS de gestion budgétaire",
+  "project.budget-saas.description": "Plateforme personnelle de gestion financière pour le suivi des budgets, catégorisation des dépenses et analyse des dépenses.",
+  "project.volleyball-intranet.title": "Intranet club de volley",
+  "project.volleyball-intranet.description": "Plateforme interne pour la gestion d'un club de volley : coordination des calendriers, roster d'équipe et annonces d'événements.",
   "project.digital-transformation.title": "Conseil en transformation digitale",
   "project.digital-transformation.description": "Mission de conseil stratégique pour une transformation e-commerce: cadrage de la stack et priorisation de la feuille de route.",
   "project.ero2-optimization.title": "Optimisation serveur ERO-2",
