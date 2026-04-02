@@ -23,10 +23,6 @@ export function F1CarModel(props: JSX.IntrinsicElements["group"]) {
       const maxDim = Math.max(size.x, size.y, size.z);
       const scale = 8 / maxDim;
       groupRef.current.scale.setScalar(scale);
-
-      console.log("✅ F1 Model loaded and centered");
-      console.log("📏 Original size:", size);
-      console.log("📐 Scale applied:", scale);
     }
   }, [gltf]);
 

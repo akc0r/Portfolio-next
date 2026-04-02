@@ -11,6 +11,7 @@
     "3d:info": "./scripts/setup-3d.sh"
   },
   "dependencies": {
+    "@radix-ui/react-separator": "^1.1.8",
     "@radix-ui/react-slot": "^1.2.4",
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.4.0",

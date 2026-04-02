@@ -38,10 +38,10 @@ export const skills: Skill[] = [
     description: "C# & .NET",
   },
   {
-    id: "sql",
-    name: "SQL",
+    id: "postgresql",
+    name: "PostgreSQL",
     category: "technical",
-    description: "Database management",
+    description: "Relational database",
   },
 
   // Frameworks

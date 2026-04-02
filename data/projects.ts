@@ -1,67 +1,149 @@
 export interface Project {
   id: string;
   title: string;
+  origin: string; // University, Professional, Personal
+  category: string; // Data Science, Web, Application...
   description: string;
   longDescription?: string;
   technologies: string[];
-  images: string[];
+  images?: string[];
   demoUrl?: string;
   githubUrl?: string;
-  featured: boolean;
-  startDate: Date;
+  featured?: boolean;
+  startDate?: Date;
   endDate?: Date;
 }
 
 export const projects: Project[] = [
   {
-    id: "project1",
-    title: "Racing Dashboard",
+    id: "leach-protocol-simulation",
+    title: "LEACH Protocol Simulation",
+    origin: "University",
+    category: "Data Science",
     description:
-      "Real-time telemetry dashboard for motorsport data visualization",
-    longDescription:
-      "A comprehensive dashboard application that provides real-time telemetry data visualization for racing teams. Features include live timing, sector analysis, and performance metrics.",
+      "Simulation and analysis of the LEACH, LEACH-C, W-LEACH protocols for wireless sensor networks.",
+    technologies: ["Python", "Simpy", "Next.js"],
+    images: ["/leach.png"],
+    featured: true,
+  },
+  {
+    id: "ml-ops-pipeline",
+    title: "ML Ops Pipeline",
+    origin: "University",
+    category: "Data Science",
+    description:
+      "End-to-end ML Ops pipeline for model training, evaluation, and deployment.",
+    technologies: ["LakeFS", "Dataiku"],
+    images: ["/mlops.png"],
+  },
+  {
+    id: "eda-formula1",
+    title: "EDA on Formula 1 Dataset",
+    origin: "University",
+    category: "Data Science",
+    description:
+      "Exploratory Data Analysis on a dataset containing Formula 1 race data.",
+    technologies: ["Python", "Pandas", "Altair"],
+    images: ["/EDA.png"],
+  },
+  {
+    id: "tinyx",
+    title: "TinyX",
+    origin: "University",
+    category: "Application",
+    description:
+      "Backend of a minimalist X (Twitter-like) social media platform.",
     technologies: [
-      "Next.js",
-      "TypeScript",
-      "React",
-      "Tailwind CSS",
-      "WebSocket",
-      "D3.js",
+      "Java",
+      "Redis",
+      "Kubernetes",
+      "Maven",
+      "MongoDB",
+      "Elasticsearch",
+      "Neo4j",
     ],
-    images: [
-      "/projects/racing-dashboard-1.png",
-      "/projects/racing-dashboard-2.png",
-    ],
-    demoUrl: "https://racing-dashboard.demo.com",
-    githubUrl: "https://github.com/yourusername/racing-dashboard",
     featured: true,
-    startDate: new Date("2024-01-01"),
-    endDate: new Date("2024-06-30"),
+    images: ["/tinyx.png"],
   },
   {
-    id: "project2",
-    title: "E-Commerce Platform",
-    description: "Full-stack e-commerce solution with payment integration",
-    longDescription:
-      "Modern e-commerce platform with Stripe integration, inventory management, and admin dashboard.",
-    technologies: ["React", "Node.js", "Express", "MongoDB", "Stripe", "Redux"],
-    images: ["/projects/ecommerce-1.png", "/projects/ecommerce-2.png"],
-    demoUrl: "https://ecommerce-demo.com",
-    githubUrl: "https://github.com/yourusername/ecommerce",
-    featured: true,
-    startDate: new Date("2023-06-01"),
-    endDate: new Date("2023-12-31"),
+    id: "testing-platform",
+    title: "Testing platform",
+    origin: "Professional",
+    category: "Web",
+    description:
+      "Internal platform for creating and managing technical tests for developers and testers.",
+    technologies: ["React", "TypeScript", "Node.js", "PostgreSQL"],
+    images: ["/tests.png"],
   },
   {
-    id: "project3",
-    title: "Task Management App",
-    description: "Collaborative task management tool with real-time updates",
-    technologies: ["Vue.js", "Firebase", "Tailwind CSS"],
-    images: ["/projects/task-app-1.png"],
-    demoUrl: "https://task-app.demo.com",
-    githubUrl: "https://github.com/yourusername/task-app",
-    featured: false,
-    startDate: new Date("2023-01-01"),
-    endDate: new Date("2023-03-31"),
+    id: "skiexplorer",
+    title: "SkiExplorer",
+    origin: "Personal",
+    category: "Web",
+    description:
+      "Ski resort recommendation platform powered by live weather data and a multi-criteria filtering engine.",
+    technologies: ["Next.js", "Tailwind", "Weather APIs"],
+    images: ["/SkiExplorer.png"],
+  },
+  {
+    id: "tiger-compiler",
+    title: "Tiger Compiler",
+    origin: "University",
+    category: "Application",
+    description:
+      "End-to-end compiler for the Tiger language: lexical/syntax analysis, AST generation, and memory optimisation.",
+    technologies: ["C", "Flex/Bison", "LLVM"],
+    images: ["/images.png"],
+  },
+  {
+    id: "42sh",
+    title: "42sh",
+    origin: "University",
+    category: "Application",
+    description:
+      "Robust POSIX shell with pipes, redirections, and job control designed for system maintenance.",
+    technologies: ["C", "Make", "Unit testing"],
+    images: ["/42sh.png"],
+    featured: true,
+  },
+  {
+    id: "mini-projects-c",
+    title: "Mini Projects",
+    origin: "University",
+    category: "Application",
+    description:
+      "Series of C mini-projects to strengthen fundamentals: data structures, networking, and algorithms.",
+    technologies: ["C", "Sockets", "Valgrind"],
+    images: ["/C_Programming_Language.png"],
+  },
+  {
+    id: "intranet-ingeurop",
+    title: "Intranet ING'EUROP",
+    origin: "Professional",
+    category: "Web",
+    description:
+      "Responsive redesign of the intranet with new real-time reporting modules for operational teams.",
+    technologies: ["PHP", "Symfony", "Bootstrap"],
+    images: ["/homePage.png"],
+  },
+  {
+    id: "gghb-performance",
+    title: "GGHB Performance",
+    origin: "Professional",
+    category: "Web",
+    description:
+      "E-commerce performance sprint: Core Web Vitals audit, caching, and conversion-oriented UX redesign.",
+    technologies: ["Laravel", "MySQL", "Redis"],
+    images: ["/hand.png"],
+  },
+  {
+    id: "ms-motors",
+    title: "MS Motors",
+    origin: "Professional",
+    category: "Web",
+    description:
+      "Fleet management app for a performance car dealership: orders tracking, CRM, and financial exports.",
+    technologies: ["Windev", "SQL Server", "Docker"],
+    images: ["/home_page.png"],
   },
 ];

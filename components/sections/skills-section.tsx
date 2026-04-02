@@ -139,7 +139,9 @@ export function SkillsSection() {
 
                     <div className="relative flex flex-col items-center text-center space-y-3">
                       <div className="transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-                        {getSkillIcon(skill.id)}
+                        <div className="w-10 h-10">
+                          {getSkillIcon(skill.id)}
+                        </div>
                       </div>
                       <h4 className="text-sm font-semibold text-tertiary-dark dark:text-slate-100 group-hover:text-primary transition-colors duration-300">
                         {skill.name}
