@@ -1,86 +1,437 @@
 {
   "projects": [
     {
-      "id": "orbit-deploy",
+      "id": "f1-simulator",
+      "origin": "Personal",
+      "category": "Application",
+      "stack": [
+        "Next.js",
+        "Tailwind",
+        "Microservices",
+        "Redis",
+        "Python"
+      ],
+      "image": "/f1-simulator.png",
+      "title": {
+        "fr": "Simulateur F1 IA",
+        "en": "F1 AI Simulator"
+      },
+      "description": {
+        "fr": "Plateforme de simulation F1 haute fidélité utilisant une architecture microservices.",
+        "en": "High-fidelity F1 simulation platform using a microservices architecture."
+      }
+    },
+    {
+      "id": "GeckoEvo",
+      "origin": "Personal",
+      "category": "Application",
+      "stack": [
+        "Rust",
+        "Physics Engine",
+        "Genetic Algorithms",
+        "AI"
+      ],
+      "image": "/gecko-evo.png",
+      "title": {
+        "fr": "GeckoEvo",
+        "en": "GeckoEvo"
+      },
+      "description": {
+        "fr": "Simulateur d'évolution artificielle où des créatures biomécaniques apprennent à grimper via des algorithmes génétiques, reposant sur un moteur physique sur-mesure développé intégralement pour gérer la locomotion et l'adhérence.",
+        "en": "Artificial evolution simulator where biomechanical creatures learn to climb via genetic algorithms, built on a custom physics engine developed from scratch to handle locomotion and grip."
+      }
+    },
+    {
+      "id": "NeuroRacer",
+      "origin": "Personal",
+      "category": "Web",
+      "stack": [
+        "Next.js 14",
+        "FastAPI",
+        "Python",
+        "Neuroevolution",
+        "AI"
+      ],
+      "image": "/NeuroRacer.png",
+      "github": "https://github.com/akc0r/NeuroRacer",
+      "title": {
+        "fr": "NeuroRacer",
+        "en": "NeuroRacer"
+      },
+      "description": {
+        "fr": "Simulation de conduite autonome full-stack (Next.js 14, FastAPI) où des agents apprennent à conduire par neuroévolution. Implémentation des algorithmes génétiques pour l'entraînement des agents et dashboard de monitoring temps réel de leurs performances.",
+        "en": "Full-stack autonomous driving simulation (Next.js 14, FastAPI) where agents learn to drive through neuroevolution. Implementation of genetic algorithms for agent training and real-time performance monitoring dashboard."
+      }
+    },
+    {
+      "id": "LogixPack",
+      "origin": "Personal",
+      "category": "Application",
+      "stack": [
+        "Python",
+        "OR-Tools",
+        "CP-SAT",
+        "Operations Research",
+        "Logistics"
+      ],
+      "image": "/logix-pack.png",
+      "github": "https://github.com/akc0r/LogixPack",
+      "title": {
+        "fr": "LogixPack",
+        "en": "LogixPack — Optimisation Logistique"
+      },
+      "description": {
+        "fr": "Conception et implémentation d'une solution hybride (Python, OR-Tools) pour résoudre des problèmes NP-difficiles de chargement sous contraintes LIFO, combinant Programmation par Contraintes (CP-SAT) et heuristiques ad-hoc (First Fit Decreasing, Space Management).",
+        "en": "Design and implementation of a hybrid solution (Python, OR-Tools) to solve NP-hard loading problems under LIFO constraints, combining Constraint Programming (CP-SAT) and ad-hoc heuristics (First Fit Decreasing, Space Management)."
+      }
+    },
+    {
+      "id": "budget-saas",
       "origin": "Personal",
       "category": "Web",
       "stack": [
         "Next.js",
-        "Kubernetes",
-        "Docker",
-        "Go"
+        "Tailwind",
+        "PostgreSQL"
       ],
+      "image": "/budget-saas.png",
       "title": {
-        "fr": "OrbitDeploy",
-        "en": "OrbitDeploy"
+        "fr": "SaaS de Gestion de Budget",
+        "en": "Budget Management SaaS"
       },
       "description": {
-        "fr": "Plateforme de deploiement automatise pour applications conteneurisees. Interface intuitive et monitoring en temps reel.",
-        "en": "Automated deployment platform for containerized applications. Intuitive interface and real-time monitoring."
-      },
-      "github": "https://github.com/username/orbit-deploy",
-      "demo": "https://orbit-deploy.demo.com"
+        "fr": "Application moderne de suivi financier personnel avec tableaux de bord analytiques.",
+        "en": "Modern personal finance tracking application with analytical dashboards."
+      }
     },
     {
-      "id": "stellar-analytics",
+      "id": "eink-display",
+      "origin": "University",
+      "category": "Application",
+      "stack": [
+        "Next.js",
+        "Tailwind",
+        "C#",
+        "PostgreSQL"
+      ],
+      "image": "/e-ink-display.png",
+      "title": {
+        "fr": "Système d'Affichage E-Ink",
+        "en": "E-Ink Display System"
+      },
+      "description": {
+        "fr": "Connectivité IoT pour l'affichage dynamique de données sur écrans basse consommation.",
+        "en": "IoT connectivity for dynamic data display on ultra-low power E-Ink screens."
+      }
+    },
+    {
+      "id": "market-prediction",
       "origin": "University",
       "category": "Data Science",
       "stack": [
         "Python",
-        "TensorFlow",
-        "FastAPI",
-        "React"
+        "PyTorch",
+        "Pandas"
       ],
+      "image": "/market-prediction.png",
+      "github": "https://github.com/akc0r/Deep-stonks",
       "title": {
-        "fr": "Stellar Analytics",
-        "en": "Stellar Analytics"
+        "fr": "Prédictions Boursières Match-AI",
+        "en": "Stock Predictions Match-AI"
       },
       "description": {
-        "fr": "Dashboard de visualisation de donnees avec IA predictive. Analyse de grandes quantites de donnees en temps reel.",
-        "en": "Data visualization dashboard with predictive AI. Real-time analysis of large data volumes."
-      },
-      "github": "https://github.com/username/stellar-analytics"
+        "fr": "Modèles de Deep Learning (LSTM/Transformers) pour l'analyse et la prédiction de marchés financiers.",
+        "en": "Deep Learning models (LSTM/Transformers) for financial market analysis and prediction."
+      }
     },
     {
-      "id": "quantum-chat",
-      "origin": "Personal",
-      "category": "Application",
-      "stack": [
-        "React Native",
-        "Node.js",
-        "WebSocket",
-        "PostgreSQL"
-      ],
-      "title": {
-        "fr": "QuantumChat",
-        "en": "QuantumChat"
-      },
-      "description": {
-        "fr": "Application de messagerie chiffree de bout en bout avec protocoles cryptographiques modernes.",
-        "en": "End-to-end encrypted messaging app with modern cryptographic protocols."
-      },
-      "github": "https://github.com/username/quantum-chat"
-    },
-    {
-      "id": "nebula-ai",
-      "origin": "Professional",
-      "category": "Application",
+      "id": "ero2-optimization",
+      "origin": "University",
+      "category": "Data Science",
       "stack": [
         "Python",
-        "OpenAI",
-        "LangChain",
-        "Docker"
+        "Queuing Theory",
+        "Linear Programming"
       ],
+      "image": "/operations-research.png",
       "title": {
-        "fr": "Nebula AI",
-        "en": "Nebula AI"
+        "fr": "Optimisation ERO2",
+        "en": "ERO2 Optimization"
       },
       "description": {
-        "fr": "Assistant IA pour review de code automatisee. Detection de vulnerabilites et suggestions d'ameliorations.",
-        "en": "AI assistant for automated code review. Vulnerability detection and improvement suggestions."
+        "fr": "Recherche opérationnelle appliquant la programmation linéaire à des problèmes industriels.",
+        "en": "Operations research applying linear programming to complex industrial problems."
+      }
+    },
+    {
+      "id": "digital-transformation",
+      "origin": "University",
+      "category": "Web",
+      "stack": [
+        "Strategy",
+        "Architecture"
+      ],
+      "image": "/consulting.png",
+      "title": {
+        "fr": "Audit Transformation Digitale",
+        "en": "Digital Transformation Audit"
       },
-      "github": "https://github.com/username/nebula-ai",
-      "demo": "https://nebula-ai.demo.com"
+      "description": {
+        "fr": "Conseil en architecture d'entreprise et stratégie de modernisation des systèmes d'information.",
+        "en": "Enterprise architecture consulting and information systems modernization strategy."
+      }
+    },
+    {
+      "id": "leach-simulation",
+      "origin": "University",
+      "category": "Data Science",
+      "stack": [
+        "Python",
+        "SimPy",
+        "Next.js"
+      ],
+      "image": "/leach.png",
+      "demo": "",
+      "title": {
+        "fr": "Simulation Protocol LEACH",
+        "en": "LEACH Protocol Simulation"
+      },
+      "description": {
+        "fr": "Analyse de performance de réseaux de capteurs sans-fil via simulation événementielle.",
+        "en": "Performance analysis of wireless sensor networks (WSN) via event-driven simulation."
+      }
+    },
+    {
+      "id": "mlops-pipeline",
+      "origin": "University",
+      "category": "Data Science",
+      "stack": [
+        "LakeFS",
+        "Dataiku"
+      ],
+      "image": "/mlops.png",
+      "title": {
+        "fr": "Pipeline MLOps Déployé",
+        "en": "Deployed MLOps Pipeline"
+      },
+      "description": {
+        "fr": "Automatisation du cycle de vie des modèles ML avec versioning de données via LakeFS.",
+        "en": "Automation of the ML model lifecycle with data versioning via LakeFS."
+      }
+    },
+    {
+      "id": "tinyx",
+      "origin": "University",
+      "category": "Application",
+      "stack": [
+        "Java",
+        "Redis",
+        "Kubernetes",
+        "Maven",
+        "MongoDB",
+        "Elasticsearch",
+        "Neo4j"
+      ],
+      "image": "/tinyx.png",
+      "title": {
+        "fr": "TinyX",
+        "en": "TinyX"
+      },
+      "description": {
+        "fr": "Architecture distribuée combinant plusieurs types de bases de données pour la scalabilité.",
+        "en": "Distributed architecture combining multiple database types for high scalability."
+      }
+    },
+    {
+      "id": "skiexplorer",
+      "origin": "Personal",
+      "category": "Web",
+      "stack": [
+        "Next.js",
+        "Tailwind",
+        "Weather APIs"
+      ],
+      "image": "/SkiExplorer.png",
+      "title": {
+        "fr": "SkiExplorer",
+        "en": "SkiExplorer"
+      },
+      "description": {
+        "fr": "Application météo et info-stations en temps réel pour les amateurs de ski.",
+        "en": "Real-time weather and resort information application for ski enthusiasts."
+      }
+    },
+    {
+      "id": "volleyball-intranet",
+      "origin": "Personal",
+      "category": "Web",
+      "stack": [
+        "Next.js",
+        "Tailwind",
+        "PostgreSQL"
+      ],
+      "image": "/volleyball-intranet.png",
+      "title": {
+        "fr": "Intranet Club de Volley",
+        "en": "Volleyball Club Intranet"
+      },
+      "description": {
+        "fr": "Système de gestion interne pour clubs sportifs, gérant les membres et les entraînements.",
+        "en": "Internal management system for sports clubs, managing members and training sessions."
+      }
+    },
+    {
+      "id": "tiger-compiler",
+      "origin": "University",
+      "category": "Application",
+      "stack": [
+        "C",
+        "Flex/Bison",
+        "LLVM"
+      ],
+      "image": "/images.png",
+      "title": {
+        "fr": "Compilateur Tiger",
+        "en": "Tiger Compiler"
+      },
+      "description": {
+        "fr": "Implémentation complète d'un compilateur pour le langage Tiger vers LLVM IR.",
+        "en": "Full implementation of a compiler for the Tiger language targeting LLVM IR."
+      }
+    },
+    {
+      "id": "42sh",
+      "origin": "University",
+      "category": "Application",
+      "stack": [
+        "C",
+        "Make",
+        "Unit testing"
+      ],
+      "image": "/42sh.png",
+      "title": {
+        "fr": "42sh (Unix Shell)",
+        "en": "42sh (Unix Shell)"
+      },
+      "description": {
+        "fr": "Développement d'un interpréteur de commandes Unix complet avec gestion des pipes et redirections.",
+        "en": "Development of a complete Unix command interpreter with pipes and redirections management."
+      }
+    },
+    {
+      "id": "eda-formula1",
+      "origin": "University",
+      "category": "Data Science",
+      "stack": [
+        "Python",
+        "Pandas",
+        "Altair"
+      ],
+      "image": "/EDA.png",
+      "title": {
+        "fr": "Analyse de Données F1",
+        "en": "F1 Data Analysis"
+      },
+      "description": {
+        "fr": "Analyse exploratoire de vastes jeux de données historiques de Formule 1.",
+        "en": "Exploratory data analysis of extensive historical Formula 1 datasets."
+      }
+    },
+    {
+      "id": "mini-projects",
+      "origin": "University",
+      "category": "Application",
+      "stack": [
+        "C",
+        "Sockets",
+        "Valgrind"
+      ],
+      "image": "/C_Programming_Language.png",
+      "title": {
+        "fr": "Projets Système C",
+        "en": "C System Projects"
+      },
+      "description": {
+        "fr": "Collection d'outils système (client/serveur TCP, gestion mémoire) développés en C.",
+        "en": "Collection of system tools (TCP client/server, memory management) developed in C."
+      }
+    },
+    {
+      "id": "testing-platform",
+      "origin": "Professional",
+      "category": "Web",
+      "stack": [
+        "React",
+        "TypeScript",
+        "Node.js",
+        "PostgreSQL"
+      ],
+      "image": "/tests.png",
+      "title": {
+        "fr": "Plateforme de Tests QA",
+        "en": "QA Testing Platform"
+      },
+      "description": {
+        "fr": "Outil interne de gestion de campagnes de tests et d'automatisation d'assurance qualité.",
+        "en": "Internal tool for managing test campaigns and quality assurance automation."
+      }
+    },
+    {
+      "id": "intranet-ingeuro",
+      "origin": "Professional",
+      "category": "Web",
+      "stack": [
+        "PHP",
+        "Symfony",
+        "Bootstrap"
+      ],
+      "image": "/homePage.png",
+      "title": {
+        "fr": "Intranet ING'EURO",
+        "en": "ING'EURO Intranet"
+      },
+      "description": {
+        "fr": "Refonte complète d'une plateforme métier pour améliorer l'expérience utilisateur.",
+        "en": "Full refactoring of a business platform to improve user experience and responsiveness."
+      }
+    },
+    {
+      "id": "gghb-performance",
+      "origin": "Professional",
+      "category": "Web",
+      "stack": [
+        "Laravel",
+        "MySQL",
+        "Redis"
+      ],
+      "image": "/hand.png",
+      "title": {
+        "fr": "GGHB Performance",
+        "en": "GGHB Performance"
+      },
+      "description": {
+        "fr": "Application de suivi de performance et statistiques pour le club de handball GGHB.",
+        "en": "Performance tracking and statistics application for the GGHB handball club."
+      }
+    },
+    {
+      "id": "ms-motors",
+      "origin": "Professional",
+      "category": "Web",
+      "stack": [
+        "Windev",
+        "SQL Server",
+        "Docker"
+      ],
+      "image": "/home_page.png",
+      "title": {
+        "fr": "Système de Gestion MS Motors",
+        "en": "MS Motors Management System"
+      },
+      "description": {
+        "fr": "Outil de gestion d'inventaire et de vente pour le secteur automobile.",
+        "en": "Inventory and sales management tool for the automotive sector."
+      }
     }
   ]
 }

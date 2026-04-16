@@ -1,71 +1,74 @@
 {
   "experiences": [
     {
+      "sortDate": "2026-02",
       "title": {
-        "fr": "Developpeur Full-Stack (Stage)",
-        "en": "Full-Stack Developer (Internship)"
+        "fr": "Développeur Consultant",
+        "en": "Consultant Developer"
       },
-      "company": "Tech Innovate",
-      "period": "Jan 2025 - Jun 2025",
-      "location": "Paris, France",
+      "company": "AMA European Consulting",
+      "period": "Février 2026 — Présent",
+      "location": "Bruxelles, Belgique",
       "bullets": [
         {
-          "fr": "Developpement d'une plateforme SaaS avec React et Node.js",
-          "en": "Development of a SaaS platform with React and Node.js"
+          "fr": "Développement et amélioration de l'API Node.js/Express d'une plateforme SaaS de recrutement/CRM (parcours candidat, CRM interne, reporting, paiements) avec un module partagé de types/validations",
+          "en": "Development and improvement of a Node.js/Express API for a SaaS recruitment/CRM platform (candidate journeys, internal CRM, reporting, payments) using a shared types/validation module"
         },
         {
-          "fr": "Mise en place de pipelines CI/CD avec GitHub Actions",
-          "en": "Implementation of CI/CD pipelines with GitHub Actions"
+          "fr": "Mise en place d'un pipeline Jenkins CI/CD complet : gestion des dépendances privées, tests/build, versioning Docker, publication npm et déploiements automatisés par release tags",
+          "en": "Implementation of a comprehensive Jenkins CI/CD pipeline: private dependency management, test/build, Docker versioning, npm publication, and automated deployments via release tags"
         },
         {
-          "fr": "Optimisation des performances reduisant le temps de chargement de 40%",
-          "en": "Performance optimization reducing load time by 40%"
+          "fr": "Extension du module de matching IA (OpenAI API) : refonte du prompt engineering et amélioration de la pertinence des suggestions candidats",
+          "en": "Expansion of the AI matching module (OpenAI API): prompt engineering refactoring and enhancement of candidate suggestion relevance"
         }
       ]
     },
     {
+      "sortDate": "2024-09",
       "title": {
-        "fr": "Developpeur Backend (Stage)",
-        "en": "Backend Developer (Internship)"
+        "fr": "Stagiaire Développeur Full-stack",
+        "en": "Full-stack developer intern"
       },
-      "company": "DataFlow Systems",
-      "period": "Jul 2024 - Dec 2024",
-      "location": "Lyon, France",
+      "company": "Elipce",
+      "period": "Septembre 2024 — Janvier 2025",
+      "location": "Valence, France",
       "bullets": [
         {
-          "fr": "Conception d'APIs RESTful avec Python et FastAPI",
-          "en": "Design of RESTful APIs with Python and FastAPI"
+          "fr": "Cahier des charges, spécifications fonctionnelles et plan de tests",
+          "en": "Gathered requirements, authored functional specs, and designed the test plan"
         },
         {
-          "fr": "Integration de services AWS (Lambda, S3, RDS)",
-          "en": "Integration of AWS services (Lambda, S3, RDS)"
+          "fr": "Éditeur de documents collaboratifs (React, Node.js, WebSockets) avec synchro temps réel",
+          "en": "Built a collaborative document editor (React, Node.js, WebSockets) with real-time sync"
         },
         {
-          "fr": "Implementation de tests automatises avec pytest",
-          "en": "Implementation of automated tests with pytest"
+          "fr": "Déploiement sécurisé avec Docker, pipelines CI et bonnes pratiques de sécurité",
+          "en": "Hardened deployment with Docker images, CI pipelines, and security best practices"
         }
       ]
     },
     {
+      "sortDate": "2023-03",
       "title": {
-        "fr": "Lead Developpeur (Projet Associatif)",
-        "en": "Lead Developer (Student Project)"
+        "fr": "Stagiaire Développeur",
+        "en": "Developer intern"
       },
-      "company": "EPITA Projects",
-      "period": "Sep 2023 - Jun 2024",
-      "location": "Paris, France",
+      "company": "ING'EUROP",
+      "period": "Mars 2023 — Juin 2023",
+      "location": "Valence, France",
       "bullets": [
         {
-          "fr": "Direction technique d'une equipe de 5 developpeurs",
-          "en": "Technical leadership of a 5-developer team"
+          "fr": "Création d'un système de sauvegarde Windev et scripts de monitoring",
+          "en": "Created a Windev backup system and monitoring scripts"
         },
         {
-          "fr": "Architecture microservices avec Docker et Kubernetes",
-          "en": "Microservices architecture with Docker and Kubernetes"
+          "fr": "Refonte d'un intranet métier en web réactif (PHP, Bootstrap)",
+          "en": "Refactored a business intranet for responsive web (PHP, Bootstrap)"
         },
         {
-          "fr": "Gestion de projet Agile avec sprints de 2 semaines",
-          "en": "Agile project management with 2-week sprints"
+          "fr": "Support utilisateur et rédaction de documentation technique",
+          "en": "Provided user support and produced technical documentation"
         }
       ]
     }

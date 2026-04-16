@@ -2,15 +2,25 @@
   "skills": [
     { "name": "React" },
     { "name": "Next.js" },
-    { "name": "TypeScript" },
     { "name": "Tailwind CSS" },
     { "name": "Node.js" },
-    { "name": "Python" },
+    { "name": "FastAPI" },
+    { "name": "Django" },
+    { "name": ".NET" },
     { "name": "PostgreSQL" },
     { "name": "MongoDB" },
+    { "name": "Redis" },
+    { "name": "Elasticsearch" },
     { "name": "Docker" },
     { "name": "Kubernetes" },
-    { "name": "AWS" },
-    { "name": "Git" }
+    { "name": "Jenkins" },
+    { "name": "Git" },
+    { "name": "Linux" },
+    { "name": "Proxmox" },
+    { "name": "TypeScript" },
+    { "name": "Python" },
+    { "name": "C++" },
+    { "name": "C#" },
+    { "name": "Java" }
   ]
 }

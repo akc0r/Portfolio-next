@@ -1,27 +1,29 @@
 {
   "education": [
     {
+      "sortDate": "2023",
       "title": {
-        "fr": "Diplome d'Ingenieur en Informatique",
-        "en": "Master's Degree in Computer Engineering"
+        "fr": "Diplôme d'Ingénieur en Informatique",
+        "en": "Master of Engineering in Computer Science"
       },
       "school": "EPITA",
-      "period": "2020 - 2025",
+      "period": "2023 — 2026",
       "description": {
-        "fr": "Specialisation en developpement logiciel et systemes d'information. Formation complete couvrant algorithmique avancee, architecture logicielle, intelligence artificielle et cybersecurite.",
-        "en": "Specialization in software development and information systems. Comprehensive training covering advanced algorithms, software architecture, artificial intelligence, and cybersecurity."
+        "fr": "Majeure IF (Industrie du Futur) : IOT, big data, IA, génie industriel, cybersécurité, sûreté et réseaux industriels",
+        "en": "Major IF (Industry of the Future): IOT, big data, AI, industrial engineering, cybersecurity, safety and industrial networks"
       }
     },
     {
+      "sortDate": "2021",
       "title": {
-        "fr": "Baccalaureat Scientifique",
-        "en": "Scientific Baccalaureate"
+        "fr": "BUT informatique",
+        "en": "Bachelor of Science in Computer Science"
       },
-      "school": "Lycee",
-      "period": "2017 - 2020",
+      "school": "IUT de Valence",
+      "period": "2021 — 2023",
       "description": {
-        "fr": "Mention Tres Bien. Specialite Mathematiques et Sciences de l'Ingenieur.",
-        "en": "Graduated with Honors. Specialization in Mathematics and Engineering Sciences."
+        "fr": "Parcours conception, developpement et validation d'applications",
+        "en": "Track focused on application design, development, and validation."
       }
     }
   ]

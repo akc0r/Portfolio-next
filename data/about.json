@@ -1,19 +1,19 @@
 {
   "about": {
-    "fr": "Passionne par l'innovation technologique et l'exploration de nouvelles frontieres du developpement logiciel. Diplome d'EPITA, je combine une expertise technique solide avec une curiosite insatiable pour les technologies emergentes. Mon objectif : concevoir des solutions qui repoussent les limites du possible, comme les ingenieurs qui ont rendu possible la mission Artemis.",
-    "en": "Passionate about technological innovation and exploring new frontiers in software development. As an EPITA graduate, I combine solid technical expertise with an insatiable curiosity for emerging technologies. My goal: designing solutions that push the boundaries of what's possible, like the engineers who made the Artemis mission a reality."
+    "fr": "Ingénieur EPITA avec une appétence pour les architectures backend et les systèmes distribués, à la croisée du dev et de l'ops. Orienté vers des rôles SRE ou AI Engineering dans des environnements techniques exigeants.",
+    "en": "EPITA engineer with a strong interest in backend architectures and distributed systems, bridging the gap between development and operations. Aiming for SRE or AI Engineering roles in demanding technical environments."
   },
   "interests": [
     {
       "title": {
-        "fr": "Aerospatiale",
-        "en": "Aerospace"
+        "fr": "Volley-ball",
+        "en": "Volleyball"
       },
       "detail": {
-        "fr": "Fascine par l'exploration spatiale",
-        "en": "Fascinated by space exploration"
+        "fr": "Passionne de volley-ball",
+        "en": "Volleyball enthusiast"
       },
-      "icon": "rocket"
+      "icon": "volleyball"
     },
     {
       "title": {
@@ -25,6 +25,17 @@
         "en": "F1 enthusiast and automotive engineering fan"
       },
       "icon": "car"
+    },
+    {
+      "title": {
+        "fr": "Aerospatiale",
+        "en": "Aerospace"
+      },
+      "detail": {
+        "fr": "Fascine par l'exploration spatiale",
+        "en": "Fascinated by space exploration"
+      },
+      "icon": "rocket"
     },
     {
       "title": {
