@@ -1,54 +1,56 @@
-import type { Metadata } from "next";
-import type { ReactNode } from "react";
-import { Geist_Mono, Manrope, Sora } from "next/font/google";
-import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
+import type { Metadata, Viewport } from 'next'
+import { Space_Grotesk, JetBrains_Mono } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/next'
+import './globals.css'
+import { LanguageProvider } from '@/contexts/language-context'
+import { ThemeProvider } from '@/contexts/theme-context'
 
-const manrope = Manrope({
-  variable: "--font-manrope",
+const spaceGrotesk = Space_Grotesk({ 
   subsets: ["latin"],
-});
+  variable: "--font-space-grotesk"
+})
 
-const sora = Sora({
-  variable: "--font-sora",
+const jetbrainsMono = JetBrains_Mono({ 
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+  variable: "--font-jetbrains-mono"
+})
 
 export const metadata: Metadata = {
-  title: "Julien Glin | Software Engineer in Training",
-  description:
-    "Portfolio of Julien Glin, final-year EPITA engineering student focused on full-stack development, high-reliability systems, and motorsport-inspired products.",
-  metadataBase: new URL("https://julien-glin.dev"),
+  title: 'Portfolio | Ingenieur Informatique EPITA',
+  description: 'Portfolio professionnel d\'un ingenieur informatique diplome d\'EPITA. Backend, systemes distribues, DevOps et technologies modernes.',
+  keywords: ['portfolio', 'ingenieur', 'informatique', 'EPITA', 'backend', 'DevOps', 'SRE', 'full-stack', 'React', 'Next.js'],
+  authors: [{ name: 'Julien Glin' }],
   openGraph: {
-    title: "Julien Glin | EPITA Portfolio",
-    description:
-      "Explore the projects, experience, and services of Julien Glin, a future software engineer driven by motorsport performance.",
-    locale: "en_US",
-    type: "website",
+    title: 'Portfolio | Ingenieur Informatique EPITA',
+    description: 'Portfolio professionnel - Ingenieur informatique EPITA',
+    type: 'website',
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Julien Glin | EPITA Software Engineer",
-    description:
-      "Projects, experience, and services delivered by Julien Glin, a motorsport-inspired software engineer in training.",
-  },
-};
+}
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#fafafa' },
+    { media: '(prefers-color-scheme: dark)', color: '#0d0f14' },
+  ],
+  width: 'device-width',
+  initialScale: 1,
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: ReactNode;
+  children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${manrope.variable} ${sora.variable} ${geistMono.variable} antialiased`}>
-        <ThemeProvider>{children}</ThemeProvider>
+    <html lang="fr" className={`${spaceGrotesk.variable} ${jetbrainsMono.variable}`} suppressHydrationWarning>
+      <body className="font-sans antialiased bg-background text-foreground">
+        <ThemeProvider>
+          <LanguageProvider>
+            {children}
+          </LanguageProvider>
+        </ThemeProvider>
+        {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
-  );
+  )
 }

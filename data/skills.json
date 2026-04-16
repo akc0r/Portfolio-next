@@ -1,0 +1,79 @@
+{
+  "categories": [
+    {
+      "title": { "fr": "Frontend", "en": "Frontend" },
+      "skills": [
+        { "name": "React" },
+        { "name": "Next.js" },
+        { "name": "TypeScript" },
+        { "name": "Tailwind CSS" }
+      ]
+    },
+    {
+      "title": { "fr": "Backend", "en": "Backend" },
+      "skills": [
+        { "name": "Node.js" },
+        { "name": "FastAPI" },
+        { "name": "Django" },
+        { "name": ".NET" }
+      ]
+    },
+    {
+      "title": { "fr": "Bases de donnees", "en": "Databases" },
+      "skills": [
+        { "name": "PostgreSQL" },
+        { "name": "MongoDB" },
+        { "name": "Redis" },
+        { "name": "Elasticsearch" }
+      ]
+    },
+    {
+      "title": { "fr": "DevOps & Infra", "en": "DevOps & Infra" },
+      "skills": [
+        { "name": "Docker" },
+        { "name": "Kubernetes" },
+        { "name": "Jenkins" },
+        { "name": "Linux" },
+        { "name": "Proxmox" },
+        { "name": "Git" }
+      ]
+    },
+    {
+      "title": { "fr": "Langages", "en": "Languages" },
+      "skills": [
+        { "name": "Python" },
+        { "name": "C" },
+        { "name": "C++" },
+        { "name": "C#" },
+        { "name": "Java" },
+        { "name": "Rust" }
+      ]
+    }
+  ],
+  "skills": [
+    { "name": "React" },
+    { "name": "Next.js" },
+    { "name": "TypeScript" },
+    { "name": "Tailwind CSS" },
+    { "name": "Node.js" },
+    { "name": "FastAPI" },
+    { "name": "Django" },
+    { "name": ".NET" },
+    { "name": "PostgreSQL" },
+    { "name": "MongoDB" },
+    { "name": "Redis" },
+    { "name": "Elasticsearch" },
+    { "name": "Docker" },
+    { "name": "Kubernetes" },
+    { "name": "Jenkins" },
+    { "name": "Linux" },
+    { "name": "Proxmox" },
+    { "name": "Git" },
+    { "name": "Python" },
+    { "name": "C" },
+    { "name": "C++" },
+    { "name": "C#" },
+    { "name": "Java" },
+    { "name": "Rust" }
+  ]
+}

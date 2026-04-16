@@ -1,0 +1,62 @@
+{
+  "navigation": {
+    "about": {
+      "fr": "A propos",
+      "en": "About"
+    },
+    "skills": {
+      "fr": "Competences",
+      "en": "Skills"
+    },
+    "experience": {
+      "fr": "Experience",
+      "en": "Experience"
+    },
+    "education": {
+      "fr": "Formation",
+      "en": "Education"
+    },
+    "projects": {
+      "fr": "Projets",
+      "en": "Projects"
+    },
+    "interests": {
+      "fr": "Interets",
+      "en": "Interests"
+    },
+    "contact": {
+      "fr": "Contact",
+      "en": "Contact"
+    }
+  },
+  "ui": {
+    "downloadCv": {
+      "fr": "Telecharger CV",
+      "en": "Download CV"
+    },
+    "contactMe": {
+      "fr": "Me contacter",
+      "en": "Contact me"
+    },
+    "viewProject": {
+      "fr": "Voir le projet",
+      "en": "View project"
+    },
+    "viewDemo": {
+      "fr": "Voir la demo",
+      "en": "View demo"
+    },
+    "present": {
+      "fr": "Present",
+      "en": "Present"
+    },
+    "getInTouch": {
+      "fr": "Restons en contact",
+      "en": "Get in touch"
+    },
+    "menu": {
+      "fr": "Menu",
+      "en": "Menu"
+    }
+  }
+}

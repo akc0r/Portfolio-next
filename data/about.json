@@ -1,0 +1,52 @@
+{
+  "about": {
+    "fr": "Ingénieur EPITA avec une appétence pour les architectures backend et les systèmes distribués, à la croisée du dev et de l'ops. Orienté vers des rôles SRE ou AI Engineering dans des environnements techniques exigeants.",
+    "en": "EPITA engineer with a strong interest in backend architectures and distributed systems, bridging the gap between development and operations. Aiming for SRE or AI Engineering roles in demanding technical environments."
+  },
+  "interests": [
+    {
+      "title": {
+        "fr": "Volley-ball",
+        "en": "Volleyball"
+      },
+      "detail": {
+        "fr": "Passionne de volley-ball",
+        "en": "Volleyball enthusiast"
+      },
+      "icon": "volleyball"
+    },
+    {
+      "title": {
+        "fr": "Sport Automobile",
+        "en": "Motorsport"
+      },
+      "detail": {
+        "fr": "Passione de F1 et d'ingenierie automobile",
+        "en": "F1 enthusiast and automotive engineering fan"
+      },
+      "icon": "car"
+    },
+    {
+      "title": {
+        "fr": "Aerospatiale",
+        "en": "Aerospace"
+      },
+      "detail": {
+        "fr": "Fascine par l'exploration spatiale",
+        "en": "Fascinated by space exploration"
+      },
+      "icon": "rocket"
+    },
+    {
+      "title": {
+        "fr": "Technologies",
+        "en": "Technology"
+      },
+      "detail": {
+        "fr": "Toujours a l'affut des dernieres innovations",
+        "en": "Always on the lookout for the latest innovations"
+      },
+      "icon": "cpu"
+    }
+  ]
+}

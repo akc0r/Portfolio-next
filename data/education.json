@@ -1,0 +1,30 @@
+{
+  "education": [
+    {
+      "sortDate": "2023",
+      "title": {
+        "fr": "Diplôme d'Ingénieur en Informatique",
+        "en": "Master of Engineering in Computer Science"
+      },
+      "school": "EPITA",
+      "period": "2023 — 2026",
+      "description": {
+        "fr": "Majeure IF (Industrie du Futur) : IOT, big data, IA, génie industriel, cybersécurité, sûreté et réseaux industriels",
+        "en": "Major IF (Industry of the Future): IOT, big data, AI, industrial engineering, cybersecurity, safety and industrial networks"
+      }
+    },
+    {
+      "sortDate": "2021",
+      "title": {
+        "fr": "BUT informatique",
+        "en": "Bachelor of Science in Computer Science"
+      },
+      "school": "IUT de Valence",
+      "period": "2021 — 2023",
+      "description": {
+        "fr": "Parcours conception, developpement et validation d'applications",
+        "en": "Track focused on application design, development, and validation."
+      }
+    }
+  ]
+}

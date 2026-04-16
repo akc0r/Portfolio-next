@@ -1,0 +1,64 @@
+{
+  "personal": {
+    "name": "Julien Glin",
+    "title": {
+      "fr": "Ingenieur Informatique",
+      "en": "Software Engineer"
+    },
+    "tagline": {
+      "fr": "Diplome EPITA | Concevoir des solutions performantes et scalables",
+      "en": "EPITA Graduate | Building performant and scalable solutions"
+    },
+    "email": "julien.glin@icloud.com",
+    "cvUrl": "/cv.pdf",
+    "avatar": "/avatar.jpg",
+    "location": "Lyon, France",
+    "contacts": [
+      {
+        "label": "GitHub",
+        "href": "https://github.com/akc0r",
+        "icon": "github"
+      },
+      {
+        "label": "LinkedIn",
+        "href": "https://www.linkedin.com/in/julien-glin",
+        "icon": "linkedin"
+      }
+    ]
+  },
+  "stats": [
+    {
+      "value": "5+",
+      "label": {
+        "fr": "Annees",
+        "en": "Years"
+      },
+      "detail": {
+        "fr": "de formation intensive",
+        "en": "of intensive training"
+      }
+    },
+    {
+      "value": "15+",
+      "label": {
+        "fr": "Projets",
+        "en": "Projects"
+      },
+      "detail": {
+        "fr": "deployes en production",
+        "en": "deployed to production"
+      }
+    },
+    {
+      "value": "20+",
+      "label": {
+        "fr": "Technologies",
+        "en": "Technologies"
+      },
+      "detail": {
+        "fr": "maitrisees",
+        "en": "mastered"
+      }
+    }
+  ]
+}
