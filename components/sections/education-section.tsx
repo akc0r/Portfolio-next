@@ -37,8 +37,10 @@ export function EducationSection() {
         </motion.div>
 
         <div className="space-y-6">
-          {educationData.education.map((edu, index) => (
-            <motion.div
+          {[...educationData.education]
+            .sort((a, b) => b.sortDate.localeCompare(a.sortDate))
+            .map((edu, index) => (
+              <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}

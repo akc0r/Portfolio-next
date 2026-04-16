@@ -41,8 +41,10 @@ export function ExperienceSection() {
           <div className="absolute left-6 md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-primary via-accent to-transparent" />
 
           <div className="space-y-8">
-            {experienceData.experiences.map((experience, index) => (
-              <motion.div
+            {[...experienceData.experiences]
+              .sort((a, b) => b.sortDate.localeCompare(a.sortDate))
+              .map((experience, index) => (
+                <motion.div
                 key={index}
                 initial={{ opacity: 0, x: -30 }}
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
