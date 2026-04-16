@@ -1,122 +1,89 @@
-"use client";
+"use client"
 
-import * as React from "react";
-import { useTranslations } from "next-intl";
-import {
-  IconSchool,
-  IconMapPin,
-  IconCalendar,
-  IconTrophy,
-} from "@tabler/icons-react";
-import { Card } from "@/components/ui/card";
-import { education } from "@/data/education";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion"
+import { useRef } from "react"
+import { GraduationCap, Calendar } from "lucide-react"
+import { useLanguage } from "@/contexts/language-context"
+import educationData from "@/data/education.json"
+import navigationData from "@/data/navigation.json"
 
 export function EducationSection() {
-  const t = useTranslations("education");
-  const tEdu = useTranslations("educationData");
-
-  const formatDate = (date: Date) => {
-    return new Intl.DateTimeFormat("fr-FR", {
-      month: "short",
-      year: "numeric",
-    }).format(date);
-  };
+  const { t } = useLanguage()
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section
-      id="education"
-      className="py-20 sm:py-32 bg-slate-50 dark:bg-tertiary-dark/50"
-    >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="education" className="py-24 px-6 relative z-10" ref={ref}>
+      <div className="max-w-4xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              {t("title")}
-            </span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-muted-foreground mb-4">
+            <GraduationCap className="w-4 h-4 text-primary" />
+            <span className="font-mono">{t({ fr: "Formation academique", en: "Academic Background" })}</span>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+            {t(navigationData.navigation.education)}
           </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-400">
-            {t("subtitle")}
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            {t({
+              fr: "Les fondations academiques qui ont construit mon expertise technique",
+              en: "The academic foundations that built my technical expertise"
+            })}
           </p>
         </motion.div>
 
-        <div className="max-w-4xl mx-auto space-y-8">
-          {education.map((edu, index) => (
+        <div className="space-y-6">
+          {educationData.education.map((edu, index) => (
             <motion.div
-              key={edu.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: index * 0.2, duration: 0.6 }}
+              whileHover={{ scale: 1.01 }}
+              className="glass rounded-2xl p-6 md:p-8 relative overflow-hidden group"
             >
-              <Card className="p-6 hover:shadow-lg hover:border-primary/50 transition-all">
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0">
-                    <IconSchool className="h-8 w-8 text-primary" />
-                  </div>
+              {/* Decorative gradient */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
 
-                  <div className="flex-1 space-y-4">
-                    <div>
-                      <h3 className="text-xl font-bold text-tertiary-dark dark:text-slate-100">
-                        {tEdu(`${edu.id}.degree`)}
-                      </h3>
-                      <p className="text-lg font-semibold text-primary">
-                        {tEdu(`${edu.id}.institution`)}
-                      </p>
-                    </div>
-
-                    <div className="flex flex-wrap gap-4 text-sm text-slate-600 dark:text-slate-400">
-                      <div className="flex items-center gap-1">
-                        <IconMapPin className="h-4 w-4" />
-                        {tEdu(`${edu.id}.location`)}
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <IconCalendar className="h-4 w-4" />
-                        {formatDate(edu.startDate)} - {formatDate(edu.endDate)}
-                      </div>
-                    </div>
-
-                    {tEdu(`${edu.id}.description`) && (
-                      <p className="text-tertiary-light dark:text-slate-300">
-                        {tEdu(`${edu.id}.description`)}
-                      </p>
-                    )}
-
-                    {(tEdu.raw(`${edu.id}.achievements`) as string[]).length >
-                      0 && (
-                      <div>
-                        <h4 className="text-sm font-semibold text-tertiary-dark dark:text-slate-100 mb-2 flex items-center gap-2">
-                          <IconTrophy className="h-4 w-4 text-primary" />
-                          {t("achievements")}
-                        </h4>
-                        <ul className="space-y-2">
-                          {(tEdu.raw(`${edu.id}.achievements`) as string[]).map(
-                            (achievement, i) => (
-                              <li
-                                key={i}
-                                className="text-sm text-slate-600 dark:text-slate-400 flex items-start gap-2"
-                              >
-                                <span className="text-primary mt-1">▸</span>
-                                <span>{achievement}</span>
-                              </li>
-                            )
-                          )}
-                        </ul>
-                      </div>
-                    )}
-                  </div>
+              <div className="relative z-10 flex flex-col md:flex-row gap-6">
+                {/* Icon */}
+                <div className="shrink-0">
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    animate={isInView ? { scale: 1 } : {}}
+                    transition={{ delay: index * 0.2 + 0.3, type: "spring" }}
+                    className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center"
+                  >
+                    <GraduationCap className="w-8 h-8 text-primary" />
+                  </motion.div>
                 </div>
-              </Card>
+
+                {/* Content */}
+                <div className="flex-1">
+                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-4">
+                    <div>
+                      <h3 className="font-bold text-xl mb-1">{edu.school}</h3>
+                      <p className="text-primary font-medium">{t(edu.title)}</p>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <Calendar className="w-4 h-4" />
+                      <span className="font-mono">{edu.period}</span>
+                    </div>
+                  </div>
+
+                  <p className="text-muted-foreground leading-relaxed">
+                    {t(edu.description)}
+                  </p>
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>
       </div>
     </section>
-  );
+  )
 }

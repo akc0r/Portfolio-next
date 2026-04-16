@@ -1,115 +1,53 @@
-"use client";
+"use client"
 
-import * as React from "react";
-import Link from "next/link";
-import { useTranslations } from "next-intl";
-import {
-  IconBrandGithub,
-  IconBrandLinkedin,
-  IconBrandTwitter,
-  IconHeart,
-} from "@tabler/icons-react";
-import { Separator } from "@/components/ui/separator";
-import { contacts } from "@/data/contacts";
+import { motion } from "framer-motion"
+import { Rocket, Heart } from "lucide-react"
+import { useLanguage } from "@/contexts/language-context"
+import personalData from "@/data/personal.json"
 
 export function Footer() {
-  const t = useTranslations("footer");
-
-  const socialLinks = contacts.filter((contact) =>
-    ["github", "linkedin", "twitter"].includes(contact.type)
-  );
-
-  const getSocialIcon = (type: string) => {
-    switch (type) {
-      case "github":
-        return <IconBrandGithub className="h-5 w-5" />;
-      case "linkedin":
-        return <IconBrandLinkedin className="h-5 w-5" />;
-      case "twitter":
-        return <IconBrandTwitter className="h-5 w-5" />;
-      default:
-        return null;
-    }
-  };
+  const { t } = useLanguage()
+  const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-white dark:bg-racing-asphalt border-t border-slate-200 dark:border-tertiary">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Brand */}
-          <div className="space-y-4">
-            <Link
-              href="#home"
-              className="text-2xl font-bold bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent"
-            >
-              Julien Glin
-            </Link>
-            <p className="text-sm text-slate-600 dark:text-slate-400">
-              Software Engineer in Training
-            </p>
-          </div>
+    <footer className="py-8 px-6 border-t border-border/50 relative z-10">
+      <div className="max-w-6xl mx-auto">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex items-center gap-2 text-muted-foreground"
+          >
+            <Rocket className="w-4 h-4 text-primary" />
+            <span className="text-sm">
+              {currentYear} {personalData.personal.name}
+            </span>
+          </motion.div>
 
-          {/* Quick Links */}
-          <div className="space-y-4">
-            <h3 className="text-sm font-semibold text-tertiary-dark dark:text-slate-100 uppercase tracking-wider">
-              Quick Links
-            </h3>
-            <nav className="flex flex-col space-y-2">
-              <Link
-                href="#about"
-                className="text-sm text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors"
-              >
-                About
-              </Link>
-              <Link
-                href="#projects"
-                className="text-sm text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors"
-              >
-                Projects
-              </Link>
-              <Link
-                href="#contact"
-                className="text-sm text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors"
-              >
-                Contact
-              </Link>
-            </nav>
-          </div>
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-sm text-muted-foreground flex items-center gap-1"
+          >
+            {t({ fr: "Concu avec", en: "Built with" })}
+            <Heart className="w-3 h-3 text-accent fill-accent" />
+            {t({ fr: "et Next.js", en: "and Next.js" })}
+          </motion.p>
 
-          {/* Social Links */}
-          <div className="space-y-4">
-            <h3 className="text-sm font-semibold text-tertiary-dark dark:text-slate-100 uppercase tracking-wider">
-              Connect
-            </h3>
-            <div className="flex space-x-4">
-              {socialLinks.map((link) => (
-                <a
-                  key={link.id}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors"
-                  aria-label={link.label}
-                >
-                  {getSocialIcon(link.type)}
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <Separator className="my-8" />
-
-        {/* Bottom */}
-        <div className="flex flex-col sm:flex-row items-center justify-between space-y-4 sm:space-y-0">
-          <p className="text-sm text-slate-600 dark:text-slate-400">
-            © {new Date().getFullYear()} Julien Glin. {t("rights")}.
-          </p>
-          <p className="text-sm text-slate-600 dark:text-slate-400 flex items-center">
-            {t("builtWith")} <IconHeart className="h-4 w-4 mx-1 text-primary" />
-          </p>
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-xs text-muted-foreground font-mono"
+          >
+            {t({ fr: "Mission: Innovation", en: "Mission: Innovation" })}
+          </motion.p>
         </div>
       </div>
     </footer>
-  );
+  )
 }

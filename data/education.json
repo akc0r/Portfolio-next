@@ -1,0 +1,28 @@
+{
+  "education": [
+    {
+      "title": {
+        "fr": "Diplome d'Ingenieur en Informatique",
+        "en": "Master's Degree in Computer Engineering"
+      },
+      "school": "EPITA",
+      "period": "2020 - 2025",
+      "description": {
+        "fr": "Specialisation en developpement logiciel et systemes d'information. Formation complete couvrant algorithmique avancee, architecture logicielle, intelligence artificielle et cybersecurite.",
+        "en": "Specialization in software development and information systems. Comprehensive training covering advanced algorithms, software architecture, artificial intelligence, and cybersecurity."
+      }
+    },
+    {
+      "title": {
+        "fr": "Baccalaureat Scientifique",
+        "en": "Scientific Baccalaureate"
+      },
+      "school": "Lycee",
+      "period": "2017 - 2020",
+      "description": {
+        "fr": "Mention Tres Bien. Specialite Mathematiques et Sciences de l'Ingenieur.",
+        "en": "Graduated with Honors. Specialization in Mathematics and Engineering Sciences."
+      }
+    }
+  ]
+}

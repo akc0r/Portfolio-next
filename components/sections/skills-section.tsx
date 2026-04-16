@@ -1,196 +1,117 @@
-"use client";
+"use client"
 
-import * as React from "react";
-import { useTranslations } from "next-intl";
-import { Card } from "@/components/ui/card";
-import { skills } from "@/data/skills";
-import { motion } from "framer-motion";
-import { Typescript } from "@/components/ui/svgs/typescript";
-import { ReactLight } from "@/components/ui/svgs/reactLight";
-import { Python } from "@/components/ui/svgs/python";
-import { C } from "@/components/ui/svgs/c";
-import { Java } from "@/components/ui/svgs/java";
-import { Csharp } from "@/components/ui/svgs/csharp";
-import { Nodejs } from "@/components/ui/svgs/nodejs";
-import { Tailwindcss } from "@/components/ui/svgs/tailwindcss";
-import { Django } from "@/components/ui/svgs/django";
-import { Dotnet } from "@/components/ui/svgs/dotnet";
-import { Docker } from "@/components/ui/svgs/docker";
-import { Kubernetes } from "@/components/ui/svgs/kubernetes";
-import { Git } from "@/components/ui/svgs/git";
-import { Postgresql } from "@/components/ui/svgs/postgresql";
-import { MongodbIconLight } from "@/components/ui/svgs/mongodbIconLight";
-import { Redis } from "@/components/ui/svgs/redis";
-import { NextjsLogoLight } from "@/components/ui/svgs/nextjsLogoLight";
-import { MysqlIconLight } from "@/components/ui/svgs/mysqlIconLight";
-import { Linux } from "@/components/ui/svgs/linux";
-import { Vercel } from "@/components/ui/svgs/vercel";
-import { Nginx } from "@/components/ui/svgs/nginx";
+import { motion, useInView } from "framer-motion"
+import { useRef } from "react"
+import { Code2, Server, Cloud } from "lucide-react"
+import { useLanguage } from "@/contexts/language-context"
+import skillsData from "@/data/skills.json"
+import navigationData from "@/data/navigation.json"
+import Image from "next/image"
 
-// Helper function to get skill icon SVG from svgl.app
-function getSkillIcon(skillId: string): React.ReactNode {
-  switch (skillId) {
-    case "typescript":
-      return <Typescript />;
-    case "python":
-      return <Python />;
-    case "c":
-      return <C />;
-    case "java":
-      return <Java />;
-    case "csharp":
-      return <Csharp />;
-    case "react":
-      return <ReactLight />;
-    case "nodejs":
-      return <Nodejs />;
-    case "tailwindcss":
-      return <Tailwindcss />;
-    case "django":
-      return <Django />;
-    case "dotnet":
-      return <Dotnet />;
-    case "docker":
-      return <Docker />;
-    case "kubernetes":
-      return <Kubernetes />;
-    case "git":
-      return <Git />;
-    case "postgresql":
-      return <Postgresql />;
-    case "mongodb":
-      return <MongodbIconLight />;
-    case "redis":
-      return <Redis />;
-    case "nextjs":
-      return <NextjsLogoLight />;
-    case "mysql":
-      return <MysqlIconLight />;
-    case "vercel":
-      return <Vercel />;
-    case "linux":
-      return <Linux />;
-    case "nginx":
-      return <Nginx />;
-    default:
-      return null;
-  }
+// Map skill names to their icon paths (using devicon or similar)
+const skillLogos: Record<string, string> = {
+  "React": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+  "Next.js": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+  "TypeScript": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+  "Tailwind CSS": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
+  "Node.js": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+  "Python": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+  "PostgreSQL": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+  "MongoDB": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+  "Docker": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+  "Kubernetes": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg",
+  "AWS": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+  "Git": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+  "FastAPI": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg",
+  "GraphQL": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg",
+  "JavaScript": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+  "Vue.js": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg",
+  "Go": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original-wordmark.svg",
+  "Redis": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg",
+  "MySQL": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+  "Linux": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg",
+  "Rust": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-original.svg",
+  "C": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg",
+  "C++": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg",
+  "Java": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+  "Figma": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
+  "Firebase": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
+  "TensorFlow": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg",
 }
 
 export function SkillsSection() {
-  const t = useTranslations("skills");
-
-  const technicalSkills = skills.filter(
-    (skill) => skill.category === "technical"
-  );
-  const softSkills = skills.filter((skill) => skill.category === "soft");
+  const { t } = useLanguage()
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section
-      id="skills"
-      className="py-20 sm:py-32 bg-slate-50 dark:bg-tertiary-dark/50"
-    >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="skills" className="py-24 px-6 relative z-10" ref={ref}>
+      <div className="max-w-6xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            <span className="bg-linear-to-r from-primary to-secondary bg-clip-text text-transparent animate-gradient">
-              {t("title")}
-            </span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-muted-foreground mb-4">
+            <Code2 className="w-4 h-4 text-primary" />
+            <span className="font-mono">{t({ fr: "Stack technique", en: "Tech Stack" })}</span>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+            {t(navigationData.navigation.skills)}
           </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-400">
-            {t("subtitle")}
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            {t({
+              fr: "Les technologies que je maitrise pour construire des solutions performantes et scalables",
+              en: "The technologies I master to build performant and scalable solutions"
+            })}
           </p>
         </motion.div>
 
-        <div className="space-y-12">
-          {/* Technical Skills */}
-          <div>
-            <motion.h3
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="text-2xl font-bold mb-6 text-tertiary-dark dark:text-slate-100"
-            >
-              {t("technical")}
-            </motion.h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
-              {technicalSkills.map((skill, index) => (
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="glass rounded-3xl p-8 md:p-12"
+        >
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 md:gap-8">
+            {skillsData.skills.map((skill, index) => {
+              const logoUrl = skillLogos[skill.name]
+              return (
                 <motion.div
-                  key={skill.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  whileHover={{ y: -5 }}
-                >
-                  <Card className="relative p-6 hover:shadow-2xl hover:shadow-primary/20 hover:border-primary/50 transition-all duration-300 group overflow-hidden">
-                    {/* Animated gradient border effect */}
-                    <div className="absolute inset-0 rounded-lg bg-linear-to-r from-primary/0 via-primary/10 to-secondary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-                    {/* Shimmer effect */}
-                    <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-linear-to-r from-transparent via-white/10 to-transparent" />
-
-                    <div className="relative flex flex-col items-center text-center space-y-3">
-                      <div className="transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-                        <div className="w-10 h-10">
-                          {getSkillIcon(skill.id)}
-                        </div>
-                      </div>
-                      <h4 className="text-sm font-semibold text-tertiary-dark dark:text-slate-100 group-hover:text-primary transition-colors duration-300">
-                        {skill.name}
-                      </h4>
-                    </div>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
-          {/* Soft Skills */}
-          <div>
-            <motion.h3
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="text-2xl font-bold mb-6 text-tertiary-dark dark:text-slate-100"
-            >
-              {t("soft")}
-            </motion.h3>
-            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {softSkills.map((skill, index) => (
-                <motion.div
-                  key={skill.id}
+                  key={skill.name}
                   initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  whileHover={{ scale: 1.05 }}
+                  animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                  transition={{ delay: index * 0.05, duration: 0.4 }}
+                  whileHover={{ scale: 1.05, y: -5 }}
+                  className="group relative flex flex-col items-center gap-4 p-4 rounded-2xl bg-secondary/20 hover:bg-secondary/40 border border-border/50 hover:border-primary/50 transition-all cursor-default"
                 >
-                  <Card className="relative p-6 text-center hover:shadow-xl hover:shadow-primary/20 hover:border-primary/50 transition-all duration-300 group overflow-hidden">
-                    {/* Glow effect on hover */}
-                    <div className="absolute inset-0 rounded-lg bg-linear-to-br from-primary/0 via-primary/5 to-secondary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 rounded-2xl bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
 
-                    {/* Particle effect */}
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-32 bg-primary/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="relative w-14 h-14 rounded-xl bg-background/50 flex items-center justify-center group-hover:bg-background/80 transition-colors shadow-sm">
+                    {logoUrl ? (
+                      <Image
+                        src={logoUrl}
+                        alt={skill.name}
+                        width={36}
+                        height={36}
+                        className="w-9 h-9 object-contain"
+                        unoptimized
+                      />
+                    ) : (
+                      <Code2 className="w-8 h-8 text-primary/70" />
+                    )}
+                  </div>
 
-                    <h4 className="relative text-base font-semibold text-tertiary-dark dark:text-slate-100 group-hover:text-primary transition-colors duration-300">
-                      {skill.name}
-                    </h4>
-                  </Card>
+                  <span className="relative text-sm font-semibold text-center tracking-tight">
+                    {skill.name}
+                  </span>
                 </motion.div>
-              ))}
-            </div>
+              )
+            })}
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
-  );
+  )
 }

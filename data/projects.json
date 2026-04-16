@@ -1,0 +1,86 @@
+{
+  "projects": [
+    {
+      "id": "orbit-deploy",
+      "origin": "Personal",
+      "category": "Web",
+      "stack": [
+        "Next.js",
+        "Kubernetes",
+        "Docker",
+        "Go"
+      ],
+      "title": {
+        "fr": "OrbitDeploy",
+        "en": "OrbitDeploy"
+      },
+      "description": {
+        "fr": "Plateforme de deploiement automatise pour applications conteneurisees. Interface intuitive et monitoring en temps reel.",
+        "en": "Automated deployment platform for containerized applications. Intuitive interface and real-time monitoring."
+      },
+      "github": "https://github.com/username/orbit-deploy",
+      "demo": "https://orbit-deploy.demo.com"
+    },
+    {
+      "id": "stellar-analytics",
+      "origin": "University",
+      "category": "Data Science",
+      "stack": [
+        "Python",
+        "TensorFlow",
+        "FastAPI",
+        "React"
+      ],
+      "title": {
+        "fr": "Stellar Analytics",
+        "en": "Stellar Analytics"
+      },
+      "description": {
+        "fr": "Dashboard de visualisation de donnees avec IA predictive. Analyse de grandes quantites de donnees en temps reel.",
+        "en": "Data visualization dashboard with predictive AI. Real-time analysis of large data volumes."
+      },
+      "github": "https://github.com/username/stellar-analytics"
+    },
+    {
+      "id": "quantum-chat",
+      "origin": "Personal",
+      "category": "Application",
+      "stack": [
+        "React Native",
+        "Node.js",
+        "WebSocket",
+        "PostgreSQL"
+      ],
+      "title": {
+        "fr": "QuantumChat",
+        "en": "QuantumChat"
+      },
+      "description": {
+        "fr": "Application de messagerie chiffree de bout en bout avec protocoles cryptographiques modernes.",
+        "en": "End-to-end encrypted messaging app with modern cryptographic protocols."
+      },
+      "github": "https://github.com/username/quantum-chat"
+    },
+    {
+      "id": "nebula-ai",
+      "origin": "Professional",
+      "category": "Application",
+      "stack": [
+        "Python",
+        "OpenAI",
+        "LangChain",
+        "Docker"
+      ],
+      "title": {
+        "fr": "Nebula AI",
+        "en": "Nebula AI"
+      },
+      "description": {
+        "fr": "Assistant IA pour review de code automatisee. Detection de vulnerabilites et suggestions d'ameliorations.",
+        "en": "AI assistant for automated code review. Vulnerability detection and improvement suggestions."
+      },
+      "github": "https://github.com/username/nebula-ai",
+      "demo": "https://nebula-ai.demo.com"
+    }
+  ]
+}

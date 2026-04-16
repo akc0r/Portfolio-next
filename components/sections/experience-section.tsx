@@ -1,135 +1,105 @@
-"use client";
+"use client"
 
-import * as React from "react";
-import { useTranslations } from "next-intl";
-import { IconBriefcase, IconMapPin, IconCalendar } from "@tabler/icons-react";
-import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { experiences } from "@/data/experiences";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion"
+import { useRef } from "react"
+import { Briefcase, MapPin, Calendar } from "lucide-react"
+import { useLanguage } from "@/contexts/language-context"
+import experienceData from "@/data/experience.json"
+import navigationData from "@/data/navigation.json"
 
 export function ExperienceSection() {
-  const t = useTranslations("experience");
-  const tExp = useTranslations("experienceData");
-
-  const formatDate = (date: Date | null) => {
-    if (!date) return t("present");
-    return new Intl.DateTimeFormat("fr-FR", {
-      month: "short",
-      year: "numeric",
-    }).format(date);
-  };
+  const { t } = useLanguage()
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section id="experience" className="py-20 sm:py-32">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="experience" className="py-24 px-6 relative z-10" ref={ref}>
+      <div className="max-w-4xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              {t("title")}
-            </span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-muted-foreground mb-4">
+            <Briefcase className="w-4 h-4 text-primary" />
+            <span className="font-mono">{t({ fr: "Parcours pro", en: "Career Path" })}</span>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+            {t(navigationData.navigation.experience)}
           </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-400">
-            {t("subtitle")}
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            {t({
+              fr: "Les missions qui ont forge mon expertise et ma vision du developpement",
+              en: "The missions that forged my expertise and vision of development"
+            })}
           </p>
         </motion.div>
 
-        <div className="max-w-4xl mx-auto">
-          <div className="relative">
-            {/* Timeline Line */}
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary to-secondary hidden md:block" />
+        <div className="relative">
+          {/* Timeline line */}
+          <div className="absolute left-6 md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-primary via-accent to-transparent" />
 
-            <div className="space-y-8">
-              {experiences.map((experience, index) => (
+          <div className="space-y-8">
+            {experienceData.experiences.map((experience, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: -30 }}
+                animate={isInView ? { opacity: 1, x: 0 } : {}}
+                transition={{ delay: index * 0.2, duration: 0.6 }}
+                className="relative pl-16 md:pl-20"
+              >
+                {/* Timeline dot */}
                 <motion.div
-                  key={experience.id}
-                  initial={{ opacity: 0, x: -50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.2 }}
-                  className="relative"
+                  initial={{ scale: 0 }}
+                  animate={isInView ? { scale: 1 } : {}}
+                  transition={{ delay: index * 0.2 + 0.3, type: "spring" }}
+                  className="absolute left-4 md:left-6 w-4 h-4 rounded-full bg-primary glow-sm"
+                />
+
+                <motion.div
+                  whileHover={{ scale: 1.01, x: 5 }}
+                  className="glass rounded-2xl p-6 md:p-8 hover:glow-sm transition-all"
                 >
-                  {/* Timeline Dot */}
-                  <div className="absolute left-6 top-8 w-5 h-5 bg-primary rounded-full border-4 border-white dark:border-racing-asphalt hidden md:block" />
-
-                  <Card className="md:ml-20 p-6 hover:shadow-lg hover:border-primary/50 transition-all">
-                    <div className="flex items-start gap-4">
-                      <div className="flex-shrink-0">
-                        <IconBriefcase className="h-8 w-8 text-primary" />
+                  {/* Header */}
+                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
+                    <div>
+                      <h3 className="font-bold text-xl mb-1">{t(experience.title)}</h3>
+                      <p className="text-primary font-semibold">{experience.company}</p>
+                    </div>
+                    <div className="flex flex-col items-start md:items-end gap-1 text-sm text-muted-foreground">
+                      <div className="flex items-center gap-2">
+                        <Calendar className="w-4 h-4" />
+                        <span className="font-mono">{experience.period}</span>
                       </div>
-
-                      <div className="flex-1 space-y-4">
-                        <div>
-                          <h3 className="text-xl font-bold text-tertiary-dark dark:text-slate-100">
-                            {tExp(`${experience.id}.title`)}
-                          </h3>
-                          <p className="text-lg font-semibold text-primary">
-                            {tExp(`${experience.id}.company`)}
-                          </p>
-                        </div>
-
-                        <div className="flex flex-wrap gap-4 text-sm text-slate-600 dark:text-slate-400">
-                          <div className="flex items-center gap-1">
-                            <IconMapPin className="h-4 w-4" />
-                            {tExp(`${experience.id}.location`)}
-                          </div>
-                          <div className="flex items-center gap-1">
-                            <IconCalendar className="h-4 w-4" />
-                            {formatDate(experience.startDate)} -{" "}
-                            {formatDate(experience.endDate)}
-                          </div>
-                        </div>
-
-                        <p className="text-tertiary-light dark:text-slate-300">
-                          {tExp(`${experience.id}.description`)}
-                        </p>
-
-                        {(tExp.raw(`${experience.id}.achievements`) as string[])
-                          .length > 0 && (
-                          <div>
-                            <h4 className="text-sm font-semibold text-tertiary-dark dark:text-slate-100 mb-2">
-                              {t("achievements")}
-                            </h4>
-                            <ul className="space-y-2">
-                              {(
-                                tExp.raw(
-                                  `${experience.id}.achievements`
-                                ) as string[]
-                              ).map((achievement, i) => (
-                                <li
-                                  key={i}
-                                  className="text-sm text-slate-600 dark:text-slate-400 flex items-start gap-2"
-                                >
-                                  <span className="text-primary mt-1">▸</span>
-                                  <span>{achievement}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        )}
-
-                        <div className="flex flex-wrap gap-2">
-                          {experience.technologies.map((tech) => (
-                            <Badge key={tech} variant="secondary">
-                              {tech}
-                            </Badge>
-                          ))}
-                        </div>
+                      <div className="flex items-center gap-2">
+                        <MapPin className="w-4 h-4" />
+                        <span>{experience.location}</span>
                       </div>
                     </div>
-                  </Card>
+                  </div>
+
+                  {/* Bullets */}
+                  <ul className="space-y-2">
+                    {experience.bullets.map((bullet, bulletIndex) => (
+                      <motion.li
+                        key={bulletIndex}
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={isInView ? { opacity: 1, x: 0 } : {}}
+                        transition={{ delay: index * 0.2 + bulletIndex * 0.1 + 0.4, duration: 0.4 }}
+                        className="flex items-start gap-3 text-muted-foreground"
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
+                        <span>{t(bullet)}</span>
+                      </motion.li>
+                    ))}
+                  </ul>
                 </motion.div>
-              ))}
-            </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </div>
     </section>
-  );
+  )
 }

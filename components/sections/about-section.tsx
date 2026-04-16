@@ -1,94 +1,126 @@
-"use client";
+"use client"
 
-import * as React from "react";
-import { useTranslations } from "next-intl";
-import { IconDownload } from "@tabler/icons-react";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion"
+import { useRef } from "react"
+import { Target, Zap, Compass, Rocket, CarFront } from "lucide-react"
+import { useLanguage } from "@/contexts/language-context"
+import aboutData from "@/data/about.json"
+import personalData from "@/data/personal.json"
+import navigationData from "@/data/navigation.json"
 
 export function AboutSection() {
-  const t = useTranslations("about");
+  const { t } = useLanguage()
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section id="about" className="py-20 sm:py-32">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="py-24 px-6 relative z-10" ref={ref}>
+      <div className="max-w-5xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-12"
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="glass rounded-3xl p-8 md:p-12 relative overflow-hidden"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              {t("title")}
-            </span>
-          </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-400">
-            {t("subtitle")}
-          </p>
-        </motion.div>
+          {/* Decorative elements */}
+          <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-48 h-48 bg-accent/5 rounded-full blur-3xl" />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Image/Visual */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <Card className="p-8 bg-gradient-to-br from-primary-light/10 to-slate-50 dark:from-tertiary dark:to-tertiary-dark border-2 border-primary/20">
-              <div className="aspect-square rounded-lg bg-gradient-to-br from-primary-light to-secondary flex items-center justify-center">
-                <span className="text-8xl font-bold text-white">JG</span>
+          <div className="relative z-10">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="flex items-center gap-3 mb-6"
+            >
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                <Target className="w-6 h-6 text-primary" />
               </div>
-            </Card>
-          </motion.div>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+                {t(navigationData.navigation.about)}
+              </h2>
+            </motion.div>
 
-          {/* Content */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="space-y-6"
-          >
-            <p className="text-lg text-tertiary-light dark:text-slate-300 leading-relaxed">
-              {t("bio")}
-            </p>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={isInView ? { opacity: 1 } : {}}
+              transition={{ delay: 0.4, duration: 0.6 }}
+              className="relative mb-10"
+            >
+              <div className="absolute -left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-primary via-accent to-transparent rounded-full" />
+              <p className="text-lg text-muted-foreground leading-relaxed pl-6 text-pretty">
+                {t(aboutData.about)}
+              </p>
+            </motion.div>
 
-            <div className="grid grid-cols-2 gap-4">
-              {[
-                { label: "Projects", value: "20+" },
-                { label: "Experience", value: "2+ Years" },
-                { label: "Technologies", value: "15+" },
-                { label: "Coffee", value: "∞" },
-              ].map((stat, index) => (
+            {/* Stats grid */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.6, duration: 0.6 }}
+              className="grid grid-cols-1 sm:grid-cols-3 gap-4"
+            >
+              {personalData.stats.map((stat, index) => (
                 <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                  className="text-center p-4 bg-white dark:bg-tertiary rounded-lg border border-slate-200 dark:border-tertiary-light"
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                  transition={{ delay: 0.7 + index * 0.1, duration: 0.4 }}
+                  whileHover={{ scale: 1.03, y: -2 }}
+                  className="glass rounded-2xl p-6 text-center group cursor-default"
                 >
-                  <p className="text-3xl font-bold text-primary">
+                  <motion.p
+                    className="text-4xl font-bold text-primary mb-1"
+                    initial={{ opacity: 0 }}
+                    animate={isInView ? { opacity: 1 } : {}}
+                    transition={{ delay: 0.8 + index * 0.1 }}
+                  >
                     {stat.value}
-                  </p>
-                  <p className="text-sm text-slate-600 dark:text-slate-400">
-                    {stat.label}
-                  </p>
+                  </motion.p>
+                  <p className="font-semibold text-foreground">{t(stat.label)}</p>
+                  <p className="text-sm text-muted-foreground">{t(stat.detail)}</p>
                 </motion.div>
               ))}
-            </div>
+            </motion.div>
+          </div>
+        </motion.div>
 
-            <Button size="lg" className="w-full sm:w-auto">
-              <IconDownload className="mr-2 h-4 w-4" />
-              {t("resume")}
-            </Button>
-          </motion.div>
-        </div>
+        {/* Interests/Passions section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.8, duration: 0.6 }}
+          className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4"
+        >
+          {aboutData.interests.map((interest, index) => {
+            const icons: Record<string, React.ComponentType<{ className?: string }>> = {
+              rocket: Rocket,
+              car: CarFront,
+              cpu: Zap,
+            }
+            const Icon = icons[interest.icon] || Compass
+            
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 0.9 + index * 0.1, duration: 0.4 }}
+                whileHover={{ scale: 1.02 }}
+                className="glass rounded-2xl p-6 flex items-start gap-4"
+              >
+                <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center shrink-0">
+                  <Icon className="w-6 h-6 text-accent" />
+                </div>
+                <div>
+                  <h3 className="font-semibold mb-1">{t(interest.title)}</h3>
+                  <p className="text-sm text-muted-foreground">{t(interest.detail)}</p>
+                </div>
+              </motion.div>
+            )
+          })}
+        </motion.div>
       </div>
     </section>
-  );
+  )
 }

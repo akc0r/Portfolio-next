@@ -1,113 +1,163 @@
-"use client";
+"use client"
 
-import * as React from "react";
-import { useTranslations } from "next-intl";
-import { IconArrowRight, IconDownload } from "@tabler/icons-react";
-import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
+import { motion } from "framer-motion"
+import { Download, Mail, ChevronDown, MapPin, Github, Linkedin, Twitter } from "lucide-react"
+import { useLanguage } from "@/contexts/language-context"
+import personalData from "@/data/personal.json"
+import navigationData from "@/data/navigation.json"
+import { PlanetIllustration } from "@/components/planet-illustration"
+
+const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+  github: Github,
+  linkedin: Linkedin,
+  twitter: Twitter,
+}
 
 export function HeroSection() {
-  const t = useTranslations("hero");
+  const { t } = useLanguage()
 
   return (
-    <section
-      id="home"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16"
-    >
-      {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary-light/10 via-white to-slate-50 dark:from-racing-asphalt dark:via-tertiary-dark dark:to-slate-950" />
-      <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-5" />
+    <section id="hero" className="min-h-screen flex items-center justify-center relative pt-24 pb-16 px-6">
+      <div className="max-w-6xl mx-auto w-full relative z-10">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left side - Content */}
+          <div className="text-center lg:text-left">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-muted-foreground mb-6"
+            >
+              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+              {t({ fr: "Disponible pour de nouvelles opportunites", en: "Available for new opportunities" })}
+            </motion.div>
 
-      {/* Speed Lines Effect */}
-      <div className="absolute inset-0 overflow-hidden">
-        {[...Array(5)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute h-[2px] w-full bg-gradient-to-r from-transparent via-primary to-transparent"
-            style={{ top: `${20 + i * 15}%` }}
-            animate={{
-              x: ["-100%", "100%"],
-            }}
-            transition={{
-              duration: 2 + i * 0.5,
-              repeat: Infinity,
-              ease: "linear",
-              delay: i * 0.2,
-            }}
-          />
-        ))}
-      </div>
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1, duration: 0.5 }}
+              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 tracking-tight text-balance"
+            >
+              {personalData.personal.name.split(" ").map((word, i) => (
+                <span key={i}>
+                  {i === 0 ? (
+                    <span className="text-foreground">{word} </span>
+                  ) : (
+                    <span className="text-primary">{word}</span>
+                  )}
+                </span>
+              ))}
+            </motion.h1>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-4xl mx-auto text-center space-y-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 font-medium uppercase tracking-wider">
-              {t("greeting")}
-            </p>
-          </motion.div>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+              className="text-xl md:text-2xl text-muted-foreground font-medium mb-2"
+            >
+              {t(personalData.personal.title)}
+            </motion.p>
 
-          <motion.h1
-            className="text-5xl sm:text-6xl lg:text-7xl font-bold"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
-            <span className="bg-linear-to-r from-primary via-primary-dark to-secondary bg-clip-text text-transparent">
-              {t("title")}
-            </span>
-          </motion.h1>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.25, duration: 0.5 }}
+              className="flex items-center gap-2 text-muted-foreground mb-6 justify-center lg:justify-start"
+            >
+              <MapPin className="w-4 h-4" />
+              <span className="text-sm">{personalData.personal.location}</span>
+            </motion.div>
 
-          <motion.p
-            className="text-xl sm:text-2xl text-slate-600 dark:text-slate-300 font-semibold"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            {t("subtitle")}
-          </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.5 }}
+              className="text-muted-foreground mb-8 max-w-lg mx-auto lg:mx-0 text-pretty"
+            >
+              {t(personalData.personal.tagline)}
+            </motion.p>
 
-          <motion.p
-            className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-          >
-            {t("description")}
-          </motion.p>
-
-          <motion.div
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-          >
-            <Button size="lg" asChild className="group">
-              <a href="#projects">
-                {t("cta.viewWork")}
-                <IconArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.5 }}
+              className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-8"
+            >
+              <a
+                href={personalData.personal.cvUrl}
+                download
+                className="group flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-medium hover:scale-105 transition-all glow-sm"
+              >
+                <Download className="w-5 h-5 group-hover:animate-bounce" />
+                {t(navigationData.ui.downloadCv)}
               </a>
-            </Button>
-            <Button size="lg" variant="outline" asChild>
-              <a href="#contact">{t("cta.contact")}</a>
-            </Button>
+              <a
+                href={`mailto:${personalData.personal.email}`}
+                className="group flex items-center gap-2 px-6 py-3 rounded-xl glass hover:glass-strong transition-all font-medium"
+              >
+                <Mail className="w-5 h-5" />
+                {t(navigationData.ui.contactMe)}
+              </a>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5, duration: 0.5 }}
+              className="flex items-center justify-center lg:justify-start gap-3"
+            >
+              {personalData.personal.contacts.map((contact) => {
+                const Icon = iconMap[contact.icon]
+                return (
+                  <a
+                    key={contact.label}
+                    href={contact.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-11 h-11 rounded-xl glass flex items-center justify-center text-muted-foreground hover:text-primary hover:scale-110 transition-all"
+                    aria-label={contact.label}
+                  >
+                    {Icon && <Icon className="w-5 h-5" />}
+                  </a>
+                )
+              })}
+            </motion.div>
+          </div>
+
+          {/* Right side - Rocket illustration */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.3, duration: 0.6, type: "spring" }}
+            className="hidden lg:flex items-center justify-center"
+          >
+            <div className="relative">
+              {/* Planet Illustration */}
+              <div className="relative w-64 h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96">
+                <PlanetIllustration className="w-full h-full" />
+              </div>
+            </div>
           </motion.div>
         </div>
-      </div>
 
-      {/* Scroll Indicator */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 1.5, repeat: Infinity }}
-      >
-        <div className="w-6 h-10 border-2 border-slate-400 dark:border-slate-600 rounded-full flex items-start justify-center p-2">
-          <div className="w-1.5 h-1.5 bg-primary rounded-full" />
-        </div>
-      </motion.div>
+        {/* Scroll indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1, duration: 0.5 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        >
+          <motion.a
+            href="#about"
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+          >
+            <span className="text-xs font-mono uppercase tracking-wider">Scroll</span>
+            <ChevronDown className="w-5 h-5" />
+          </motion.a>
+        </motion.div>
+      </div>
     </section>
-  );
+  )
 }

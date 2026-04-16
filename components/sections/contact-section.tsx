@@ -1,189 +1,154 @@
-"use client";
+"use client"
 
-import * as React from "react";
-import { useTranslations } from "next-intl";
-import {
-  IconMail,
-  IconBrandLinkedin,
-  IconBrandGithub,
-  IconBrandTwitter,
-  IconSend,
-} from "@tabler/icons-react";
-import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { contacts } from "@/data/contacts";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion"
+import { useRef } from "react"
+import { Mail, Download, Send, Github, Linkedin, Twitter, Rocket } from "lucide-react"
+import { useLanguage } from "@/contexts/language-context"
+import personalData from "@/data/personal.json"
+import navigationData from "@/data/navigation.json"
+
+const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+  github: Github,
+  linkedin: Linkedin,
+  twitter: Twitter,
+}
 
 export function ContactSection() {
-  const t = useTranslations("contact");
-  const [isSubmitting, setIsSubmitting] = React.useState(false);
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    setIsSubmitting(false);
-    alert(t("form.success"));
-  };
-
-  const getContactIcon = (type: string) => {
-    const iconClass = "h-6 w-6";
-    switch (type) {
-      case "email":
-        return <IconMail className={iconClass} />;
-      case "linkedin":
-        return <IconBrandLinkedin className={iconClass} />;
-      case "github":
-        return <IconBrandGithub className={iconClass} />;
-      case "twitter":
-        return <IconBrandTwitter className={iconClass} />;
-      default:
-        return <IconMail className={iconClass} />;
-    }
-  };
+  const { t } = useLanguage()
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section id="contact" className="py-20 sm:py-32">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-24 px-6 relative z-10" ref={ref}>
+      <div className="max-w-4xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              {t("title")}
-            </span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-muted-foreground mb-4">
+            <Rocket className="w-4 h-4 text-primary" />
+            <span className="font-mono">{t(navigationData.ui.launchSequence)}</span>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+            {t(navigationData.navigation.contact)}
           </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-400">
-            {t("subtitle")}
-          </p>
-          <p className="text-base text-slate-600 dark:text-slate-400 mt-4 max-w-2xl mx-auto">
-            {t("description")}
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            {t({
+              fr: "Pret a demarrer un nouveau projet ensemble ? Contactez-moi et lancons la mission !",
+              en: "Ready to start a new project together? Contact me and let's launch the mission!"
+            })}
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <Card className="p-8">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-sm font-medium text-tertiary-light dark:text-slate-300 mb-2"
-                  >
-                    {t("form.name")}
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    required
-                    className="w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-tertiary text-tertiary-dark dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-primary"
-                  />
-                </div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.2, duration: 0.6 }}
+          className="glass rounded-3xl p-8 md:p-12 relative overflow-hidden"
+        >
+          {/* Background decorations */}
+          <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-48 h-48 bg-accent/5 rounded-full blur-3xl" />
 
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium text-tertiary-light dark:text-slate-300 mb-2"
-                  >
-                    {t("form.email")}
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    className="w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-tertiary text-tertiary-dark dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-primary"
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-medium text-tertiary-light dark:text-slate-300 mb-2"
-                  >
-                    {t("form.message")}
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={6}
-                    required
-                    className="w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-tertiary text-tertiary-dark dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-primary resize-none"
-                  />
-                </div>
-
-                <Button
-                  type="submit"
-                  size="lg"
-                  className="w-full"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? (
-                    <>{t("form.sending")}</>
-                  ) : (
-                    <>
-                      <IconSend className="mr-2 h-4 w-4" />
-                      {t("form.send")}
-                    </>
-                  )}
-                </Button>
-              </form>
-            </Card>
-          </motion.div>
-
-          {/* Contact Info */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="space-y-6"
-          >
-            {contacts.map((contact, index) => (
-              <motion.a
-                key={contact.id}
-                href={contact.url}
-                target={contact.type !== "email" ? "_blank" : undefined}
-                rel={
-                  contact.type !== "email" ? "noopener noreferrer" : undefined
-                }
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
+          <div className="relative z-10 grid md:grid-cols-2 gap-8">
+            {/* Left side - Contact info */}
+            <div className="space-y-6">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={isInView ? { opacity: 1, x: 0 } : {}}
+                transition={{ delay: 0.3, duration: 0.6 }}
               >
-                <Card className="p-6 hover:shadow-lg hover:border-primary/50 transition-all group cursor-pointer">
-                  <div className="flex items-center gap-4">
-                    <div className="flex-shrink-0 text-primary group-hover:scale-110 transition-transform">
-                      {getContactIcon(contact.type)}
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-lg font-semibold text-tertiary-dark dark:text-slate-100">
-                        {contact.label}
-                      </h3>
-                      <p className="text-sm text-slate-600 dark:text-slate-400">
-                        {contact.value}
-                      </p>
-                    </div>
+                <h3 className="text-xl font-bold mb-4">
+                  {t({ fr: "Demarrons quelque chose de grand", en: "Let's start something big" })}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  {t({
+                    fr: "Je suis actuellement a la recherche de nouvelles opportunites. Que vous ayez un projet innovant ou une offre interessante, je serai ravi d'en discuter avec vous.",
+                    en: "I'm currently looking for new opportunities. Whether you have an innovative project or an interesting offer, I'd be happy to discuss it with you."
+                  })}
+                </p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={isInView ? { opacity: 1, x: 0 } : {}}
+                transition={{ delay: 0.4, duration: 0.6 }}
+                className="space-y-4"
+              >
+                <a
+                  href={`mailto:${personalData.personal.email}`}
+                  className="flex items-center gap-4 p-4 rounded-2xl glass hover:glow-sm transition-all group"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                    <Mail className="w-6 h-6 text-primary" />
                   </div>
-                </Card>
-              </motion.a>
-            ))}
-          </motion.div>
-        </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground">{t({ fr: "Email", en: "Email" })}</p>
+                    <p className="font-medium">{personalData.personal.email}</p>
+                  </div>
+                </a>
+
+                <div className="flex gap-3">
+                  {personalData.personal.contacts.map((contact) => {
+                    const Icon = iconMap[contact.icon]
+                    return (
+                      <a
+                        key={contact.label}
+                        href={contact.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 flex items-center justify-center gap-2 p-4 rounded-2xl glass hover:glow-sm transition-all group"
+                      >
+                        {Icon && <Icon className="w-5 h-5 text-primary" />}
+                        <span className="font-medium">{contact.label}</span>
+                      </a>
+                    )
+                  })}
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Right side - CTA buttons */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ delay: 0.5, duration: 0.6 }}
+              className="flex flex-col justify-center gap-4"
+            >
+              <a
+                href={`mailto:${personalData.personal.email}`}
+                className="group flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-primary text-primary-foreground font-semibold hover:scale-105 transition-all glow-sm text-lg"
+              >
+                <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                {t(navigationData.ui.contactMe)}
+              </a>
+
+              <a
+                href={personalData.personal.cvUrl}
+                download
+                className="group flex items-center justify-center gap-3 px-8 py-4 rounded-2xl glass hover:glass-strong transition-all font-semibold text-lg"
+              >
+                <Download className="w-5 h-5 group-hover:animate-bounce" />
+                {t(navigationData.ui.downloadCv)}
+              </a>
+
+              {/* Launch countdown effect */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={isInView ? { opacity: 1 } : {}}
+                transition={{ delay: 0.7, duration: 0.6 }}
+                className="text-center mt-4"
+              >
+                <p className="text-sm text-muted-foreground font-mono">
+                  {t({ fr: "Pret au decollage", en: "Ready for liftoff" })}
+                </p>
+              </motion.div>
+            </motion.div>
+          </div>
+        </motion.div>
       </div>
     </section>
-  );
+  )
 }

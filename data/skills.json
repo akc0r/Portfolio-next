@@ -1,0 +1,16 @@
+{
+  "skills": [
+    { "name": "React" },
+    { "name": "Next.js" },
+    { "name": "TypeScript" },
+    { "name": "Tailwind CSS" },
+    { "name": "Node.js" },
+    { "name": "Python" },
+    { "name": "PostgreSQL" },
+    { "name": "MongoDB" },
+    { "name": "Docker" },
+    { "name": "Kubernetes" },
+    { "name": "AWS" },
+    { "name": "Git" }
+  ]
+}

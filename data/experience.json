@@ -1,0 +1,73 @@
+{
+  "experiences": [
+    {
+      "title": {
+        "fr": "Developpeur Full-Stack (Stage)",
+        "en": "Full-Stack Developer (Internship)"
+      },
+      "company": "Tech Innovate",
+      "period": "Jan 2025 - Jun 2025",
+      "location": "Paris, France",
+      "bullets": [
+        {
+          "fr": "Developpement d'une plateforme SaaS avec React et Node.js",
+          "en": "Development of a SaaS platform with React and Node.js"
+        },
+        {
+          "fr": "Mise en place de pipelines CI/CD avec GitHub Actions",
+          "en": "Implementation of CI/CD pipelines with GitHub Actions"
+        },
+        {
+          "fr": "Optimisation des performances reduisant le temps de chargement de 40%",
+          "en": "Performance optimization reducing load time by 40%"
+        }
+      ]
+    },
+    {
+      "title": {
+        "fr": "Developpeur Backend (Stage)",
+        "en": "Backend Developer (Internship)"
+      },
+      "company": "DataFlow Systems",
+      "period": "Jul 2024 - Dec 2024",
+      "location": "Lyon, France",
+      "bullets": [
+        {
+          "fr": "Conception d'APIs RESTful avec Python et FastAPI",
+          "en": "Design of RESTful APIs with Python and FastAPI"
+        },
+        {
+          "fr": "Integration de services AWS (Lambda, S3, RDS)",
+          "en": "Integration of AWS services (Lambda, S3, RDS)"
+        },
+        {
+          "fr": "Implementation de tests automatises avec pytest",
+          "en": "Implementation of automated tests with pytest"
+        }
+      ]
+    },
+    {
+      "title": {
+        "fr": "Lead Developpeur (Projet Associatif)",
+        "en": "Lead Developer (Student Project)"
+      },
+      "company": "EPITA Projects",
+      "period": "Sep 2023 - Jun 2024",
+      "location": "Paris, France",
+      "bullets": [
+        {
+          "fr": "Direction technique d'une equipe de 5 developpeurs",
+          "en": "Technical leadership of a 5-developer team"
+        },
+        {
+          "fr": "Architecture microservices avec Docker et Kubernetes",
+          "en": "Microservices architecture with Docker and Kubernetes"
+        },
+        {
+          "fr": "Gestion de projet Agile avec sprints de 2 semaines",
+          "en": "Agile project management with 2-week sprints"
+        }
+      ]
+    }
+  ]
+}
