@@ -10,27 +10,18 @@ import { ProjectsSection } from "@/components/sections/projects-section"
 import { CVPreviewSection } from "@/components/sections/cv-preview-section"
 import { ContactSection } from "@/components/sections/contact-section"
 import { Footer } from "@/components/footer"
-import { StarField } from "@/components/star-field"
 
 export default function Portfolio() {
   return (
     <main className="min-h-screen gradient-bg relative">
-      <StarField />
       <Header />
       <HeroSection />
-      <div className="section-divider" />
       <AboutSection />
-      <div className="section-divider" />
       <SkillsSection />
-      <div className="section-divider" />
       <ExperienceSection />
-      <div className="section-divider" />
       <EducationSection />
-      <div className="section-divider" />
       <ProjectsSection />
-      <div className="section-divider" />
       <CVPreviewSection />
-      <div className="section-divider" />
       <ContactSection />
       <Footer />
     </main>

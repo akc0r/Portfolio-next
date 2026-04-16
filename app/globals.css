@@ -182,44 +182,14 @@
   z-index: 0;
 }
 
-/* Star field animation */
-@keyframes twinkle {
-  0%, 100% { opacity: 0.3; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.2); }
-}
-
-@keyframes drift {
-  0% { transform: translateY(0) translateX(0); }
-  100% { transform: translateY(-100vh) translateX(20px); }
-}
-
+/* Subtle glow animation */
 @keyframes pulse-glow {
   0%, 100% { box-shadow: 0 0 20px var(--glow-primary), 0 0 40px var(--glow-accent); }
   50% { box-shadow: 0 0 40px var(--glow-primary), 0 0 80px var(--glow-accent); }
 }
 
-.animate-twinkle {
-  animation: twinkle 3s ease-in-out infinite;
-}
-
 .animate-pulse-glow {
   animation: pulse-glow 4s ease-in-out infinite;
-}
-
-/* Rocket trail effect */
-@keyframes rocket-trail {
-  0% { opacity: 1; transform: scaleY(1); }
-  100% { opacity: 0; transform: scaleY(0.5); }
-}
-
-/* Orbit animation */
-@keyframes orbit {
-  0% { transform: rotate(0deg) translateX(100px) rotate(0deg); }
-  100% { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
-}
-
-.animate-orbit {
-  animation: orbit 20s linear infinite;
 }
 
 /* Progress bar animation */
@@ -282,8 +252,3 @@
   transition: width 1s ease-out;
 }
 
-/* Section divider */
-.section-divider {
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--border), transparent);
-}

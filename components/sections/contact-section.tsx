@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
-import { Mail, Download, Send, Github, Linkedin, Twitter, Rocket } from "lucide-react"
+import { Mail, Download, Send, Github, Linkedin, Twitter, MessageSquare } from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
 import personalData from "@/data/personal.json"
 import navigationData from "@/data/navigation.json"
@@ -28,16 +28,16 @@ export function ContactSection() {
           className="text-center mb-12"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-muted-foreground mb-4">
-            <Rocket className="w-4 h-4 text-primary" />
-            <span className="font-mono">{t(navigationData.ui.launchSequence)}</span>
+            <MessageSquare className="w-4 h-4 text-primary" />
+            <span className="font-mono">{t(navigationData.ui.getInTouch)}</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
             {t(navigationData.navigation.contact)}
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             {t({
-              fr: "Pret a demarrer un nouveau projet ensemble ? Contactez-moi et lancons la mission !",
-              en: "Ready to start a new project together? Contact me and let's launch the mission!"
+              fr: "Vous avez un projet ou une opportunite ? N'hesitez pas a me contacter.",
+              en: "Have a project or an opportunity? Don't hesitate to reach out."
             })}
           </p>
         </motion.div>
@@ -61,7 +61,7 @@ export function ContactSection() {
                 transition={{ delay: 0.3, duration: 0.6 }}
               >
                 <h3 className="text-xl font-bold mb-4">
-                  {t({ fr: "Demarrons quelque chose de grand", en: "Let's start something big" })}
+                  {t({ fr: "Echangeons ensemble", en: "Let's connect" })}
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
                   {t({
@@ -134,7 +134,6 @@ export function ContactSection() {
                 {t(navigationData.ui.downloadCv)}
               </a>
 
-              {/* Launch countdown effect */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={isInView ? { opacity: 1 } : {}}
@@ -142,7 +141,7 @@ export function ContactSection() {
                 className="text-center mt-4"
               >
                 <p className="text-sm text-muted-foreground font-mono">
-                  {t({ fr: "Pret au decollage", en: "Ready for liftoff" })}
+                  {t({ fr: "Disponible immediatement", en: "Available immediately" })}
                 </p>
               </motion.div>
             </motion.div>

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X, Globe, Moon, Sun, Rocket } from "lucide-react"
+import { Menu, X, Globe, Moon, Sun, Terminal } from "lucide-react"
 import { useTheme } from "next-themes"
 import { useLanguage } from "@/contexts/language-context"
 import personalData from "@/data/personal.json"
@@ -87,7 +87,7 @@ export function Header() {
                 className="glass-strong rounded-full px-4 py-2 flex items-center gap-4"
               >
                 <a href="#hero" className="text-primary font-bold text-lg flex items-center gap-2">
-                  <Rocket className="w-5 h-5" />
+                  <span className="font-mono text-sm">JG</span>
                 </a>
                 <div className="hidden md:flex items-center gap-4">
                   {navItems.map((item) => (
@@ -147,9 +147,9 @@ export function Header() {
                 <a href="#hero" className="flex items-center gap-3 group">
                   <motion.div 
                     className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 transition-colors"
-                    whileHover={{ rotate: -15 }}
+                    whileHover={{ rotate: -5 }}
                   >
-                    <Rocket className="w-5 h-5 text-primary" />
+                    <span className="font-mono font-bold text-primary text-sm">JG</span>
                   </motion.div>
                   <div className="hidden sm:block">
                     <p className="font-semibold text-foreground tracking-tight">{personalData.personal.name}</p>
@@ -235,8 +235,8 @@ export function Header() {
             >
               <div className="flex justify-between items-center mb-8">
                 <div className="flex items-center gap-3">
-                  <Rocket className="w-6 h-6 text-primary" />
-                  <span className="font-semibold">{t(navigationData.ui.missionControl)}</span>
+                  <Terminal className="w-5 h-5 text-primary" />
+                  <span className="font-semibold">{t(navigationData.ui.menu)}</span>
                 </div>
                 <button
                   onClick={() => setIsMobileMenuOpen(false)}

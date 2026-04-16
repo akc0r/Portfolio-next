@@ -5,12 +5,142 @@ import { Download, Mail, ChevronDown, MapPin, Github, Linkedin, Twitter } from "
 import { useLanguage } from "@/contexts/language-context"
 import personalData from "@/data/personal.json"
 import navigationData from "@/data/navigation.json"
-import { PlanetIllustration } from "@/components/planet-illustration"
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   github: Github,
   linkedin: Linkedin,
   twitter: Twitter,
+}
+
+// Abstract geometric illustration — professional engineering aesthetic
+function AbstractIllustration() {
+  return (
+    <div className="relative w-full h-full">
+      {/* Subtle background glow */}
+      <div className="absolute inset-0 bg-primary/10 rounded-full blur-3xl opacity-50" />
+      
+      <svg
+        viewBox="0 0 400 400"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-full h-full relative z-10"
+      >
+        {/* Concentric circles — precision engineering feel */}
+        <motion.circle
+          cx="200" cy="200" r="150"
+          stroke="var(--primary)"
+          strokeWidth="0.5"
+          strokeOpacity="0.2"
+          fill="none"
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+        />
+        <motion.circle
+          cx="200" cy="200" r="120"
+          stroke="var(--primary)"
+          strokeWidth="0.5"
+          strokeOpacity="0.15"
+          fill="none"
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 1, delay: 0.1, ease: "easeOut" }}
+        />
+        <motion.circle
+          cx="200" cy="200" r="90"
+          stroke="var(--primary)"
+          strokeWidth="0.5"
+          strokeOpacity="0.1"
+          fill="none"
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+        />
+
+        {/* Central node */}
+        <motion.circle
+          cx="200" cy="200" r="6"
+          fill="var(--primary)"
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ delay: 0.5, type: "spring" }}
+        />
+
+        {/* Connection lines — network/architecture feel */}
+        {[
+          { x1: 200, y1: 200, x2: 300, y2: 120, delay: 0.3 },
+          { x1: 200, y1: 200, x2: 100, y2: 130, delay: 0.4 },
+          { x1: 200, y1: 200, x2: 320, y2: 250, delay: 0.5 },
+          { x1: 200, y1: 200, x2: 110, y2: 290, delay: 0.6 },
+          { x1: 200, y1: 200, x2: 250, y2: 330, delay: 0.7 },
+          { x1: 200, y1: 200, x2: 150, y2: 80, delay: 0.35 },
+        ].map((line, i) => (
+          <motion.line
+            key={i}
+            x1={line.x1} y1={line.y1} x2={line.x2} y2={line.y2}
+            stroke="var(--primary)"
+            strokeWidth="0.8"
+            strokeOpacity="0.15"
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: 1 }}
+            transition={{ delay: line.delay, duration: 0.8, ease: "easeOut" }}
+          />
+        ))}
+
+        {/* Outer nodes — distributed system visualization */}
+        {[
+          { cx: 300, cy: 120, r: 4, delay: 0.6 },
+          { cx: 100, cy: 130, r: 3.5, delay: 0.7 },
+          { cx: 320, cy: 250, r: 3, delay: 0.8 },
+          { cx: 110, cy: 290, r: 4, delay: 0.9 },
+          { cx: 250, cy: 330, r: 3.5, delay: 1.0 },
+          { cx: 150, cy: 80, r: 3, delay: 0.65 },
+        ].map((node, i) => (
+          <motion.circle
+            key={i}
+            cx={node.cx} cy={node.cy} r={node.r}
+            fill="var(--primary)"
+            fillOpacity="0.6"
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: node.delay, type: "spring" }}
+          />
+        ))}
+
+        {/* Secondary connections — mesh network */}
+        {[
+          { x1: 300, y1: 120, x2: 320, y2: 250, delay: 1.0 },
+          { x1: 100, y1: 130, x2: 150, y2: 80, delay: 1.1 },
+          { x1: 110, y1: 290, x2: 250, y2: 330, delay: 1.2 },
+        ].map((line, i) => (
+          <motion.line
+            key={`secondary-${i}`}
+            x1={line.x1} y1={line.y1} x2={line.x2} y2={line.y2}
+            stroke="var(--primary)"
+            strokeWidth="0.5"
+            strokeOpacity="0.08"
+            strokeDasharray="4 4"
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: 1 }}
+            transition={{ delay: line.delay, duration: 0.6, ease: "easeOut" }}
+          />
+        ))}
+
+        {/* Subtle rotating arc — continuous motion */}
+        <motion.circle
+          cx="200" cy="200" r="170"
+          stroke="var(--primary)"
+          strokeWidth="1.5"
+          strokeOpacity="0.1"
+          strokeDasharray="20 300"
+          fill="none"
+          animate={{ rotate: 360 }}
+          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+          style={{ transformOrigin: "200px 200px" }}
+        />
+      </svg>
+    </div>
+  )
 }
 
 export function HeroSection() {
@@ -124,18 +254,15 @@ export function HeroSection() {
             </motion.div>
           </div>
 
-          {/* Right side - Rocket illustration */}
+          {/* Right side - Abstract illustration */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3, duration: 0.6, type: "spring" }}
             className="hidden lg:flex items-center justify-center"
           >
-            <div className="relative">
-              {/* Planet Illustration */}
-              <div className="relative w-64 h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96">
-                <PlanetIllustration className="w-full h-full" />
-              </div>
+            <div className="relative w-72 h-72 lg:w-80 lg:h-80 xl:w-96 xl:h-96">
+              <AbstractIllustration />
             </div>
           </motion.div>
         </div>
@@ -153,7 +280,9 @@ export function HeroSection() {
             transition={{ duration: 2, repeat: Infinity }}
             className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
           >
-            <span className="text-xs font-mono uppercase tracking-wider">Scroll</span>
+            <span className="text-xs font-mono uppercase tracking-wider">
+              {t({ fr: "Defiler", en: "Scroll" })}
+            </span>
             <ChevronDown className="w-5 h-5" />
           </motion.a>
         </motion.div>

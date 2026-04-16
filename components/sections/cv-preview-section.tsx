@@ -91,43 +91,6 @@ export function CVPreviewSection() {
                 className="w-full h-full"
                 title="CV Preview"
               />
-              
-              {/* Fallback overlay for when PDF doesn't load */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center bg-secondary/80 backdrop-blur-sm opacity-0 hover:opacity-100 transition-opacity pointer-events-none">
-                <div className="pointer-events-auto text-center p-8">
-                  <div className="w-20 h-20 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6">
-                    <FileText className="w-10 h-10 text-primary" />
-                  </div>
-                  <h3 className="text-xl font-bold mb-2">
-                    {t({ fr: "Visualiser mon CV", en: "View my Resume" })}
-                  </h3>
-                  <p className="text-muted-foreground mb-6 max-w-md">
-                    {t({ 
-                      fr: "Cliquez sur le bouton ci-dessous pour telecharger ou ouvrir mon CV complet", 
-                      en: "Click the button below to download or open my full resume" 
-                    })}
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                    <a
-                      href={personalData.personal.cvUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl glass text-foreground hover:text-primary transition-colors"
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                      <span>{t({ fr: "Ouvrir le PDF", en: "Open PDF" })}</span>
-                    </a>
-                    <a
-                      href={personalData.personal.cvUrl}
-                      download
-                      className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 transition-colors font-medium"
-                    >
-                      <Download className="w-4 h-4" />
-                      <span>{t(navigationData.ui.downloadCv)}</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
             </motion.div>
 
             {/* Quick Info */}
@@ -147,7 +110,7 @@ export function CVPreviewSection() {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">{t({ fr: "Derniere mise a jour", en: "Last Updated" })}</p>
-                  <p className="font-medium">{t({ fr: "Avril 2025", en: "April 2025" })}</p>
+                  <p className="font-medium">{t({ fr: "Avril 2026", en: "April 2026" })}</p>
                 </div>
               </div>
               <div className="flex items-center gap-3 p-4 rounded-xl bg-secondary/30">

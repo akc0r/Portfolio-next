@@ -17,12 +17,12 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: 'Portfolio | Ingenieur Informatique EPITA',
-  description: 'Portfolio professionnel d\'un ingenieur informatique diplome d\'EPITA. Developpement web, cloud, et technologies modernes. Passionne par l\'aerospatiale et l\'innovation.',
-  keywords: ['portfolio', 'developpeur', 'ingenieur', 'EPITA', 'full-stack', 'React', 'Next.js', 'aerospace', 'innovation'],
-  authors: [{ name: 'Votre Nom' }],
+  description: 'Portfolio professionnel d\'un ingenieur informatique diplome d\'EPITA. Backend, systemes distribues, DevOps et technologies modernes.',
+  keywords: ['portfolio', 'ingenieur', 'informatique', 'EPITA', 'backend', 'DevOps', 'SRE', 'full-stack', 'React', 'Next.js'],
+  authors: [{ name: 'Julien Glin' }],
   openGraph: {
     title: 'Portfolio | Ingenieur Informatique EPITA',
-    description: 'Portfolio professionnel - Propulser vos projets vers de nouveaux horizons',
+    description: 'Portfolio professionnel - Ingenieur informatique EPITA',
     type: 'website',
   },
 }

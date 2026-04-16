@@ -50,13 +50,13 @@
       "fr": "Present",
       "en": "Present"
     },
-    "launchSequence": {
-      "fr": "Sequence de lancement",
-      "en": "Launch sequence"
+    "getInTouch": {
+      "fr": "Restons en contact",
+      "en": "Get in touch"
     },
-    "missionControl": {
-      "fr": "Centre de controle",
-      "en": "Mission Control"
+    "menu": {
+      "fr": "Menu",
+      "en": "Menu"
     }
   }
 }

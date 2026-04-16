@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
-import { Target, Zap, Compass, Rocket, CarFront } from "lucide-react"
+import { Target, Zap, Compass, Rocket, CarFront, CircleDot } from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
 import aboutData from "@/data/about.json"
 import personalData from "@/data/personal.json"
@@ -90,13 +90,14 @@ export function AboutSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.8, duration: 0.6 }}
-          className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4"
+          className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4"
         >
           {aboutData.interests.map((interest, index) => {
             const icons: Record<string, React.ComponentType<{ className?: string }>> = {
               rocket: Rocket,
               car: CarFront,
               cpu: Zap,
+              volleyball: CircleDot,
             }
             const Icon = icons[interest.icon] || Compass
             
