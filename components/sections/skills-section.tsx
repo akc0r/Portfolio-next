@@ -8,7 +8,6 @@ import skillsData from "@/data/skills.json"
 import navigationData from "@/data/navigation.json"
 import Image from "next/image"
 
-// Map skill names to their icon paths
 const skillLogos: Record<string, string> = {
   "React": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
   "Next.js": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
@@ -47,7 +46,7 @@ export function SkillsSection() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-muted-foreground mb-4">
@@ -65,32 +64,27 @@ export function SkillsSection() {
           </p>
         </motion.div>
 
-        {/* Categorized skills */}
         <div className="space-y-8">
           {skillsData.categories.map((category, catIndex) => (
             <motion.div
               key={catIndex}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: catIndex * 0.1, duration: 0.6 }}
+              transition={{ delay: catIndex * 0.1, duration: 0.5 }}
               className="glass rounded-2xl p-6 md:p-8"
             >
               <h3 className="text-sm font-mono text-primary uppercase tracking-wider mb-6">
                 {t(category.title)}
               </h3>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6">
-                {category.skills.map((skill, index) => {
+                {category.skills.map((skill) => {
                   const logoUrl = skillLogos[skill.name]
                   return (
-                    <motion.div
+                    <div
                       key={skill.name}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                      transition={{ delay: catIndex * 0.1 + index * 0.05, duration: 0.4 }}
-                      whileHover={{ scale: 1.05, y: -4 }}
-                      className="group relative flex flex-col items-center gap-3 p-4 rounded-xl bg-secondary/20 hover:bg-secondary/40 border border-border/50 hover:border-primary/30 transition-all cursor-default"
+                      className="group relative flex flex-col items-center gap-3 p-4 rounded-xl bg-secondary/20 hover:bg-secondary/40 border border-border/50 hover:border-primary/30 transition-colors cursor-default"
                     >
-                      <div className="relative w-12 h-12 rounded-lg bg-background/50 flex items-center justify-center group-hover:bg-background/80 transition-colors">
+                      <div className="relative w-12 h-12 rounded-lg bg-background/50 flex items-center justify-center">
                         {logoUrl ? (
                           <Image
                             src={logoUrl}
@@ -101,14 +95,15 @@ export function SkillsSection() {
                             unoptimized
                           />
                         ) : (
-                          <Code2 className="w-7 h-7 text-primary/70" />
+                          <span className="text-sm font-bold text-primary/70 font-mono">
+                            {skill.name.slice(0, 2).toUpperCase()}
+                          </span>
                         )}
                       </div>
-
                       <span className="relative text-xs font-semibold text-center tracking-tight">
                         {skill.name}
                       </span>
-                    </motion.div>
+                    </div>
                   )
                 })}
               </div>

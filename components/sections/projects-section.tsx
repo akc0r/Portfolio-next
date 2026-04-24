@@ -6,12 +6,12 @@ import { Github, ExternalLink, FolderGit2, Filter } from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
 import projectsData from "@/data/projects.json"
 import navigationData from "@/data/navigation.json"
-import type { ProjectCategory, ProjectOrigin } from "@/types/portfolio"
+import type { ProjectCategory, ProjectOrigin, Project } from "@/types/portfolio"
 
 const categoryColors: Record<ProjectCategory, string> = {
-  Web: "bg-blue-500/20 text-blue-400",
-  Application: "bg-green-500/20 text-green-400",
-  "Data Science": "bg-purple-500/20 text-purple-400",
+  Web: "bg-primary/15 text-primary",
+  Application: "bg-accent/15 text-accent",
+  "Data Science": "bg-muted text-muted-foreground",
 }
 
 const originLabels: Record<ProjectOrigin, { fr: string; en: string }> = {
@@ -27,9 +27,10 @@ export function ProjectsSection() {
   const [filter, setFilter] = useState<ProjectCategory | "all">("all")
   const [showAll, setShowAll] = useState(false)
 
-  const filteredProjects = filter === "all" 
-    ? projectsData.projects 
-    : projectsData.projects.filter(p => p.category === filter)
+  const allProjects = projectsData.projects as unknown as Project[]
+  const filteredProjects = filter === "all"
+    ? allProjects
+    : allProjects.filter(p => p.category === filter)
 
   const INITIAL_COUNT = 6
   const displayedProjects = showAll ? filteredProjects : filteredProjects.slice(0, INITIAL_COUNT)
@@ -43,7 +44,7 @@ export function ProjectsSection() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-muted-foreground mb-4">
@@ -90,24 +91,19 @@ export function ProjectsSection() {
             <motion.div
               key={project.id}
               layout
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: index * 0.05, duration: 0.5 }}
-              whileHover={{ scale: 1.02, y: -5 }}
-              className="glass rounded-2xl overflow-hidden group h-full flex flex-col"
+              transition={{ delay: index * 0.05, duration: 0.4 }}
+              className="glass rounded-2xl overflow-hidden group h-full flex flex-col hover:border-primary/20 transition-colors"
             >
               {/* Project header with gradient */}
               <div className="h-32 bg-gradient-to-br from-primary/20 via-accent/10 to-transparent relative overflow-hidden shrink-0">
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <motion.div
-                    initial={{ rotate: 0 }}
-                    whileHover={{ rotate: 15 }}
-                    className="w-16 h-16 rounded-2xl glass flex items-center justify-center"
-                  >
+                  <div className="w-16 h-16 rounded-2xl glass flex items-center justify-center">
                     <FolderGit2 className="w-8 h-8 text-primary/70" />
-                  </motion.div>
+                  </div>
                 </div>
-                
+
                 {/* Category badge */}
                 <div className="absolute top-4 left-4">
                   <span className={`px-3 py-1 rounded-full text-xs font-medium ${categoryColors[project.category as ProjectCategory]}`}>
@@ -134,7 +130,7 @@ export function ProjectsSection() {
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-9 h-9 rounded-xl glass flex items-center justify-center text-muted-foreground hover:text-primary hover:scale-110 transition-all"
+                        className="w-9 h-9 rounded-xl glass flex items-center justify-center text-muted-foreground hover:text-primary transition-colors"
                         aria-label="GitHub"
                       >
                         <Github className="w-4 h-4" />
@@ -145,7 +141,7 @@ export function ProjectsSection() {
                         href={project.demo}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-9 h-9 rounded-xl glass flex items-center justify-center text-muted-foreground hover:text-primary hover:scale-110 transition-all"
+                        className="w-9 h-9 rounded-xl glass flex items-center justify-center text-muted-foreground hover:text-primary transition-colors"
                         aria-label="Demo"
                       >
                         <ExternalLink className="w-4 h-4" />
@@ -195,4 +191,3 @@ export function ProjectsSection() {
     </section>
   )
 }
-

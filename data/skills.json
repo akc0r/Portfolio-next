@@ -49,31 +49,5 @@
         { "name": "Rust" }
       ]
     }
-  ],
-  "skills": [
-    { "name": "React" },
-    { "name": "Next.js" },
-    { "name": "TypeScript" },
-    { "name": "Tailwind CSS" },
-    { "name": "Node.js" },
-    { "name": "FastAPI" },
-    { "name": "Django" },
-    { "name": ".NET" },
-    { "name": "PostgreSQL" },
-    { "name": "MongoDB" },
-    { "name": "Redis" },
-    { "name": "Elasticsearch" },
-    { "name": "Docker" },
-    { "name": "Kubernetes" },
-    { "name": "Jenkins" },
-    { "name": "Linux" },
-    { "name": "Proxmox" },
-    { "name": "Git" },
-    { "name": "Python" },
-    { "name": "C" },
-    { "name": "C++" },
-    { "name": "C#" },
-    { "name": "Java" },
-    { "name": "Rust" }
   ]
 }

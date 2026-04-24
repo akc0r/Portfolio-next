@@ -12,13 +12,16 @@ export function EducationSection() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
+  const sortedEducation = [...educationData.education]
+    .sort((a, b) => b.sortDate.localeCompare(a.sortDate))
+
   return (
     <section id="education" className="py-24 px-6 relative z-10" ref={ref}>
       <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-muted-foreground mb-4">
@@ -37,15 +40,12 @@ export function EducationSection() {
         </motion.div>
 
         <div className="space-y-6">
-          {[...educationData.education]
-            .sort((a, b) => b.sortDate.localeCompare(a.sortDate))
-            .map((edu, index) => (
-              <motion.div
+          {sortedEducation.map((edu, index) => (
+            <motion.div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: index * 0.2, duration: 0.6 }}
-              whileHover={{ scale: 1.01 }}
+              transition={{ delay: index * 0.15, duration: 0.5 }}
               className="glass rounded-2xl p-6 md:p-8 relative overflow-hidden group"
             >
               {/* Decorative gradient */}
@@ -54,14 +54,9 @@ export function EducationSection() {
               <div className="relative z-10 flex flex-col md:flex-row gap-6">
                 {/* Icon */}
                 <div className="shrink-0">
-                  <motion.div
-                    initial={{ scale: 0 }}
-                    animate={isInView ? { scale: 1 } : {}}
-                    transition={{ delay: index * 0.2 + 0.3, type: "spring" }}
-                    className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center"
-                  >
+                  <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center">
                     <GraduationCap className="w-8 h-8 text-primary" />
-                  </motion.div>
+                  </div>
                 </div>
 
                 {/* Content */}
