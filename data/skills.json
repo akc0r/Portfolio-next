@@ -46,6 +46,9 @@
         { "name": "C++" },
         { "name": "C#" },
         { "name": "Java" },
+        { "name": "JavaScript" },
+        { "name": "TypeScript" },
+        { "name": "SQL" },
         { "name": "Rust" }
       ]
     }

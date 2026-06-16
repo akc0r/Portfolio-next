@@ -1,44 +1,66 @@
-"use client"
+"use client";
 
-import { motion, useInView } from "framer-motion"
-import { useRef } from "react"
-import { Code2 } from "lucide-react"
-import { useLanguage } from "@/contexts/language-context"
-import skillsData from "@/data/skills.json"
-import navigationData from "@/data/navigation.json"
-import Image from "next/image"
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+import { Code2 } from "lucide-react";
+import { useLanguage } from "@/contexts/language-context";
+import skillsData from "@/data/skills.json";
+import navigationData from "@/data/navigation.json";
+import Image from "next/image";
 
 const skillLogos: Record<string, string> = {
-  "React": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
-  "Next.js": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
-  "TypeScript": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
-  "Tailwind CSS": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
-  "Node.js": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
-  "Python": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
-  "PostgreSQL": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
-  "MongoDB": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
-  "Docker": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
-  "Kubernetes": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg",
-  "Git": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
-  "FastAPI": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg",
-  "Django": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg",
-  ".NET": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg",
-  "Jenkins": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg",
-  "Elasticsearch": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/elasticsearch/elasticsearch-original.svg",
-  "Redis": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg",
-  "Linux": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg",
-  "Proxmox": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/proxmox/proxmox-original.svg",
-  "C": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg",
-  "C++": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg",
+  React:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+  "Next.js":
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+  TypeScript:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+  "Tailwind CSS":
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
+  "Node.js":
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+  Python:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+  PostgreSQL:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+  MongoDB:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+  Docker:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+  Kubernetes:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg",
+  Git: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+  FastAPI:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg",
+  Django:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg",
+  ".NET":
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg",
+  Jenkins:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg",
+  Elasticsearch:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/elasticsearch/elasticsearch-original.svg",
+  Redis:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg",
+  Linux:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg",
+  Proxmox:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/proxmox/proxmox-original.svg",
+  C: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg",
+  "C++":
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg",
   "C#": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
-  "Java": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
-  "Rust": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-original.svg",
-}
+  Java: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+  Rust: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-original.svg",
+  JavaScript:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+  SQL: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+};
 
 export function SkillsSection() {
-  const { t } = useLanguage()
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const { t } = useLanguage();
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
     <section id="skills" className="py-24 px-6 relative z-10" ref={ref}>
@@ -51,7 +73,9 @@ export function SkillsSection() {
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-muted-foreground mb-4">
             <Code2 className="w-4 h-4 text-primary" />
-            <span className="font-mono">{t({ fr: "Stack technique", en: "Tech Stack" })}</span>
+            <span className="font-mono">
+              {t({ fr: "Stack technique", en: "Tech Stack" })}
+            </span>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
             {t(navigationData.navigation.skills)}
@@ -59,7 +83,7 @@ export function SkillsSection() {
           <p className="text-muted-foreground max-w-2xl mx-auto">
             {t({
               fr: "Les technologies que je maitrise pour construire des solutions performantes et scalables",
-              en: "The technologies I master to build performant and scalable solutions"
+              en: "The technologies I master to build performant and scalable solutions",
             })}
           </p>
         </motion.div>
@@ -78,7 +102,7 @@ export function SkillsSection() {
               </h3>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6">
                 {category.skills.map((skill) => {
-                  const logoUrl = skillLogos[skill.name]
+                  const logoUrl = skillLogos[skill.name];
                   return (
                     <div
                       key={skill.name}
@@ -104,7 +128,7 @@ export function SkillsSection() {
                         {skill.name}
                       </span>
                     </div>
-                  )
+                  );
                 })}
               </div>
             </motion.div>
@@ -112,5 +136,5 @@ export function SkillsSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
