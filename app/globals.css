@@ -120,6 +120,7 @@
   }
   html {
     scroll-behavior: smooth;
+    scroll-snap-type: y proximity;
   }
   /* Selection */
   ::selection {
@@ -409,6 +410,9 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
+  }
+  html {
+    scroll-snap-type: none !important;
   }
   .text-aurora-animated { animation: none; }
   .animate-pulse-glow,

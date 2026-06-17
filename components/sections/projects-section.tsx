@@ -5,6 +5,8 @@ import { useRef, useState } from "react"
 import { Github, ExternalLink, FolderGit2, Filter } from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
 import { SignatureCard } from "@/components/ui/signature-card"
+import { SectionHeading } from "@/components/layout/section-heading"
+import { SECTION_ACCENT } from "@/components/nav/sections"
 import projectsData from "@/data/projects.json"
 import navigationData from "@/data/navigation.json"
 import type { ProjectCategory, ProjectOrigin, Project } from "@/types/portfolio"
@@ -40,49 +42,39 @@ export function ProjectsSection() {
   const categories: (ProjectCategory | "all")[] = ["all", "Web", "Application", "Data Science"]
 
   return (
-    <section id="projects" className="py-24 px-6 relative z-10" ref={ref}>
+    <section id="projects" className="w-full px-6 py-20 relative z-10" ref={ref}>
       <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-12"
-        >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-muted-foreground mb-4">
-            <FolderGit2 className="w-4 h-4 text-primary" />
-            <span className="font-mono">{t({ fr: "Realisations", en: "Achievements" })}</span>
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-            {t(navigationData.navigation.projects)}
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
-            {t({
-              fr: "Une selection de projets qui illustrent ma capacite a transformer des idees en solutions concretes",
-              en: "A selection of projects that illustrate my ability to transform ideas into concrete solutions"
-            })}
-          </p>
+        <SectionHeading
+          index={5}
+          eyebrow={t({ fr: "Realisations", en: "Achievements" })}
+          accent={SECTION_ACCENT.projects}
+          title={t(navigationData.navigation.projects)}
+          subtitle={t({
+            fr: "Une selection de projets qui illustrent ma capacite a transformer des idees en solutions concretes",
+            en: "A selection of projects that illustrate my ability to transform ideas into concrete solutions",
+          })}
+        />
 
-          {/* Filter buttons */}
-          <div className="flex flex-wrap items-center justify-center gap-2">
-            <Filter className="w-4 h-4 text-muted-foreground mr-2" />
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => {
-                  setFilter(cat)
-                  setShowAll(false)
-                }}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                  filter === cat
-                    ? "bg-primary text-primary-foreground glow-sm"
-                    : "glass text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                {cat === "all" ? t({ fr: "Tous", en: "All" }) : cat}
-              </button>
-            ))}
-          </div>
-        </motion.div>
+        {/* Filter buttons */}
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
+          <Filter className="w-4 h-4 text-muted-foreground mr-2" />
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => {
+                setFilter(cat)
+                setShowAll(false)
+              }}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                filter === cat
+                  ? "bg-primary text-primary-foreground glow-sm"
+                  : "glass text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              {cat === "all" ? t({ fr: "Tous", en: "All" }) : cat}
+            </button>
+          ))}
+        </div>
 
         <motion.div
           layout

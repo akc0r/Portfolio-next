@@ -2,9 +2,10 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Code2 } from "lucide-react";
 import { useLanguage } from "@/contexts/language-context";
 import { SignatureCard } from "@/components/ui/signature-card";
+import { SectionHeading } from "@/components/layout/section-heading";
+import { SECTION_ACCENT } from "@/components/nav/sections";
 import skillsData from "@/data/skills.json";
 import navigationData from "@/data/navigation.json";
 import Image from "next/image";
@@ -58,38 +59,25 @@ const skillLogos: Record<string, string> = {
   SQL: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
 };
 
-const accents = ["primary", "accent", "tertiary"] as const;
-
 export function SkillsSection() {
   const { t } = useLanguage();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const accent = SECTION_ACCENT.skills;
 
   return (
-    <section id="skills" className="py-24 px-6 relative z-10" ref={ref}>
+    <section id="skills" className="w-full px-6 py-20 relative z-10" ref={ref}>
       <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-12"
-        >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-muted-foreground mb-4">
-            <Code2 className="w-4 h-4 text-primary" />
-            <span className="font-mono">
-              {t({ fr: "Stack technique", en: "Tech Stack" })}
-            </span>
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-            {t(navigationData.navigation.skills)}
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            {t({
-              fr: "Les technologies que je maitrise pour construire des solutions performantes et scalables",
-              en: "The technologies I master to build performant and scalable solutions",
-            })}
-          </p>
-        </motion.div>
+        <SectionHeading
+          index={2}
+          eyebrow={t({ fr: "Stack technique", en: "Tech Stack" })}
+          accent={accent}
+          title={t(navigationData.navigation.skills)}
+          subtitle={t({
+            fr: "Les technologies que je maitrise pour construire des solutions performantes et scalables",
+            en: "The technologies I master to build performant and scalable solutions",
+          })}
+        />
 
         <div className="space-y-8 perspective-2000">
           {skillsData.categories.map((category, catIndex) => (
@@ -101,7 +89,7 @@ export function SkillsSection() {
             >
               <SignatureCard
                 className="rounded-2xl"
-                accent={accents[catIndex % accents.length]}
+                accent={accent}
                 intensity={3}
                 label={t(category.title)}
                 index={catIndex + 1}

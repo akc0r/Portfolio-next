@@ -2,14 +2,14 @@
 
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
-import { Target, Rocket, CarFront, Zap, CircleDot, Compass } from "lucide-react"
+import { Rocket, CarFront, Zap, CircleDot, Compass } from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
 import { SignatureCard } from "@/components/ui/signature-card"
+import { SectionHeading } from "@/components/layout/section-heading"
+import { SECTION_ACCENT } from "@/components/nav/sections"
 import aboutData from "@/data/about.json"
 import personalData from "@/data/personal.json"
 import navigationData from "@/data/navigation.json"
-
-const accents = ["primary", "accent", "tertiary"] as const
 
 const fade = {
   hidden: { opacity: 0, y: 20 },
@@ -24,10 +24,22 @@ export function AboutSection() {
   const { t } = useLanguage()
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const accent = SECTION_ACCENT.about
 
   return (
-    <section id="about" className="py-24 px-6 relative z-10" ref={ref}>
+    <section id="about" className="w-full px-6 py-20 relative z-10" ref={ref}>
       <div className="max-w-5xl mx-auto">
+        <SectionHeading
+          index={1}
+          eyebrow={t({ fr: "Profil", en: "Profile" })}
+          accent={accent}
+          title={t(navigationData.navigation.about)}
+          subtitle={t({
+            fr: "Ingenieur passionne par les systemes performants, du backend a l'infrastructure",
+            en: "Engineer passionate about performant systems, from backend to infrastructure",
+          })}
+        />
+
         <motion.div
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
@@ -40,24 +52,7 @@ export function AboutSection() {
           <div className="absolute bottom-0 left-0 w-48 h-48 bg-accent/8 rounded-full blur-3xl" />
 
           <div className="relative z-10">
-            <motion.div
-              variants={fade}
-              custom={1}
-              className="flex items-center gap-3 mb-6"
-            >
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                <Target className="w-6 h-6 text-primary" />
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-                {t(navigationData.navigation.about)}
-              </h2>
-            </motion.div>
-
-            <motion.div
-              variants={fade}
-              custom={2}
-              className="relative mb-10"
-            >
+            <motion.div variants={fade} custom={1} className="relative mb-10">
               <div className="absolute -left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-primary via-tertiary to-transparent rounded-full" />
               <p className="text-lg text-muted-foreground leading-relaxed pl-6 text-pretty">
                 {t(aboutData.about)}
@@ -67,15 +62,13 @@ export function AboutSection() {
             {/* Stats grid */}
             <motion.div
               variants={fade}
-              custom={3}
+              custom={2}
               className="grid grid-cols-1 sm:grid-cols-3 gap-4 perspective-1000"
             >
               {personalData.stats.map((stat, index) => (
-                <SignatureCard key={index} className="rounded-2xl" accent={accents[index % accents.length]} intensity={10}>
+                <SignatureCard key={index} className="rounded-2xl" accent={accent} intensity={10}>
                   <div className="p-6 text-center h-full flex flex-col justify-center">
-                    <p className="text-4xl font-bold text-aurora mb-1">
-                      {stat.value}
-                    </p>
+                    <p className="text-4xl font-bold text-aurora mb-1">{stat.value}</p>
                     <p className="font-semibold text-foreground">{t(stat.label)}</p>
                     <p className="text-sm text-muted-foreground">{t(stat.detail)}</p>
                   </div>
@@ -90,7 +83,7 @@ export function AboutSection() {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={fade}
-          custom={4}
+          custom={3}
           className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4 perspective-1000"
         >
           {aboutData.interests.map((interest, index) => {
@@ -103,7 +96,7 @@ export function AboutSection() {
             const Icon = icons[interest.icon] || Compass
 
             return (
-              <SignatureCard key={index} className="rounded-2xl" accent={accents[index % accents.length]} intensity={9}>
+              <SignatureCard key={index} className="rounded-2xl" accent={accent} intensity={9}>
                 <div className="group p-6 flex items-start gap-4 h-full">
                   <div
                     className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0"

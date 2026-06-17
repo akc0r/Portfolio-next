@@ -2,10 +2,12 @@
 
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
-import { Mail, Download, Send, MessageSquare } from "lucide-react"
+import { Mail, Download, Send } from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
 import { contactIconMap } from "@/lib/icons"
 import { SignatureCard } from "@/components/ui/signature-card"
+import { SectionHeading } from "@/components/layout/section-heading"
+import { SECTION_ACCENT } from "@/components/nav/sections"
 import personalData from "@/data/personal.json"
 import navigationData from "@/data/navigation.json"
 
@@ -15,28 +17,18 @@ export function ContactSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section id="contact" className="py-24 px-6 relative z-10" ref={ref}>
+    <section id="contact" className="w-full px-6 py-20 relative z-10" ref={ref}>
       <div className="max-w-4xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-12"
-        >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-muted-foreground mb-4">
-            <MessageSquare className="w-4 h-4 text-primary" />
-            <span className="font-mono">{t(navigationData.ui.getInTouch)}</span>
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-            {t(navigationData.navigation.contact)}
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            {t({
-              fr: "Vous avez un projet ou une opportunite ? N'hesitez pas a me contacter.",
-              en: "Have a project or an opportunity? Don't hesitate to reach out."
-            })}
-          </p>
-        </motion.div>
+        <SectionHeading
+          index={7}
+          eyebrow={t(navigationData.ui.getInTouch)}
+          accent={SECTION_ACCENT.contact}
+          title={t(navigationData.navigation.contact)}
+          subtitle={t({
+            fr: "Vous avez un projet ou une opportunite ? N'hesitez pas a me contacter.",
+            en: "Have a project or an opportunity? Don't hesitate to reach out.",
+          })}
+        />
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
