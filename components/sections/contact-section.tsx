@@ -5,6 +5,7 @@ import { useRef } from "react"
 import { Mail, Download, Send, MessageSquare } from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
 import { contactIconMap } from "@/lib/icons"
+import { SignatureCard } from "@/components/ui/signature-card"
 import personalData from "@/data/personal.json"
 import navigationData from "@/data/navigation.json"
 
@@ -41,11 +42,11 @@ export function ContactSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.15, duration: 0.5 }}
-          className="glass rounded-3xl p-8 md:p-12 relative overflow-hidden"
+          className="glass rounded-3xl p-8 md:p-12 relative overflow-hidden gradient-border"
         >
           {/* Background decorations */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-48 h-48 bg-accent/5 rounded-full blur-3xl" />
+          <div className="absolute top-0 right-0 w-64 h-64 bg-primary/8 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-48 h-48 bg-accent/8 rounded-full blur-3xl" />
 
           <div className="relative z-10 space-y-8">
             {/* Message */}
@@ -59,55 +60,62 @@ export function ContactSection() {
             </div>
 
             {/* Email card */}
-            <a
-              href={`mailto:${personalData.personal.email}`}
-              className="flex items-center gap-4 p-4 rounded-2xl glass hover:border-primary/30 transition-colors max-w-md mx-auto"
-            >
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                <Mail className="w-6 h-6 text-primary" />
-              </div>
-              <div>
-                <p className="text-sm text-muted-foreground">{t({ fr: "Email", en: "Email" })}</p>
-                <p className="font-medium">{personalData.personal.email}</p>
-              </div>
-            </a>
+            <SignatureCard className="rounded-2xl max-w-md mx-auto" accent="primary" intensity={10}>
+              <a
+                href={`mailto:${personalData.personal.email}`}
+                className="group flex items-center gap-4 p-4 h-full"
+              >
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                  <Mail className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground">{t({ fr: "Email", en: "Email" })}</p>
+                  <p className="font-medium accent-on-hover">{personalData.personal.email}</p>
+                </div>
+              </a>
+            </SignatureCard>
 
             {/* Social links */}
             <div className="flex justify-center gap-3">
               {personalData.personal.contacts.map((contact) => {
                 const Icon = contactIconMap[contact.icon]
                 return (
-                  <a
+                  <motion.a
                     key={contact.label}
                     href={contact.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-5 py-3 rounded-2xl glass hover:border-primary/30 transition-colors"
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    className="flex items-center gap-2 px-5 py-3 rounded-2xl glass hover:border-primary/40 transition-colors"
                   >
                     {Icon && <Icon className="w-5 h-5 text-primary" />}
                     <span className="font-medium">{contact.label}</span>
-                  </a>
+                  </motion.a>
                 )
               })}
             </div>
 
             {/* CTA buttons */}
             <div className="flex flex-wrap justify-center gap-4">
-              <a
+              <motion.a
                 href={`mailto:${personalData.personal.email}`}
-                className="flex items-center gap-3 px-8 py-4 rounded-2xl bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity glow-sm text-lg"
+                whileHover={{ scale: 1.04, y: -2 }}
+                whileTap={{ scale: 0.97 }}
+                className="flex items-center gap-3 px-8 py-4 rounded-2xl bg-primary text-primary-foreground font-semibold glow-sm text-lg"
               >
                 <Send className="w-5 h-5" />
                 {t(navigationData.ui.contactMe)}
-              </a>
-              <a
+              </motion.a>
+              <motion.a
                 href={personalData.personal.cvUrl}
                 download
+                whileHover={{ scale: 1.04, y: -2 }}
+                whileTap={{ scale: 0.97 }}
                 className="flex items-center gap-3 px-8 py-4 rounded-2xl glass hover:glass-strong transition-all font-semibold text-lg"
               >
                 <Download className="w-5 h-5" />
                 {t(navigationData.ui.downloadCv)}
-              </a>
+              </motion.a>
             </div>
 
             {/* Availability status */}

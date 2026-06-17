@@ -10,10 +10,13 @@ import { ProjectsSection } from "@/components/sections/projects-section"
 import { CVPreviewSection } from "@/components/sections/cv-preview-section"
 import { ContactSection } from "@/components/sections/contact-section"
 import { Footer } from "@/components/footer"
+import { SceneBackground } from "@/components/three/scene-background"
 
 export default function Portfolio() {
   return (
     <main className="min-h-screen gradient-bg relative">
+      <SceneBackground />
+      <div className="noise-overlay" aria-hidden />
       <Header />
       <HeroSection />
       <AboutSection />

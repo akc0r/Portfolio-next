@@ -4,6 +4,7 @@ import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
 import { Briefcase, MapPin, Calendar } from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
+import { SignatureCard } from "@/components/ui/signature-card"
 import experienceData from "@/data/experience.json"
 import navigationData from "@/data/navigation.json"
 
@@ -39,9 +40,9 @@ export function ExperienceSection() {
           </p>
         </motion.div>
 
-        <div className="relative">
+        <div className="relative perspective-2000">
           {/* Timeline line */}
-          <div className="absolute left-6 md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-primary via-accent to-transparent" />
+          <div className="absolute left-6 md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-primary via-tertiary to-transparent" />
 
           <div className="space-y-8">
             {sortedExperiences.map((experience, index) => (
@@ -53,40 +54,48 @@ export function ExperienceSection() {
                 className="relative pl-16 md:pl-20"
               >
                 {/* Timeline dot */}
-                <div className="absolute left-4 md:left-6 w-4 h-4 rounded-full bg-primary glow-sm" />
+                <div className="absolute left-4 md:left-6 top-7 w-4 h-4 rounded-full bg-primary glow-sm ring-4 ring-background z-10" />
 
-                <div className="glass rounded-2xl p-6 md:p-8">
-                  {/* Header */}
-                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
-                    <div>
-                      <h3 className="font-bold text-xl mb-1">{t(experience.title)}</h3>
-                      <p className="text-primary font-semibold">{experience.company}</p>
-                    </div>
-                    <div className="flex flex-col items-start md:items-end gap-1 text-sm text-muted-foreground">
-                      <div className="flex items-center gap-2">
-                        <Calendar className="w-4 h-4" />
-                        <span className="font-mono">{experience.period}</span>
+                <SignatureCard
+                  className="rounded-2xl"
+                  accent="accent"
+                  intensity={4}
+                  label={experience.company}
+                  index={sortedExperiences.length - index}
+                >
+                  <div className="group p-6 md:p-8 pt-4">
+                    {/* Header */}
+                    <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
+                      <div>
+                        <h3 className="font-bold text-xl mb-1 accent-on-hover">{t(experience.title)}</h3>
+                        <p className="text-primary font-semibold">{experience.company}</p>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <MapPin className="w-4 h-4" />
-                        <span>{experience.location}</span>
+                      <div className="flex flex-col items-start md:items-end gap-1 text-sm text-muted-foreground">
+                        <div className="flex items-center gap-2">
+                          <Calendar className="w-4 h-4" />
+                          <span className="font-mono">{experience.period}</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <MapPin className="w-4 h-4" />
+                          <span>{experience.location}</span>
+                        </div>
                       </div>
                     </div>
+
+                    {/* Bullets */}
+                    <ul className="space-y-2">
+                      {experience.bullets.map((bullet, bulletIndex) => (
+                        <li
+                          key={bulletIndex}
+                          className="flex items-start gap-3 text-muted-foreground"
+                        >
+                          <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 shrink-0" />
+                          <span>{t(bullet)}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-
-                  {/* Bullets */}
-                  <ul className="space-y-2">
-                    {experience.bullets.map((bullet, bulletIndex) => (
-                      <li
-                        key={bulletIndex}
-                        className="flex items-start gap-3 text-muted-foreground"
-                      >
-                        <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
-                        <span>{t(bullet)}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                </SignatureCard>
               </motion.div>
             ))}
           </div>

@@ -4,6 +4,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Code2 } from "lucide-react";
 import { useLanguage } from "@/contexts/language-context";
+import { SignatureCard } from "@/components/ui/signature-card";
 import skillsData from "@/data/skills.json";
 import navigationData from "@/data/navigation.json";
 import Image from "next/image";
@@ -57,6 +58,8 @@ const skillLogos: Record<string, string> = {
   SQL: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
 };
 
+const accents = ["primary", "accent", "tertiary"] as const;
+
 export function SkillsSection() {
   const { t } = useLanguage();
   const ref = useRef(null);
@@ -88,49 +91,53 @@ export function SkillsSection() {
           </p>
         </motion.div>
 
-        <div className="space-y-8">
+        <div className="space-y-8 perspective-2000">
           {skillsData.categories.map((category, catIndex) => (
             <motion.div
               key={catIndex}
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: catIndex * 0.1, duration: 0.5 }}
-              className="glass rounded-2xl p-6 md:p-8"
             >
-              <h3 className="text-sm font-mono text-primary uppercase tracking-wider mb-6">
-                {t(category.title)}
-              </h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6">
-                {category.skills.map((skill) => {
-                  const logoUrl = skillLogos[skill.name];
-                  return (
-                    <div
-                      key={skill.name}
-                      className="group relative flex flex-col items-center gap-3 p-4 rounded-xl bg-secondary/20 hover:bg-secondary/40 border border-border/50 hover:border-primary/30 transition-colors cursor-default"
-                    >
-                      <div className="relative w-12 h-12 rounded-lg bg-background/50 flex items-center justify-center">
-                        {logoUrl ? (
-                          <Image
-                            src={logoUrl}
-                            alt={skill.name}
-                            width={32}
-                            height={32}
-                            className="w-8 h-8 object-contain"
-                            unoptimized
-                          />
-                        ) : (
-                          <span className="text-sm font-bold text-primary/70 font-mono">
-                            {skill.name.slice(0, 2).toUpperCase()}
-                          </span>
-                        )}
+              <SignatureCard
+                className="rounded-2xl"
+                accent={accents[catIndex % accents.length]}
+                intensity={3}
+                label={t(category.title)}
+                index={catIndex + 1}
+              >
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6 p-6 md:p-8 pt-5">
+                  {category.skills.map((skill) => {
+                    const logoUrl = skillLogos[skill.name];
+                    return (
+                      <div
+                        key={skill.name}
+                        className="group relative flex flex-col items-center gap-3 p-4 rounded-xl bg-secondary/20 hover:bg-secondary/40 border border-border/50 hover:border-primary/40 hover:-translate-y-1 hover:shadow-[0_10px_30px_-12px_var(--glow-primary)] transition-all duration-300 cursor-default"
+                      >
+                        <div className="relative w-12 h-12 rounded-lg bg-background/50 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                          {logoUrl ? (
+                            <Image
+                              src={logoUrl}
+                              alt={skill.name}
+                              width={32}
+                              height={32}
+                              className="w-8 h-8 object-contain"
+                              unoptimized
+                            />
+                          ) : (
+                            <span className="text-sm font-bold text-primary/70 font-mono">
+                              {skill.name.slice(0, 2).toUpperCase()}
+                            </span>
+                          )}
+                        </div>
+                        <span className="relative text-xs font-semibold text-center tracking-tight">
+                          {skill.name}
+                        </span>
                       </div>
-                      <span className="relative text-xs font-semibold text-center tracking-tight">
-                        {skill.name}
-                      </span>
-                    </div>
-                  );
-                })}
-              </div>
+                    );
+                  })}
+                </div>
+              </SignatureCard>
             </motion.div>
           ))}
         </div>

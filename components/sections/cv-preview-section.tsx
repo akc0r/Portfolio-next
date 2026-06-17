@@ -19,14 +19,14 @@ export function CVPreviewSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="glass rounded-3xl p-8 md:p-12 relative overflow-hidden text-center"
+          className="glass rounded-3xl p-8 md:p-12 relative overflow-hidden text-center gradient-border"
         >
           {/* Decorative elements */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-48 h-48 bg-accent/5 rounded-full blur-3xl" />
+          <div className="absolute top-0 right-0 w-64 h-64 bg-primary/8 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-48 h-48 bg-accent/8 rounded-full blur-3xl" />
 
           <div className="relative z-10">
-            <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6">
+            <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6 animate-float-slow">
               <FileText className="w-8 h-8 text-primary" />
             </div>
 

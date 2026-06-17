@@ -21,7 +21,7 @@ export function Footer() {
 
           <p className="text-sm text-muted-foreground flex items-center gap-1">
             {t({ fr: "Concu avec", en: "Built with" })}
-            <Heart className="w-3 h-3 text-accent fill-accent" />
+            <Heart className="w-3 h-3 text-tertiary fill-tertiary" />
             {t({ fr: "et Next.js", en: "and Next.js" })}
           </p>
         </div>
