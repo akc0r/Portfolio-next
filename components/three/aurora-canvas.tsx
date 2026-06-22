@@ -5,6 +5,7 @@ import { Canvas, useFrame } from "@react-three/fiber"
 import { MathUtils, type Group, type Mesh, type Points as ThreePoints } from "three"
 import { useTheme } from "next-themes"
 import { usePointer } from "./use-pointer"
+import { brandHexes } from "@/lib/palette"
 
 /* A drifting field of stars filling a cube around the camera. */
 function StarField({
@@ -91,16 +92,19 @@ function Scene({ isLight }: { isLight: boolean }) {
   const isMobile = typeof window !== "undefined" && window.innerWidth < 768
   const count = isMobile ? 1100 : 2600
 
+  // Brand colors derived from the live CSS hues (see lib/palette.ts).
+  const c = useMemo(() => brandHexes(isLight), [isLight])
+
   return (
     <group ref={group}>
       <StarField
         count={count}
-        color={isLight ? "#7c3aed" : "#c4b5fd"}
+        color={c.star}
         opacity={isLight ? 0.45 : 0.85}
       />
-      <FloatingShape position={[-7, 2.5, -3]} scale={1.8} color={isLight ? "#7c3aed" : "#a78bfa"} speed={0.12} />
-      <FloatingShape position={[7.5, -2, -2]} scale={1.3} color={isLight ? "#0891b2" : "#67e8f9"} speed={0.16} />
-      <FloatingShape position={[5, 3.5, -5]} scale={1} color={isLight ? "#c026d3" : "#e879f9"} speed={0.1} />
+      <FloatingShape position={[-7, 2.5, -3]} scale={1.8} color={c.primary} speed={0.12} />
+      <FloatingShape position={[7.5, -2, -2]} scale={1.3} color={c.accent} speed={0.16} />
+      <FloatingShape position={[5, 3.5, -5]} scale={1} color={c.tertiary} speed={0.1} />
     </group>
   )
 }
