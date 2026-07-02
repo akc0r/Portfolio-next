@@ -1,44 +1,72 @@
 {
   "projects": [
     {
-      "id": "f1-simulator",
+      "id": "Hardpoint",
       "origin": "Personal",
-      "category": "Application",
+      "category": "Data Science",
       "stack": [
-        "Next.js",
+        "Next.js 16",
         "Tailwind",
-        "Microservices",
-        "Redis",
-        "Python"
+        "PostgreSQL",
+        "TypeScript"
       ],
-      "image": "/f1-simulator.png",
+      "image": "/hardpoint.png",
       "title": {
-        "fr": "Simulateur F1 IA",
-        "en": "F1 AI Simulator"
+        "fr": "Hardpoint",
+        "en": "Hardpoint"
       },
       "description": {
-        "fr": "Plateforme de simulation F1 haute fidélité utilisant une architecture microservices.",
-        "en": "High-fidelity F1 simulation platform using a microservices architecture."
+        "fr": "Application web permettant de creer son propre roaster via les dernieres statistiques des joueurs d'e-sport",
+        "en": "Web application allowing users to create their own roster using the latest e-sports player statistics."
       }
     },
     {
-      "id": "GeckoEvo",
+      "id": "TinyInsta",
       "origin": "Personal",
       "category": "Application",
       "stack": [
-        "Rust",
-        "Physics Engine",
-        "Genetic Algorithms",
-        "AI"
+        "Next.js 16",
+        "Tailwind",
+        "Django",
+        "Docker",
+        "Kubernetes",
+        "Redis",
+        "Cassandra",
+        "Keycloak",
+        "MongoDB",
+        "Neo4j",
+        "Elasticsearch",
+        "MinIO"
       ],
-      "image": "/gecko-evo.png",
+      "image": "/tinyinsta.png",
+      "github": "https://github.com/akc0r/TinyInsta",
       "title": {
-        "fr": "GeckoEvo",
-        "en": "GeckoEvo"
+        "fr": "TinyInsta",
+        "en": "TinyInsta"
       },
       "description": {
-        "fr": "Simulateur d'évolution artificielle où des créatures biomécaniques apprennent à grimper via des algorithmes génétiques, reposant sur un moteur physique sur-mesure développé intégralement pour gérer la locomotion et l'adhérence.",
-        "en": "Artificial evolution simulator where biomechanical creatures learn to climb via genetic algorithms, built on a custom physics engine developed from scratch to handle locomotion and grip."
+        "fr": "Plateforme de réseaux sociaux minimaliste pour photographies.",
+        "en": "Minimalist social media platform for photography."
+      }
+    },
+    {
+      "id": "OpenSettlers",
+      "origin": "Personal",
+      "category": "Game",
+      "stack": [
+        "Nuxt.js",
+        "Tailwind",
+        "Java",
+        "Quarkus"
+      ],
+      "image": "/opensettlers.png",
+      "title": {
+        "fr": "OpenSettlers",
+        "en": "OpenSettlers"
+      },
+      "description": {
+        "fr": "Jeu de simulation de colonisation basé sur le concept de The Settlers.",
+        "en": "Colonization simulation game based on the concept of The Settlers."
       }
     },
     {
@@ -77,8 +105,8 @@
       "image": "/logix-pack.png",
       "github": "https://github.com/akc0r/LogixPack",
       "title": {
-        "fr": "LogixPack",
-        "en": "LogixPack — Optimisation Logistique"
+        "fr": "LogixPack - Optimisation Logistique",
+        "en": "LogixPack — Logistics Optimization"
       },
       "description": {
         "fr": "Conception et implémentation d'une solution hybride (Python, OR-Tools) pour résoudre des problèmes NP-difficiles de chargement sous contraintes LIFO, combinant Programmation par Contraintes (CP-SAT) et heuristiques ad-hoc (First Fit Decreasing, Space Management).",
@@ -239,44 +267,6 @@
       "description": {
         "fr": "Architecture distribuée combinant plusieurs types de bases de données pour la scalabilité.",
         "en": "Distributed architecture combining multiple database types for high scalability."
-      }
-    },
-    {
-      "id": "skiexplorer",
-      "origin": "Personal",
-      "category": "Web",
-      "stack": [
-        "Next.js",
-        "Tailwind",
-        "Weather APIs"
-      ],
-      "image": "/SkiExplorer.png",
-      "title": {
-        "fr": "SkiExplorer",
-        "en": "SkiExplorer"
-      },
-      "description": {
-        "fr": "Application météo et info-stations en temps réel pour les amateurs de ski.",
-        "en": "Real-time weather and resort information application for ski enthusiasts."
-      }
-    },
-    {
-      "id": "volleyball-intranet",
-      "origin": "Personal",
-      "category": "Web",
-      "stack": [
-        "Next.js",
-        "Tailwind",
-        "PostgreSQL"
-      ],
-      "image": "/volleyball-intranet.png",
-      "title": {
-        "fr": "Intranet Club de Volley",
-        "en": "Volleyball Club Intranet"
-      },
-      "description": {
-        "fr": "Système de gestion interne pour clubs sportifs, gérant les membres et les entraînements.",
-        "en": "Internal management system for sports clubs, managing members and training sessions."
       }
     },
     {
